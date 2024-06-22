@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Room(models.Model):
-    ROOM_CATEGORIES = (
+    ROOM_CATEGORIES=(
         ('YAC', 'AC'),
         ('NAC', 'NON-AC'),
         ('DEL', 'DELUXE'),
@@ -12,9 +12,9 @@ class Room(models.Model):
         ('QUE', 'QUEEN'),
     )
     number = models.IntegerField()
-    cayegory = models.CharField(max_lenght=3, choices=ROOM_CATEGORIES)
+    cayegory = model.CharField(max_lenght=3, choices=ROOM_CATEGORIES)
     beds =models.IntegerField()
     capacity = models.IntegerField()
 
     def __str__(self):
-        return f'{self.number}, {self.category} with {self.beds} for{self.capacity} people'
+        return f'{self.number}. {self.category} with {self.beds} for {self.capacity} people'
