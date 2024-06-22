@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-(r%13z73o0@#(ffe_rm%u^6f(zd$gjjz+ogfsg3z6kv1yollx*
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-egedegbehenry-booknstay-h15oe6f0o38.ws-eu114.gitpod.io',
+    '8000-egedegbehenry-booknstay-0bpqw0tupam.ws-eu114.gitpod.io',
 ]
 
 

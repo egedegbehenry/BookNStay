@@ -12,9 +12,9 @@ class Room(models.Model):
         ('QUE', 'QUEEN'),
     )
     number = models.IntegerField()
-    cayegory = model.CharField(max_lenght=3, choices=ROOM_CATEGORIES)
+    category = models.CharField(max_length=3, choices=ROOM_CATEGORIES)
     beds =models.IntegerField()
     capacity = models.IntegerField()
 
-    def __str__(self):
+    def __str__(self) :
         return f'{self.number}. {self.category} with {self.beds} for {self.capacity} people'
