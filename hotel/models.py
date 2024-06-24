@@ -11,6 +11,9 @@ class Room(models.Model):
         ('DEL', 'DELUXE'),
         ('KIN', 'KING'),
         ('QUE', 'QUEEN'),
+        ('STE', 'SUITE'),
+        ('EXE', 'EXECUTIVE'),
+
     )
     number = models.IntegerField()
     category = models.CharField(max_length=3, choices=ROOM_CATEGORIES)
