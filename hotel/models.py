@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings 
 
 # Create your models here.
 
@@ -18,3 +19,4 @@ class Room(models.Model):
 
     def __str__(self) :
         return f'{self.number}. {self.category} with {self.beds}beds for {self.capacity} people'
+    class Booking
