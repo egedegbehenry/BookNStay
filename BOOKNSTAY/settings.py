@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '8000-egedegbehenry-booknstay-0bpqw0tupam.ws-eu114.gitpod.io', 
     '127.0.0.1',
+    '*.herokuapp.com',
 ]
 
 
