@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-(r%13z73o0@#(ffe_rm%u^6f(zd$gjjz+ogfsg3z6kv1yollx*
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-egedegbehenry-booknstay-0bpqw0tupam.ws-eu114.gitpod.io',
+    '8000-egedegbehenry-booknstay-0bpqw0tupam.ws-eu114.gitpod.io', 
+    '127.0.0.1',
 ]
 
 
@@ -39,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hotel'
+    'hotel',
 ]
 
 MIDDLEWARE = [
