@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.http import JsonResponse
+from django.shortcuts import render, HttpResponse
 from django.views.generic import ListView, FormView
 from .models import Room, Booking
 from .forms import AvailabilityForm
@@ -30,7 +31,7 @@ class BookingView(FormView):
         if len(available_rooms)>0:
             room = available_rooms[0]
             booking = Booking.objects.create(
-                user=request.user,
+                user=self.request.user,
                 room=room,
                 check_in=data['check_in'],
                 check_out=data['check_out']
