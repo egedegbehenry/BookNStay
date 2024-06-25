@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, FormView
 from .models import Room, Booking
 from .forms import AvailabilityForm
-from booking_functions.availability import check_availability
+from hotel.booking_functions.availability import check_availability
 
 # Create your views here.
 
