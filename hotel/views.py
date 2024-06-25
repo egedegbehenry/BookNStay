@@ -1,5 +1,11 @@
 from django.shortcuts import render
-from .models import Room
+from django.views.generic import ListView
+from .models import Room, Booking
 
 # Create your views here.
-admin.site.register(Room)
+
+class RoomList(ListView):
+    model=Room
+
+    class BookingList(ListView):
+        model=Booking
