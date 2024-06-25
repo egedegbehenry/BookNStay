@@ -10,3 +10,4 @@ def check_availability(room, check_in, check_out):
             avail_list.append(True)
         else:
             avail_list.append(False)
+        return all(avail_list)
