@@ -5,7 +5,7 @@ from django.conf import settings
 
 
 class Room(models.Model):
-    ROOM_CATEGORIES=(
+    ROOM_CATEGORIES = (
         ('YAC', 'AC'),
         ('NAC', 'NON-AC'),
         ('DEL', 'DELUXE'),
@@ -13,7 +13,6 @@ class Room(models.Model):
         ('QUE', 'QUEEN'),
         ('STE', 'SUITE'),
         ('EXE', 'EXECUTIVE'),
-
     )
     number = models.IntegerField()
     category = models.CharField(max_length=3, choices=ROOM_CATEGORIES)
