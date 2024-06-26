@@ -17,9 +17,13 @@ class RoomListView(ListView):
 class RoomView(View):
     def get (self, request, *args, **kwargs):
         room_category = self.kwargs.get('category',None)
-        room_list = Room.objects.filter(category=category)
-        room = room_category[0]
-        return render()
+        #room_list = Room.objects.filter(category=category)
+        
+
+        context={
+            'room_category' room_category
+        }
+        return render( request, 'room_detail_view.html', context)
        
 
     
