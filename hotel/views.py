@@ -1,22 +1,25 @@
 from django.http import JsonResponse
 from django.shortcuts import render, HttpResponse
-from django.views.generic import ListView, FormView
+from django.views.generic import ListView, FormView, View
 from .models import Room, Booking
 from .forms import AvailabilityForm
 from hotel.booking_functions.availability import check_availability
 
 # Create your views here.
 
-
-class RoomList(ListView):
+class RoomListView(ListView):
     model=Room
 
 
     class BookingList(ListView):
         model=Booking
 
+class RoomView(View):
+    def get (self, request, *args, **kwargs):
+    
+    def post(self, request, *args, **kwargs):
 
-class BookingView(FormView):
+class BookingDetailView(FormView):
     form_class = AvailabilityForm
     template_name = 'availability_form.html'
 
