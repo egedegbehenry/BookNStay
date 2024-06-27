@@ -34,3 +34,13 @@ body{
     align-items: start;  
     flex-direction: column;
 }
+/* Sub Divs */
+
+.home{
+    flex: 0.2;
+}
+.room-info{
+    flex: 0.4;
+    margin: 5rem 1rem;
+    
+}
