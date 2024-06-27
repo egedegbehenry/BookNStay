@@ -21,3 +21,16 @@ body{
     width:100%;
     justify-content: left;
 }
+
+.image{
+    flex: 0.3;
+}
+
+.room{
+    flex:0.5;
+    margin: 2rem;
+    display:flex;
+    text-align: left;
+    align-items: start;  
+    flex-direction: column;
+}
