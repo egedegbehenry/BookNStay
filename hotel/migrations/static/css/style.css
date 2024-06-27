@@ -44,3 +44,16 @@ body{
     margin: 5rem 1rem;
     
 }
+
+form{
+    display: flex;
+    flex: 0.4 1 auto;
+    flex-direction: column;
+}
+
+/* Inside Sub Divs */
+
+.image img{
+    flex:1;
+    max-height: 99.2vh;
+}
