@@ -85,3 +85,7 @@ button{
     color:rgb(6, 137, 245);
     outline:none;
 }
+button:hover{
+    color:#dfdfdf;
+    background-color: rgb(6, 137, 245);
+}
