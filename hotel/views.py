@@ -34,7 +34,9 @@ class RoomView(View):
 
     
     def post(self, request, *args, **kwargs):
+        category = self.kwargs.get('category',None)
         room_list = Room.objects.filter(category=category)
+        form = AvailabilityForm(request.POST)
 
         available_rooms=[]
         for room in room_list:
