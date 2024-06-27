@@ -16,19 +16,25 @@ class RoomListView(ListView):
 
 class RoomView(View):
     def get (self, request, *args, **kwargs):
-        room_category = self.kwargs.get('category',None)
-        #room_list = Room.objects.filter(category=category)
+        category = self.kwargs.get('category',None)
+        form = AvailabilityForm()
+        room_list = Room.objects.filter(category=category)
         
-
-        context={
-            'room_category' room_category
-        }
-        return render( request, 'room_detail_view.html', context)
-       
+        if len (room_list) > 0:
+            room = room_list[0]
+            room_category = dict(room.ROOM_CATEGORIES).get(room.category, None)
+        
+            context ={
+                'room_category': room_category,
+                'form': form,
+            }
+            return render(request, 'room_detail_view.html', context)
+        else:
+            return HttpResponse('Category is not avaialable')
 
     
     def post(self, request, *args, **kwargs):
-         room_list = Room.objects.filter(category=category)
+        room_list = Room.objects.filter(category=category)
 
         available_rooms=[]
         for room in room_list:
