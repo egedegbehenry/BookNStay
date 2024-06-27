@@ -57,3 +57,17 @@ form{
     flex:1;
     max-height: 99.2vh;
 }
+i{
+    color:#dfdfdf;
+    font-size: 2rem;
+}
+
+/* Form's CSS */
+
+.input-div{
+    flex: 1 1 auto;
+    margin:1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
