@@ -5,3 +5,10 @@
     margin:0;
     box-sizing: border-box;
 }
+body{
+    background-color: rgb(46, 47, 48);
+    color: rgb(236, 235, 228);
+    font-family: sans-serif;
+    line-height: 1.25;
+    height: 100vh;
+}
