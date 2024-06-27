@@ -12,3 +12,12 @@ body{
     line-height: 1.25;
     height: 100vh;
 }
+
+/* Main Divs */
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:100%;
+    justify-content: left;
+}
