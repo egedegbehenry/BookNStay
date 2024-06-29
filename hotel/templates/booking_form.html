@@ -48,3 +48,10 @@
             <label class="mr-2" for="{{form.check_in.id_for_label}}">From:</label>
             {{form.check_in}}
           </div>
+
+          <div class="form-group d-flex justify-content-space-around  col-sm-6 ">
+            {{form.check_out.errors}}
+            <label for="{{form.check_out.id_for_label}}">To: </label>
+            {{form.check_out}}
+          </div>
+        </div>
