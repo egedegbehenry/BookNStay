@@ -42,3 +42,17 @@
     var stripe = Stripe("pk_test_51Hu0AzH60lA1oSooKBHVwQkZ3afq3ST2RISi3oc9G35vFQUQSMUESSorx6Sd700QYz5cY5M3Pyxf9mwZVk1nBPGu00LPxShanC");
     var checkoutButton = document.getElementById("checkout_btn");
     checkoutButton.addEventListener("click", function () { 
+        stripe.redirectToCheckout({
+        sessionId:`${checkout_id}` //Passing in the checkout_id variable.
+      })
+      .then(function(result) {
+        if (result.error) {
+            alert(result.error.message);
+          }
+      })
+      .catch(function (error) {
+        console.error("Error:", error);
+        })
+    });
+  </script>
+</html>
