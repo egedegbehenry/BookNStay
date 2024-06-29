@@ -55,3 +55,14 @@
             {{form.check_out}}
           </div>
         </div>
+        <div class="room-row row">
+            {{form.room_category.errors}}
+            <label for="{{form.room_category.id_for_label}}">Room Category ::</label>
+            {{form.room_category}}
+          </div>
+            <div class="form-group row mw-50 m-2">
+              <button class="btn btn-primary col-12  mw-50 " type="submit">
+                Find Room
+              </button>
+            </div>
+            </form>
