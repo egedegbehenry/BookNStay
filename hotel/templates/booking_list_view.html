@@ -43,3 +43,16 @@
                 <div class="beds">
                     <h3>Beds: {{booking.room.beds}}</h3>
                 </div>
+
+                <div class="capacity">
+                    <h3>Capacity: {{booking.room.capacity}}</h3>
+                </div>
+                <div class="cancel"><a href="{{booking.get_cancel_booking_url}}" class="invisible"><i
+                            class="far fa-2x fa-times-circle"> Cancel
+                            Booking</i></a></div>
+            </div>
+            {% endfor %}
+        </div>
+</body>
+
+</html>
