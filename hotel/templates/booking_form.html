@@ -17,10 +17,34 @@
   </head>
   <body>
     <div class="nav">
-        <h3 id="logo">Marina Beach</h3>
+        <h3 id="logo">BookNStay</h3>
         <!-- <ul class="navlist">
           <a href="/marina_beach_amenties.html">Amenties</a>
         </ul> -->
       </div>
     
     <div
+    class="d-flex flex-column align-items-center justify-content-center check_availability"
+    >
+    
+      <div class="headings m-4">
+        <h1>BookNStay</h1>
+        <h1>Hotel</h1>
+      </div>
+
+      <div id="search-bar" style="color: #fff;">
+        <form method="POST"
+        class="search-form m-0 container"
+        action=""
+      >
+      {% csrf_token %}
+      
+      <div class="date-row row">
+
+        <div
+            class="form-group d-flex justify-content-space-between col-sm-6 "
+          >
+          {{form.check_in.errors}}
+            <label class="mr-2" for="{{form.check_in.id_for_label}}">From:</label>
+            {{form.check_in}}
+          </div>
