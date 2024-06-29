@@ -40,3 +40,16 @@
                     veniam,
                     rerum repellendus magnam labore. </p>
             </div>
+
+             <!-- Div 3: Room Booking Form -->
+             <form id="booking-form" action="" method="POST">
+
+                {% csrf_token %}
+                <h2>Are you sure you wanna cancel this Booking? Details-</h2>
+                <h3>{{booking.room.number}}{{booking.get_room_category}} {{booking}}</h3>
+                <!-- Input Div -->
+                <div class="input-div">
+                    <button type="submit">Cancel the Booking</button>
+                </div>
+
+            </form>
