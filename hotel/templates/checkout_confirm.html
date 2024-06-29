@@ -32,3 +32,13 @@
     </div>
       <button id="checkout_btn">Checkout</button>
   </section> 
+
+</div>
+    
+</body>
+<script>
+    const checkout_id = `{{ checkout_id }}`; //Getting checkout_id from Django context.
+
+    var stripe = Stripe("pk_test_51Hu0AzH60lA1oSooKBHVwQkZ3afq3ST2RISi3oc9G35vFQUQSMUESSorx6Sd700QYz5cY5M3Pyxf9mwZVk1nBPGu00LPxShanC");
+    var checkoutButton = document.getElementById("checkout_btn");
+    checkoutButton.addEventListener("click", function () { 
