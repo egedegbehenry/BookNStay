@@ -4,10 +4,12 @@ from .views import BookingListView, RoomDetailView, CancelBookingView, CheckoutV
 app_name = 'hotel'
 
 urlpatterns = [
-    path('room_list/', RoomListView, name='RoomList'),
-    path('booking_list/', BookingList.as_view(), name='BookingList'),
-    path('book/', BookingView.as_view(), name='BookingView'),
-    path('room/<category>', RoomDetailView.as_view(), name='RoomDetailsView'),
+    
+    path('', BookingFormView.as_view(), name='BookingFormView'),
+    path('booking_list/', BookingListView.as_view(), name='BookingListView'),
+    path('room/<category>', RoomDetailView.as_view(), name='RoomDetailView'),
+    path('booking/cancel/<pk>', CancelBookingView.as_view(),
+         name='CancelBookingView'),
 
 
 ]
