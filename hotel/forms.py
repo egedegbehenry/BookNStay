@@ -14,3 +14,13 @@ class AvailabilityForm(forms.Form):
     room_category = forms.ModelChoiceField(
         queryset=RoomCategory.objects.all())
     #  widget=forms.Select(attrs={"class": "mdb-select md-form"})
+
+    def check_working_hours(self, start, end):
+        check_in = self.cleaned_data.get('check_in')
+        check_out = self.cleaned_data.get('check_out')
+        # This ensures that check_in and check_out are between start and end of your working hours.
+        if not(check_in < start and check_out < end):
+            raise ValidationError(
+                "Times beyond working hours, please enter value within working hours")
+        else:
+            return self.cleaned_data
