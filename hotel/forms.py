@@ -24,3 +24,8 @@ class AvailabilityForm(forms.Form):
                 "Times beyond working hours, please enter value within working hours")
         else:
             return self.cleaned_data
+        
+class PersonForm(forms.ModelForm):
+    class Meta:
+        model = Person
+        fields = '__all__'
