@@ -16,10 +16,20 @@
       <nav id="navbar">
         <div class="brand">
             <a href="https://www.darshandev.com">
-              <h1 id="logo">Hotelina</h1>
+              <h1 id="logo">BookNStay</h1>
             </a>
           </div>
           <div id="ham-div"  onclick="togglenav()">
               <img id="ham" src="https://img.icons8.com/material-rounded/24/000000/menu.png"/>
           </div>
           <div id="navlist-div" class="">
+            <ul id="navlist" class="folding-nav hidden">
+                {% if request.user.is_authenticated %}
+              <li><a href="{% url 'account_logout' %}">Logout</a></li>
+              {% else %}
+              <li><a href="{% url 'account_login' %}">Login</a></li>
+              <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </nav>
