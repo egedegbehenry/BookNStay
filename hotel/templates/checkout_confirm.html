@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Confirmation for Hotel Management System</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <link rel="stylesheet" href="{% static 'hotel/css/checkout_confirm.css' %}">
+    <!-- <link rel="stylesheet" href="../static/hotel/css/checkout_confirm.css"> -->
+</head>
+<body>
+  <div class="container">
+    <section class="info">
+      <p class="warning"> You will <strong>NOT BE CHARGED</strong> money. But still don't enter actual credit/debit card data </p>
