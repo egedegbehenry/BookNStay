@@ -23,3 +23,13 @@
                     <a href="{% url 'hotel:RoomListView' %}"><i class="fas fa-arrow-alt-circle-left">Home</i></a>
                 </div>
             </div>
+        </div>
+
+        <div class="bookings">
+            {% for booking in booking_list %}
+            <div class="booking">
+                <img src="https://images.unsplash.com/photo-1560067174-c5a3a8f37060?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+                    alt="">
+                <div class="category">
+                    <h2>{{booking.get_room_category}} Suite</h2>
+                </div>
