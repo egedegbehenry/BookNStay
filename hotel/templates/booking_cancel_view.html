@@ -26,3 +26,17 @@
 
         <!-- Room Details -->
         <div class="room">
+
+            <!-- Div 1: Back to Home -->
+            <div class="home">
+                <a href="{% url 'hotel:RoomListView' %}"><i class="fas fa-arrow-alt-circle-left">Home</i></a>
+            </div>
+
+            <!-- Div 2: Room Information -->
+            <div class="room-info">
+                <h1>{{room_category}}</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id optio rem saepe culpa architecto tempora
+                    numquam debitis reiciendis! Quaerat laudantium consequuntur doloribus quod placeat consectetur
+                    veniam,
+                    rerum repellendus magnam labore. </p>
+            </div>
