@@ -11,11 +11,20 @@ from hotel.booking_functions.availability import check_availability
 def RoomListView(request):
     rooom = Room.objects.all()[0]
     room_categories = dict(room.ROOM_CATEGORIES)
-    room_values = room_categories.vaues()
-    room_list = []
-    for room_category in room_categories:
+    print ('categories=', room_categories)
 
+
+    room_values = room_categories.vaues()
+    print('categories=', room_values)
+    room_list = []
+
+    for room_category in room_categories:
+        room = room_categories.get(room_categories)
+        room_url = reverse('hotel:RoomDetailView', Kwargs={'category': room_category})
+        #print(room, room_url)
+        room_list.append((room,room_url))
     context = {}
+    print(room_list)
     return render(request, 'room_list_view.html', context)
 
 
