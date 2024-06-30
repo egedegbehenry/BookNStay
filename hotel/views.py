@@ -74,8 +74,6 @@ class RoomView(View):
             return HttpResponse(booking)
         else:
             return HttpResponse('All of this category of rooms are booked!! Book another one')
-
-
 class BookingDetailView(FormView):
     form_class = AvailabilityForm
     template_name = 'availability_form.html'
