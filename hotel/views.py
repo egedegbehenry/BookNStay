@@ -12,11 +12,7 @@ from hotel.booking_functions.availability import check_availability
 def RoomListView(request):
     rooom = Room.objects.all()[0]
     room_categories = dict(room.ROOM_CATEGORIES)
-    print ('categories=', room_categories)
-
-
     room_values = room_categories.vaues()
-    print('categories=', room_values)
     room_list = []
 
     for room_category in room_categories:
@@ -30,7 +26,6 @@ def RoomListView(request):
     }
    
     return render(request, 'room_list_view.html', context)
-
 
 class BookingList(ListView):
     model=Booking
@@ -61,8 +56,6 @@ class RoomView(View):
 
         if form.is_valid():
             data = form.cleaned data
-
-
 
         available_rooms=[]
         for room in room_list:
