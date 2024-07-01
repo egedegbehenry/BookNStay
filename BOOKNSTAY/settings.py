@@ -42,6 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Django Allauth
+    'django.contrib.site',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    
+   
     #my apps start here
     'hotel',
     'hotel.booking_functions',
@@ -59,10 +66,10 @@ MIDDLEWARE = [
 ]
 
 AUTHENTICATION_BACKENDS = [
-    ...
+
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
-     ...
+    
 ]
 
 ROOT_URLCONF = 'BOOKNSTAY.urls'
@@ -126,6 +133,8 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+SITE_ID = 1
 
 
 # Static files (CSS, JavaScript, Images)
