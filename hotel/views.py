@@ -1,3 +1,5 @@
+from typing import Any
+from django.db.models.query import QuerySet
 from django.http import JsonResponse
 from django.shortcuts import render, HttpResponse
 from django.views.generic import ListView, FormView, View
@@ -29,6 +31,14 @@ def RoomListView(request):
 
 class BookingList(ListView):
     model=Booking
+    def get_queryset(self, *args, **kwargs):
+        if self.request.user.is_staff:
+            booking_list = Booking.objects.all()
+            return booking_list
+        else:
+            booking_list = Booking.objects.filter(user=self.request.user)
+            return booking_list
+
 
 class RoomView(View):
     def get (self, request, *args, **kwargs):
@@ -55,7 +65,7 @@ class RoomView(View):
         form = AvailabilityForm(request.POST)
 
         if form.is_valid():
-            data = form.cleaned data
+            data = form.cleaned_data
 
         available_rooms=[]
         for room in room_list:
