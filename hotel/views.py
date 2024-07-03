@@ -33,22 +33,16 @@ class BookingListView(ListView):
             return booking_list
 
 
-class RoomView(View):
+class RoomDetailView(View):
     def get (self, request, *args, **kwargs):
         category = self.kwargs.get('category',None)
         form = AvailabilityForm()
-        room_list = Room.objects.filter(category=category)
-        
-        if len (room_list) > 0:
-            room = room_list[0]
-            room_category = dict(room.ROOM_CATEGORIES).get(room.category, None)
-        
-            context ={
+         context ={
                 'room_category': room_category,
                 'form': form,
             }
             return render(request, 'room_detail_view.html', context)
-        else:
+    else:
             return HttpResponse('Category is not avaialable')
 
     
