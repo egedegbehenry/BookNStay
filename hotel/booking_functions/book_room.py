@@ -9,3 +9,5 @@ def book_room(request, room, check_in, check_out):
         check_out
     )
     booking.save()
+
+    return booking
