@@ -1,6 +1,6 @@
-from typing import Any
-from django.db.models.query import QuerySet
-from django.http import JsonResponse
+#from typing import Any
+#from django.db.models.query import QuerySet
+#from django.http import JsonResponse
 from django.shortcuts import render, HttpResponse
 from django.views.generic import ListView, FormView, View, DeleteView
 from django.urls import reverse, reverse_lazy
@@ -8,6 +8,7 @@ from .models import Room, Booking
 from .forms import AvailabilityForm
 from hotel.booking_functions.availability import check_availability
 from hotel.booking_functions.get_room_cat_url_list import get_room_cat_url_list
+from hotel.booking_functions.get_room_category_human_format import get_room_category_human_format
 # Create your views here.
 
 
@@ -36,28 +37,24 @@ class BookingListView(ListView):
 class RoomDetailView(View):
     def get (self, request, *args, **kwargs):
         category = self.kwargs.get('category',None)
+        human_format_room_category = get_room_category_human_format (category)
         form = AvailabilityForm()
-         context ={
-                'room_category': room_category,
+        if human_format_room_category is not None:
+        context ={
+                'room_category': human_format_room_category,
                 'form': form,
             }
-            return render(request, 'room_detail_view.html', context)
+        return render(request, 'room_detail_view.html', context)
     else:
-            return HttpResponse('Category is not avaialable')
+        return HttpResponse('Category is not avaialable')
 
     
     def post(self, request, *args, **kwargs):
         category = self.kwargs.get('category',None)
-        room_list = Room.objects.filter(category=category)
+      
         form = AvailabilityForm(request.POST)
 
-        if form.is_valid():
-            data = form.cleaned_data
-
-        available_rooms=[]
-        for room in room_list:
-            if check_availability(room, data['check_in'], data['check_out']):
-                available_rooms.append(room)
+        
 
         if len(available_rooms)>0:
             room = available_rooms[0]
