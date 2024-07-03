@@ -1,6 +1,6 @@
-#from typing import Any
-#from django.db.models.query import QuerySet
-#from django.http import JsonResponse
+from typing import Any
+from django.db.models.query import QuerySet
+from django.http import JsonResponse
 from django.shortcuts import render, HttpResponse
 from django.views.generic import ListView, FormView, View, DeleteView
 from django.urls import reverse, reverse_lazy
@@ -10,6 +10,7 @@ from hotel.booking_functions.availability import check_availability
 from hotel.booking_functions.get_room_cat_url_list import get_room_cat_url_list
 from hotel.booking_functions.get_room_category_human_format import get_room_category_human_format
 from hotel.booking_functions.get_available_rooms import get_available_rooms
+from hotel.booking_functions.book_room import book_room
 # Create your views here.
 
 
@@ -40,7 +41,8 @@ class RoomDetailView(View):
         category = self.kwargs.get('category',None)
         human_format_room_category = get_room_category_human_format (category)
         form = AvailabilityForm()
-        if human_format_room_category is not None:
+        human_format_room_category is not None:
+
         context ={
                 'room_category': human_format_room_category,
                 'form': form,
@@ -52,13 +54,18 @@ class RoomDetailView(View):
     
     def post(self, request, *args, **kwargs):
         category = self.kwargs.get('category',None)
-      
         form = AvailabilityForm(request.POST)
 
-        available_rooms = get_available_rooms()
+        
+        if form.is_valid():
+
+           data = form.cleaned_data
+        
+
+        available_rooms = get_available_rooms (category, data['check_in'], data['check_out'])
 
         if available_rooms is not None:
-            book_room(available_rooms[0])
+            book_room(request, available_rooms[0], data['check_in'], data['check_out'])
 
         
             return HttpResponse(booking)
