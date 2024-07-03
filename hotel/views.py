@@ -7,26 +7,16 @@ from django.urls import reverse, reverse_lazy
 from .models import Room, Booking
 from .forms import AvailabilityForm
 from hotel.booking_functions.availability import check_availability
-
+from hotel.booking_functions.get_room_cat_url_list import get_room_cat_url_list
 # Create your views here.
 
 
 def RoomListView(request):
-    rooom = Room.objects.all()[0]
-    room_categories = dict(room.ROOM_CATEGORIES)
-    room_values = room_categories.vaues()
-    room_list = []
+    room_category_url_list = get_room_cat_url_list()
 
-    for room_category in room_categories:
-        room = room_categories.get(room_categories)
-        room_url = reverse('hotel:RoomDetailView', Kwargs={
-                            'category': room_category})
-       
-        room_list.append((room,room_url))
     context = {
-        "room_list": room_list,
+        "room_list": room_category_url_list,
     }
-   
     return render(request, 'room_list_view.html', context)
 
 class BookingListView(ListView):
