@@ -9,6 +9,7 @@ from .forms import AvailabilityForm
 from hotel.booking_functions.availability import check_availability
 from hotel.booking_functions.get_room_cat_url_list import get_room_cat_url_list
 from hotel.booking_functions.get_room_category_human_format import get_room_category_human_format
+from hotel.booking_functions.get_available_rooms import get_available_rooms
 # Create your views here.
 
 
@@ -54,17 +55,12 @@ class RoomDetailView(View):
       
         form = AvailabilityForm(request.POST)
 
-        
+        available_rooms = get_available_rooms()
 
-        if len(available_rooms)>0:
-            room = available_rooms[0]
-            booking = Booking.objects.create(
-                user=self.request.user,
-                room=room,
-                check_in=data['check_in'],
-                check_out=data['check_out']
-            )
-            booking.save()
+        if available_rooms is not None:
+            book_room(available_rooms[0])
+
+        
             return HttpResponse(booking)
         else:
             return HttpResponse('All of this category of rooms are booked!! Book another one')
