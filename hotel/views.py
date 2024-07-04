@@ -1,24 +1,3 @@
-
-                               data['check_in'], data['check_out'])
-
-        
-            return HttpResponse(booking)
-        else:
-            return HttpResponse('All of this category of rooms are booked!! Book another one')
-        
-class CancelBookingView(DeleteView):
-    model = Booking
-    template_name = 'booking_cancel_view.html'
-    success_url = reverse_lazy('hotel:BookingListView')
-
-
-
-
-
-
-
-
-
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Room, Booking
@@ -47,8 +26,6 @@ class RoomDeleteView(DeleteView):
     template_name = 'room_confirm_delete.html'
     success_url = reverse_lazy('room_list')
 
-
-"""
 # Booking Views
 class BookingListView(ListView):
     model = Booking
@@ -71,4 +48,3 @@ class BookingDeleteView(DeleteView):
     model = Booking
     template_name = 'booking_confirm_delete.html'
     success_url = reverse_lazy('booking_list')
-    """
