@@ -1,18 +1,4 @@
 
-class RoomDetailView(View):
-    def get (self, request, *args, **kwargs):
-        category = self.kwargs.get('category',None)
-        human_format_room_category = get_room_category_human_format (category)
-        form = AvailabilityForm()
-        human_format_room_category is not None:
-
-        context ={
-                'room_category': human_format_room_category,
-                'form': form,
-            }
-        return render(request, 'room_detail_view.html', context)
-    else:
-        return HttpResponse('Category is not avaialable')
 
     
     def post(self, request, *args, **kwargs):
@@ -48,7 +34,7 @@ class CancelBookingView(DeleteView):
 
 
 
-"""
+
 
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
@@ -61,6 +47,8 @@ class RoomListView(ListView):
     template_name = 'room_list.html'
     context_object_name = 'rooms'
 
+
+"""
 class RoomCreateView(CreateView):
     model = Room
     form_class = RoomForm
