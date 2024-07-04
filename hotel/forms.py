@@ -13,3 +13,17 @@ class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'first_name', 'last_name')
+
+class RoomForm(forms.ModelForm):
+    class Meta:
+        model = Room
+        fields = ['description', 'capacity', 'price', 'number', 'category', 'status', 'star_rating']
+        widgets = {
+            'description': forms.TextInput(attrs={'class': 'form-control'}),
+            'capacity': forms.NumberInput(attrs={'class': 'form-control'}),
+            'price': forms.NumberInput(attrs={'class': 'form-control'}),
+            'number': forms.TextInput(attrs={'class': 'form-control'}),
+            'category': forms.Select(attrs={'class': 'form-control'}),
+            'status': forms.TextInput(attrs={'class': 'form-control'}),
+            'star_rating': forms.NumberInput(attrs={'class': 'form-control'}),
+        }
