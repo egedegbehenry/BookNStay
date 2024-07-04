@@ -1,4 +1,4 @@
-from django import forms
+""" from django import forms
 from datetime import datetime
 from django.core.exceptions import ValidationError
 from .models import RoomCategory, Person
@@ -28,4 +28,25 @@ class AvailabilityForm(forms.Form):
 class PersonForm(forms.ModelForm):
     class Meta:
         model = Person
-        fields = '__all__'
+        fields = '__all__' """
+
+
+
+
+
+
+
+
+""" from django import forms
+from .models import Room, Booking
+
+class RoomForm(forms.ModelForm):
+    class Meta:
+        model = Room
+        fields = ['number', 'category', 'beds', 'capacity']
+
+class BookingForm(forms.ModelForm):
+    class Meta:
+        model = Booking
+        fields = ['user', 'room', 'check_in', 'check_out']
+ """

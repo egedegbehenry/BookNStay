@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,4 +10,17 @@
     <h2>{{room}}</h2>
     {% endfor %}
 </body>
-</html>
+</html> -->
+
+{% extends 'base.html' %}
+{% block content %}
+<h2>Room List</h2>
+<a href="{% url 'room_add' %}">Add Room</a>
+<ul>
+    {% for room in rooms %}
+    <li>{{ room }}</li>
+    <a href="{% url 'room_edit' room.pk %}">Edit</a> |
+    <a href="{% url 'room_delete' room.pk %}">Delete</a>
+    {% endfor %}
+</ul>
+{% endblock %}

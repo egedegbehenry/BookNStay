@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,4 +10,17 @@
     <h2>{{booking_list}}</h2>
     {% endfor %}
 </body>
-</html>
+</html> -->
+
+{% extends 'base.html' %}
+{% block content %}
+<h2>Booking List</h2>
+<a href="{% url 'booking_add' %}">Add Booking</a>
+<ul>
+    {% for booking in bookings %}
+    <li>{{ booking }}</li>
+    <a href="{% url 'booking_edit' booking.pk %}">Edit</a> |
+    <a href="{% url 'booking_delete' booking.pk %}">Delete</a>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,4 +1,4 @@
-{% load static %}
+<!-- {% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -80,4 +80,14 @@
   <!-- <script type="text/javascript" src="{% static 'hotel/js/mdb.min.js' %}"></script> -->
 
   </body>
-  </html>
+  </html> -->
+
+  {% extends 'base.html' %}
+{% block content %}
+<h2>Add/Edit Booking</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+{% endblock %}
