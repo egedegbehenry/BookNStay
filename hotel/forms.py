@@ -14,6 +14,7 @@ class CustomUserChangeForm(UserChangeForm):
         model = User
         fields = ('username', 'email', 'first_name', 'last_name')
 
+
 class RoomForm(forms.ModelForm):
     class Meta:
         model = Room
@@ -28,7 +29,8 @@ class RoomForm(forms.ModelForm):
             'star_rating': forms.NumberInput(attrs={'class': 'form-control'}),
         }
 
-        class BookingForm(forms.ModelForm):
+
+class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = ['user', 'room', 'name', 'address', 'checkin_time', 'checkout_time', 'room_price']
@@ -42,7 +44,8 @@ class RoomForm(forms.ModelForm):
             'room_price': forms.NumberInput(attrs={'class': 'form-control'}),
         }
 
-        class PaymentForm(forms.ModelForm):
+
+class PaymentForm(forms.ModelForm):
     class Meta:
         model = Payment
         fields = ['booking', 'user', 'amount', 'payment_date', 'payment_method']
