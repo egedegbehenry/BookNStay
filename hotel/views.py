@@ -1,21 +1,4 @@
 
-
-    
-    def post(self, request, *args, **kwargs):
-        category = self.kwargs.get('category',None)
-        form = AvailabilityForm(request.POST)
-
-        
-        if form.is_valid():
-
-           data = form.cleaned_data
-        
-
-        available_rooms = get_available_rooms (category, 
-                                               data['check_in'], data['check_out'])
-
-        if available_rooms is not None:
-           booking = book_room(request, available_rooms[0], 
                                data['check_in'], data['check_out'])
 
         
@@ -47,8 +30,6 @@ class RoomListView(ListView):
     template_name = 'room_list.html'
     context_object_name = 'rooms'
 
-
-"""
 class RoomCreateView(CreateView):
     model = Room
     form_class = RoomForm
@@ -66,6 +47,8 @@ class RoomDeleteView(DeleteView):
     template_name = 'room_confirm_delete.html'
     success_url = reverse_lazy('room_list')
 
+
+"""
 # Booking Views
 class BookingListView(ListView):
     model = Booking
