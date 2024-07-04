@@ -1,12 +1,15 @@
 from django import forms
-from .models import Room, Booking
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from .models import User, Room, Booking, Payment
 
-class RoomForm(forms.ModelForm):
-    class Meta:
-        model = Room
-        fields = ['number', 'category', 'beds', 'capacity']
 
-class BookingForm(forms.ModelForm):
+class CustomUserCreationForm(UserCreationForm):
     class Meta:
-        model = Booking
-        fields = ['user', 'room', 'check_in', 'check_out']
+        model = User
+        fields = ('username', 'email', 'first_name', 'last_name', 'password1', 'password2')
+
+
+class CustomUserChangeForm(UserChangeForm):
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'first_name', 'last_name')
