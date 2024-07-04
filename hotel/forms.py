@@ -41,3 +41,15 @@ class RoomForm(forms.ModelForm):
             'checkout_time': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'room_price': forms.NumberInput(attrs={'class': 'form-control'}),
         }
+
+        class PaymentForm(forms.ModelForm):
+    class Meta:
+        model = Payment
+        fields = ['booking', 'user', 'amount', 'payment_date', 'payment_method']
+        widgets = {
+            'booking': forms.Select(attrs={'class': 'form-control'}),
+            'user': forms.Select(attrs={'class': 'form-control'}),
+            'amount': forms.NumberInput(attrs={'class': 'form-control'}),
+            'payment_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'payment_method': forms.TextInput(attrs={'class': 'form-control'}),
+        }
