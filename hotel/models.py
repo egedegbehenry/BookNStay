@@ -1,27 +1,3 @@
-
-   """ 
-class Booking(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    room = models.ForeignKey(Room, on_delete=models.CASCADE)
-    check_in = models.DateTimeField()
-    check_out = models.DateTimeField()
-    created_at = models.DateTimeField(default=timezone.now)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return f'{self.user} has booked {self.room} from {self.check_in} to {self.check_out}'
-
-    def get_room_category(self): 
-        room_categories = dict(self.room.ROOM_CATEGORIES)
-        room_category = room_categories.get(self.room.category)
-        return room_category
-    
-    def get_cancel_booking_url(self):
-        return reverse_lazy('hotel:CancelBookingView', args=[self.pk, ]) """
-
-
-
-
 from django.db import models
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
@@ -51,9 +27,6 @@ class Room(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
-
-
-""" 
     class Meta:
         verbose_name = 'Room'
         verbose_name_plural = 'Rooms'
@@ -84,4 +57,3 @@ class Booking(models.Model):
 
     def get_cancel_booking_url(self):
         return reverse_lazy('hotel:CancelBookingView', args=[self.pk])
- """
