@@ -27,3 +27,17 @@ class RoomForm(forms.ModelForm):
             'status': forms.TextInput(attrs={'class': 'form-control'}),
             'star_rating': forms.NumberInput(attrs={'class': 'form-control'}),
         }
+
+        class BookingForm(forms.ModelForm):
+    class Meta:
+        model = Booking
+        fields = ['user', 'room', 'name', 'address', 'checkin_time', 'checkout_time', 'room_price']
+        widgets = {
+            'user': forms.Select(attrs={'class': 'form-control'}),
+            'room': forms.Select(attrs={'class': 'form-control'}),
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'address': forms.TextInput(attrs={'class': 'form-control'}),
+            'checkin_time': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'checkout_time': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'room_price': forms.NumberInput(attrs={'class': 'form-control'}),
+        }
