@@ -12,6 +12,12 @@ class Room(models.Model):
     EXECUTIVE = 'EXE'
     SINGLE = 'SIN'
 
+    AVAILABLE = 'AVAILABLE'
+    PENDING = 'PENDING'
+    BOOKED = 'BOOKED'
+    UNAVAILABLE = 'UNAVAILABLE'
+
+
     ROOM_CATEGORIES = [
         (DELUXE, 'Deluxe'),
         (KING, 'King'),
@@ -21,14 +27,21 @@ class Room(models.Model):
         (SINGLE, 'Single'),
     ]
 
+    ROOM_STATUS = [
+        (AVAILABLE, 'Avaialable'),
+        (PENDING, 'Pending'),
+        (BOOKED, 'Booked'),
+        (UNAVAILABLE, 'Unavailable')
+    ]
+
     booking = models.ForeignKey('Booking', on_delete=models.CASCADE, related_name='rooms', null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='rooms', null=True, blank=True)
-    description = models.CharField(max_length=255)
+    description = models.TextField(max_length=255)
     capacity = models.PositiveIntegerField()
     room_price = models.DecimalField(max_digits=10, decimal_places=2)
     number = models.CharField(max_length=50)
     category = models.CharField(max_length=3, choices=ROOM_CATEGORIES)
-    status = models.CharField(max_length=50)
+    status = models.CharField(max_length=50, choices=ROOM_STATUS)
     star_rating = models.PositiveIntegerField()
 
     def __str__(self):
