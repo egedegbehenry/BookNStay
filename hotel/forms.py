@@ -18,11 +18,11 @@ class CustomUserChangeForm(UserChangeForm):
 class RoomForm(forms.ModelForm):
     class Meta:
         model = Room
-        fields = ['description', 'capacity', 'price', 'number', 'category', 'status', 'star_rating']
+        fields = ['description', 'capacity', 'room_price', 'number', 'category', 'status', 'star_rating']
         widgets = {
             'description': forms.TextInput(attrs={'class': 'form-control'}),
             'capacity': forms.NumberInput(attrs={'class': 'form-control'}),
-            'price': forms.NumberInput(attrs={'class': 'form-control'}),
+            'room_price': forms.NumberInput(attrs={'class': 'form-control'}),
             'number': forms.TextInput(attrs={'class': 'form-control'}),
             'category': forms.Select(attrs={'class': 'form-control'}),
             'status': forms.TextInput(attrs={'class': 'form-control'}),
@@ -33,7 +33,7 @@ class RoomForm(forms.ModelForm):
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ['user', 'room', 'name', 'address', 'checkin_time', 'checkout_time', 'room_price']
+        fields = ['user', 'room', 'name', 'address', 'checkin_time', 'checkout_time']
         widgets = {
             'user': forms.Select(attrs={'class': 'form-control'}),
             'room': forms.Select(attrs={'class': 'form-control'}),
@@ -41,7 +41,6 @@ class BookingForm(forms.ModelForm):
             'address': forms.TextInput(attrs={'class': 'form-control'}),
             'checkin_time': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'checkout_time': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
-            'room_price': forms.NumberInput(attrs={'class': 'form-control'}),
         }
 
 
