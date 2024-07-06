@@ -146,7 +146,7 @@
     </nav>
   </header>
 
-  <!--Adding CSS for Error Styling-->
+  <!--Adding CSS for room_form-->
   <link rel="stylesheet" href="{% static 'path/to/your/css/bootstrap.min.css' %}">
   <style>
       .alert-danger {
@@ -168,6 +168,33 @@
   </style>
   <!--{% block extra_head %}
   {% endblock %}-->
+
+
+  <!--Adding CSS for room_confirm_delete-->
+  link rel="stylesheet" href="{% static 'path/to/your/css/bootstrap.min.css' %}">
+    <style>
+        .alert {
+            margin-top: .75rem;
+        }
+    </style>
+    {% block extra_head %}
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+    
+    {% if messages %}
+        <div class="container mt-3">
+            {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</body>
+
 
 
 
