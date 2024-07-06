@@ -166,9 +166,7 @@
           font-size: .875em;
       }
   </style>
-  <!--{% block extra_head %}
-  {% endblock %}-->
-
+ 
 
   <!--Adding CSS for room_confirm_delete-->
   link rel="stylesheet" href="{% static 'path/to/your/css/bootstrap.min.css' %}">
@@ -177,12 +175,11 @@
             margin-top: .75rem;
         }
     </style>
-    {% block extra_head %}
-    {% endblock %}
+   
+
 </head>
 <body>
-    {% block content %}
-    {% endblock %}
+   
     
     {% if messages %}
         <div class="container mt-3">
@@ -203,8 +200,7 @@
             margin-top: .75rem;
         }
     </style>
-    {% block extra_head %}
-    {% endblock %}
+ 
 </head>
 <body>
     <div class="container">
@@ -219,8 +215,7 @@
         {% endif %}
     </div>
     
-    {% block content %}
-    {% endblock %}
+  
 
 <!--Adding CSS for booking_list-->
     <link rel="stylesheet" href="{% static 'path/to/your/css/bootstrap.min.css' %}">
@@ -229,8 +224,7 @@
             margin-top: .75rem;
         }
     </style>
-    {% block extra_head %}
-    {% endblock %}
+   
 </head>
 <body>
     <div class="container">
@@ -244,9 +238,7 @@
             </div>
         {% endif %}
     </div>
-    
-    {% block content %}
-    {% endblock %}
+  
 
   <main>
     {% block content %}

@@ -6,10 +6,25 @@ from .forms import RoomForm, BookingForm
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect
 from django.shortcuts import render
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import (
+    PasswordResetView,
+    PasswordResetDoneView,
+    PasswordResetConfirmView,
+    PasswordResetCompleteView
+)
 
 def home(request):
     return render(request, 'hotel/home.html')
 
+# Login view
+class CustomLoginView(LoginView):
+    template_name = 'hotel/login.html' 
+    success_url = reverse_lazy('home') 
+
+# Logout view
+class CustomLogoutView(LogoutView):
+    next_page = reverse_lazy('home')  # Redirect to home page after logout
 
 def room_delete_view(request, pk):
     room = get_object_or_404(Room, pk=pk)
@@ -18,6 +33,25 @@ def room_delete_view(request, pk):
         messages.success(request, 'Room has been deleted successfully.')
         return redirect('room_list')
     return render(request, 'hotel/room_confirm_delete.html', {'object': room})
+ 
+# Password reset request view
+class CustomPasswordResetView(PasswordResetView):
+    template_name = 'hotel/password_reset_form.html'  # Your custom password reset form template
+    email_template_name = 'hotel/password_reset_email.html'  # Your custom password reset email template
+    success_url = reverse_lazy('password_reset_done')  # Redirect to password reset done view upon success
+
+# Password reset done view
+class CustomPasswordResetDoneView(PasswordResetDoneView):
+    template_name = 'hotel/password_reset_done.html'  # Your custom password reset done template
+
+# Password reset confirm view
+class CustomPasswordResetConfirmView(PasswordResetConfirmView):
+    template_name = 'hotel/password_reset_confirm.html'  # Your custom password reset confirm template
+    success_url = reverse_lazy('password_reset_complete')  # Redirect to password reset complete view upon success
+
+# Password reset complete view
+class CustomPasswordResetCompleteView(PasswordResetCompleteView):
+    template_name = 'hotel/password_reset_complete.html'  # Your custom password reset complete template
 
 
 # Room Views
