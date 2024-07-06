@@ -8,6 +8,7 @@ from django.shortcuts import get_object_or_404, redirect
 
 
 
+
 def room_delete_view(request, pk):
     room = get_object_or_404(Room, pk=pk)
     if request.method == 'POST':
