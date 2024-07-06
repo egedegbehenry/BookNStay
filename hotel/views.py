@@ -5,8 +5,10 @@ from .models import Room, Booking
 from .forms import RoomForm, BookingForm
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import render
 
-
+def home(request):
+    return render(request, 'hotel/home.html')
 
 
 def room_delete_view(request, pk):
