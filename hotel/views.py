@@ -1,9 +1,11 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import DeleteView
 from .models import Room, Booking
 from .forms import RoomForm, BookingForm
 from django.contrib import messages
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
+
 
 
 def room_delete_view(request, pk):
