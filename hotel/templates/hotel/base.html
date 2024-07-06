@@ -9,10 +9,9 @@
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.72.0">
   <title>{% block title %}BookNStay{% endblock %}</title>
-
   <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/carousel/">
+  <link rel="stylesheet" href="{% static 'path/to/your/css/bootstrap.min.css' %}">
 
- 
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
@@ -146,6 +145,31 @@
       </div>
     </nav>
   </header>
+
+  <!--Adding CSS for Error Styling-->
+  <link rel="stylesheet" href="{% static 'path/to/your/css/bootstrap.min.css' %}">
+  <style>
+      .alert-danger {
+          color: #721c24;
+          background-color: #f8d7da;
+          border-color: #f5c6cb;
+          padding: .75rem 1.25rem;
+          margin-top: .5rem;
+          margin-bottom: .5rem;
+          border: 1px solid transparent;
+          border-radius: .25rem;
+      }
+      .form-group {
+          margin-bottom: 1rem;
+      }
+      .form-text.text-muted {
+          font-size: .875em;
+      }
+  </style>
+  <!--{% block extra_head %}
+  {% endblock %}-->
+
+
 
   <main>
     {% block content %}
