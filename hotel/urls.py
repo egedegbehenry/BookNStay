@@ -8,7 +8,11 @@ from .views import (
 )
 
 urlpatterns = [
-     # Login and logout
+    
+    #Home page
+    path('', views.HomeView.as_view(), name='home'),
+
+    # Login and logout
     path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='registration/logout.html'), name='logout'),
 
@@ -22,14 +26,14 @@ urlpatterns = [
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='registration/password_reset_confirm.html', success_url=reverse_lazy('password_reset_complete')), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'), name='password_reset_complete'),
 
-    #Rooms crud
+    #Rooms CRUD
     path('rooms/', RoomListView.as_view(), name='room_list'),
     path('rooms/add/', RoomCreateView.as_view(), name='room_add'),
     path('rooms/<int:pk>/edit/', RoomUpdateView.as_view(), name='room_edit'),
     path('rooms/<int:pk>/delete/', RoomDeleteView.as_view(), name='room_delete'),
 
     
-    #Bookings crud
+    #Bookings CRUD
     path('bookings/', BookingListView.as_view(), name='booking_list'),
     path('bookings/add/', BookingCreateView.as_view(), name='booking_add'),
     path('bookings/<int:pk>/edit/', BookingUpdateView.as_view(), name='booking_edit'),
