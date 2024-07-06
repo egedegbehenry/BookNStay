@@ -22,15 +22,18 @@ urlpatterns = [
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='registration/password_reset_confirm.html', success_url=reverse_lazy('password_reset_complete')), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'), name='password_reset_complete'),
 
-    #path('rooms/', RoomListView.as_view(), name='room_list'),
-    #path('rooms/add/', RoomCreateView.as_view(), name='room_add'),
-    #path('rooms/<int:pk>/edit/', RoomUpdateView.as_view(), name='room_edit'),
-    #path('rooms/<int:pk>/delete/', RoomDeleteView.as_view(), name='room_delete'),
+    #Rooms crud
+    path('rooms/', RoomListView.as_view(), name='room_list'),
+    path('rooms/add/', RoomCreateView.as_view(), name='room_add'),
+    path('rooms/<int:pk>/edit/', RoomUpdateView.as_view(), name='room_edit'),
+    path('rooms/<int:pk>/delete/', RoomDeleteView.as_view(), name='room_delete'),
 
-    #path('bookings/', BookingListView.as_view(), name='booking_list'),
-    #path('bookings/add/', BookingCreateView.as_view(), name='booking_add'),
-    #path('bookings/<int:pk>/edit/', BookingUpdateView.as_view(), name='booking_edit'),
-    #path('bookings/<int:pk>/delete/', BookingDeleteView.as_view(), name='booking_delete'),
+    
+    #Bookings crud
+    path('bookings/', BookingListView.as_view(), name='booking_list'),
+    path('bookings/add/', BookingCreateView.as_view(), name='booking_add'),
+    path('bookings/<int:pk>/edit/', BookingUpdateView.as_view(), name='booking_edit'),
+    path('bookings/<int:pk>/delete/', BookingDeleteView.as_view(), name='booking_delete'),
 ]
 
 
