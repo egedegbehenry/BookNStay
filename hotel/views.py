@@ -2,6 +2,18 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Room, Booking
 from .forms import RoomForm, BookingForm
+from django.contrib import messages
+from django.shortcuts import redirect, get_object_or_404
+
+
+def room_delete_view(request, pk):
+    room = get_object_or_404(Room, pk=pk)
+    if request.method == 'POST':
+        room.delete()
+        messages.success(request, 'Room has been deleted successfully.')
+        return redirect('room_list')
+    return render(request, 'hotel/room_confirm_delete.html', {'object': room})
+
 
 # Room Views
 class RoomListView(ListView):

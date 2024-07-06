@@ -20,13 +20,13 @@ class RoomForm(forms.ModelForm):
         model = Room
         fields = ['category', 'description', 'capacity', 'room_price', 'number',  'status', 'star_rating']
         widgets = {
-            'description': forms.TextInput(attrs={'class': 'form-control'}),
-            'capacity': forms.NumberInput(attrs={'class': 'form-control'}),
-            'room_price': forms.NumberInput(attrs={'class': 'form-control'}),
-            'number': forms.TextInput(attrs={'class': 'form-control'}),
-            'category': forms.Select(attrs={'class': 'form-control'}),
-            'status': forms.Select(attrs={'class': 'form-control'}),
-            'star_rating': forms.NumberInput(attrs={'class': 'form-control'}),
+            'description': forms.TextInput(attrs={'class': 'form-control', 'rows': 3, 'required': 'required'}),
+            'capacity': forms.NumberInput(attrs={'class': 'form-control', 'required': 'required'}),
+            'room_price': forms.NumberInput(attrs={'class': 'form-control', 'required': 'required'}),
+            'number': forms.TextInput(attrs={'class': 'form-control', 'required': 'required'}),
+            'category': forms.Select(attrs={'class': 'form-control', 'required': 'required'}),
+            'status': forms.Select(attrs={'class': 'form-control', 'required': 'required'}),
+            'star_rating': forms.NumberInput(attrs={'class': 'form-control', 'required': 'required'}),
         }
 
 
