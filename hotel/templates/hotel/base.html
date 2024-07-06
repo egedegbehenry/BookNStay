@@ -196,6 +196,31 @@
 </body>
 
 
+<!--Adding CSS for room_list-->
+<link rel="stylesheet" href="{% static 'path/to/your/css/bootstrap.min.css' %}">
+    <style>
+        .alert {
+            margin-top: .75rem;
+        }
+    </style>
+    {% block extra_head %}
+    {% endblock %}
+</head>
+<body>
+    <div class="container">
+        {% if messages %}
+            <div class="mt-3">
+                {% for message in messages %}
+                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    
+    {% block content %}
+    {% endblock %}
 
 
   <main>
