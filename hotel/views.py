@@ -25,14 +25,6 @@ class CustomLoginView(LoginView):
 # Logout view
 class CustomLogoutView(LogoutView):
     next_page = reverse_lazy('home')  # Redirect to home page after logout
-
-def room_delete_view(request, pk):
-    room = get_object_or_404(Room, pk=pk)
-    if request.method == 'POST':
-        room.delete()
-        messages.success(request, 'Room has been deleted successfully.')
-        return redirect('room_list')
-    return render(request, 'hotel/room_confirm_delete.html', {'object': room})
  
 # Password reset request view
 class CustomPasswordResetView(PasswordResetView):
@@ -76,6 +68,14 @@ class RoomDeleteView(DeleteView):
     model = Room
     template_name = 'room_confirm_delete.html'
     success_url = reverse_lazy('room_list')
+
+def room_delete_view(request, pk):
+    room = get_object_or_404(Room, pk=pk)
+    if request.method == 'POST':
+        room.delete()
+        messages.success(request, 'Room has been deleted successfully.')
+        return redirect('room_list')
+    return render(request, 'hotel/room_confirm_delete.html', {'object': room})
 
 # Booking Views
 class BookingListView(ListView):
