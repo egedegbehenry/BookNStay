@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>Login</h2>
-<form method="post" novalidate,  action="{% url 'login' %}" class="form-input">
+<form method="post" action="{% url 'login' %}" class="form-input" novalidate>
     {% csrf_token %}
     {% for field in form %}
         <div class="form-group">
