@@ -1,51 +1,46 @@
+{% extends 'base.html' %}
 
-    <div
-    class="d-flex flex-column align-items-center justify-content-center check_availability"
-    >
-    
-      <div class="headings m-4">
+{% block content %}
+<div class="d-flex flex-column align-items-center justify-content-center check_availability">
+    <div class="headings m-4">
         <h1>BookNStay</h1>
         <h1>Hotel</h1>
-      </div>
+    </div>
 
-      <div id="search-bar" style="color: #fff;">
-        <form method="POST"
-        class="search-form m-0 container"
-        action=""
-      >
-      {% csrf_token %}
-      
-      <div class="date-row row">
+    <div id="search-bar" style="color: #fff;">
+        <form method="POST" class="search-form m-0 container" action="">
+            {% csrf_token %}
+            
+            <div class="date-row row">
+                <div class="form-group d-flex justify-content-space-between col-sm-6">
+                    <label class="mr-2" for="{{ form.check_in.id_for_label }}">From:</label>
+                    {{ form.check_in }}
+                    {% if form.check_in.errors %}
+                        <div class="alert alert-danger">{{ form.check_in.errors }}</div>
+                    {% endif %}
+                </div>
 
-        <div
-            class="form-group d-flex justify-content-space-between col-sm-6 "
-          >
-          {{form.check_in.errors}}
-            <label class="mr-2" for="{{form.check_in.id_for_label}}">From:</label>
-            {{form.check_in}}
-          </div>
+                <div class="form-group d-flex justify-content-space-around col-sm-6">
+                    <label for="{{ form.check_out.id_for_label }}">To: </label>
+                    {{ form.check_out }}
+                    {% if form.check_out.errors %}
+                        <div class="alert alert-danger">{{ form.check_out.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
 
-          <div class="form-group d-flex justify-content-space-around  col-sm-6 ">
-            {{form.check_out.errors}}
-            <label for="{{form.check_out.id_for_label}}">To: </label>
-            {{form.check_out}}
-          </div>
-        </div>
-        <div class="room-row row">
-            {{form.room_category.errors}}
-            <label for="{{form.room_category.id_for_label}}">Room Category ::</label>
-            {{form.room_category}}
-          </div>
+            <div class="form-group row">
+                <label for="{{ form.room_category.id_for_label }}">Room Category:</label>
+                {{ form.room_category }}
+                {% if form.room_category.errors %}
+                    <div class="alert alert-danger">{{ form.room_category.errors }}</div>
+                {% endif %}
+            </div>
+
             <div class="form-group row mw-50 m-2">
-              <button class="btn btn-primary col-12  mw-50 " type="submit">
-     
-
-  {% extends 'base.html' %}
-{% block content %}
-<h2>Add/Edit Booking</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
-</form>
+                <button class="btn btn-primary col-12 mw-50" type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}
