@@ -1,9 +1,24 @@
-{% extends 'base.html' %}
+{% extends 'hotel/base.html' %}
+
 {% block content %}
 <h2>Confirm Delete</h2>
 <p>Are you sure you want to delete {{ object }}?</p>
+
 <form method="post">
     {% csrf_token %}
-    <button type="submit">Yes, delete</button>
+    <div class="form-group">
+        <button type="submit" class="btn btn-danger">Yes, delete</button>
+        <a href="{% url 'room_list' %}" class="btn btn-secondary">Cancel</a>
+    </div>
 </form>
+
+{% if messages %}
+    <div class="mt-3">
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
 {% endblock %}
