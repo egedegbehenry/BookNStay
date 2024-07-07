@@ -21,7 +21,7 @@
         <ul class="list-group">
             {% for room in rooms %}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Room {{ room.number }} - Price: ${{ room.price }}
+                    Room {{ room.number }} - Price: ${{ room_price }}
                     <div>
                         <a href="{% url 'room_edit' room.pk %}" class="btn btn-sm btn-warning">Edit</a>
                         <a href="{% url 'room_delete' room.pk %}" class="btn btn-sm btn-danger">Delete</a>

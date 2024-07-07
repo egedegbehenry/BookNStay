@@ -49,8 +49,9 @@ class CustomPasswordResetCompleteView(PasswordResetCompleteView):
 # Room Views
 class RoomListView(ListView):
     model = Room
-    template_name = 'room_list.html'
+    template_name = 'hotel/room_list.html'
     context_object_name = 'rooms'
+
 
 class RoomCreateView(CreateView):
     model = Room
