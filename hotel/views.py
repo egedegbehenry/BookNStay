@@ -20,7 +20,7 @@ def home(request):
 # Login view
 class CustomLoginView(LoginView):
     template_name = 'hotel/login.html' 
-    success_url = reverse_lazy('home') 
+    success_url = reverse_lazy('room_list') 
 
 # Logout view
 class CustomLogoutView(LogoutView):

@@ -21,6 +21,6 @@ from hotel.views import home
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'), 
-    path('', include('hotel.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('hotel/', include('hotel.urls')),
+    #path('accounts/', include('django.contrib.auth.urls')),
 ]
