@@ -15,6 +15,60 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
 from django.contrib.auth import authenticate, logout
 
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from .forms import BookingForm, PaymentForm, SignUpForm
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import AuthenticationForm
+
+# View for the home page
+def home(request):
+    return render(request, 'hotel/home.html')
+
+# View for the signup page
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('booking')
+    else:
+        form = SignUpForm()
+    return render(request, 'hotel/signup.html', {'form': form})
+
+# View for the booking form
+@login_required
+def booking(request):
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            # Process booking logic
+            return redirect('payment')
+    else:
+        form = BookingForm()
+    return render(request, 'hotel/booking_form.html', {'form': form})
+
+# View for the payment form
+@login_required
+def payment(request):
+    if request.method == 'POST':
+        form = PaymentForm(request.POST)
+        if form.is_valid():
+            # Process payment logic
+            return redirect('home')
+    else:
+        form = PaymentForm()
+    return render(request, 'hotel/payment.html', {'form': form})
+
+# Custom view to handle booking process based on login status
+def book_now(request):
+    if request.user.is_authenticated:
+        return redirect('booking')
+    else:
+        return redirect('signup')
+
 def home(request):
     return render(request, 'hotel/home.html')
 
