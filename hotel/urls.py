@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 
 from .views import (
     RoomListView, RoomCreateView, RoomUpdateView, RoomDeleteView,
-    BookingListView, BookingCreateView, BookingUpdateView, BookingDeleteView
+    BookingListView, BookingCreateView, BookingUpdateView, BookingDeleteView, SignupView 
 )
 
 from hotel.views import (
@@ -15,7 +15,8 @@ from hotel.views import (
 
 urlpatterns = [
     path('login/', CustomLoginView.as_view(), name='login'),
-    path('logout/', CustomLogoutView.as_view(), name='logout'), #Not working 
+    path('logout/', CustomLogoutView.as_view(), name='logout'), 
+    path('signup/', SignupView.as_view(), name='signup'), 
     path('password-reset/', CustomPasswordResetView.as_view(), name='password_reset'),  
     path('password-reset/done/', CustomPasswordResetDoneView.as_view(), name='password_reset_done'),
     path('password-reset/confirm/<uidb64>/<token>/', CustomPasswordResetConfirmView.as_view(), name='password_reset_confirm'), #Not working 

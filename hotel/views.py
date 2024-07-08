@@ -1,21 +1,46 @@
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-from django.views.generic import DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, View 
 from .models import Room, Booking
-from .forms import RoomForm, BookingForm
+from .forms import RoomForm, BookingForm, SignupForm 
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect
 from django.shortcuts import render
 from django.contrib.auth.views import LoginView, LogoutView
-from django.contrib.auth.views import (
-    PasswordResetView,
-    PasswordResetDoneView,
-    PasswordResetConfirmView,
-    PasswordResetCompleteView
+from django.contrib.auth.views import (PasswordResetView, PasswordResetDoneView,
+    PasswordResetConfirmView, PasswordResetCompleteView
 )
+
+from django.http import HttpResponseRedirect
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import JsonResponse
+from django.contrib.auth import authenticate, logout
 
 def home(request):
     return render(request, 'hotel/home.html')
+
+class SignupView(View):
+    template_name = 'hotel/signup.html'
+
+    def get(self, request):
+        form = SignupForm()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request):
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password1'])
+            if user is not None:
+                login(request, user)
+                request.session['success_message'] = 'Successfully Signed up.'
+                request.session['first_name'] = form.cleaned_data.get('first_name')
+                return redirect(reverse('task_list'))
+            else:
+                request.session['error_message'] = 'There was an error logging you in after signup. Please try logging in manually.'
+                return redirect(reverse('login'))
+        else:
+            request.session['error_message'] = 'There was an error with your signup. Please correct the errors below.'
+            return render(request, self.template_name, {'form': form})
 
 # Login view
 class CustomLoginView(LoginView):
@@ -23,8 +48,15 @@ class CustomLoginView(LoginView):
     success_url = reverse_lazy('room_list') 
 
 # Logout view
-class CustomLogoutView(LogoutView):
-    next_page = reverse_lazy('home')  # Redirect to home page after logout
+class CustomLogoutView(LoginRequiredMixin, View):
+    def get(self, request):
+        logout(request)
+        messages.success(request, 'Successfully logged out.')
+        return HttpResponseRedirect('/')
+
+    def clear_message(request):
+        request.session['success_message'] = ''
+        return JsonResponse({'status': 'message-cleared'}) # Redirect to home page after logout
  
 # Password reset request view
 class CustomPasswordResetView(PasswordResetView):
