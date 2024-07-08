@@ -53,15 +53,14 @@ class Booking(models.Model):
     room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name='bookings')
     name = models.CharField(max_length=255)
     address = models.CharField(max_length=255, default='Default Address')
-    checkin_time = models.DateTimeField()
-    checkout_time = models.DateTimeField()
+    check_in = models.DateTimeField()
+    check_out = models.DateTimeField()
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
 
     def __str__(self):
-        return f'{self.user} booked Room {self.room.number} from {self.checkin_time} to {self.checkout_time}'
-
+        return f"Booking from {self.check_in} to {self.check_out}"
     def get_room_category(self):
         return self.room.get_category_display()
 

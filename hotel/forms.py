@@ -33,14 +33,14 @@ class RoomForm(forms.ModelForm):
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ['user', 'room', 'name', 'address', 'checkin_time', 'checkout_time']
+        fields = ['user', 'room', 'name', 'address', 'check_in', 'check_out']
         widgets = {
             'user': forms.Select(attrs={'class': 'form-control'}),
             'room': forms.Select(attrs={'class': 'form-control'}),
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'address': forms.TextInput(attrs={'class': 'form-control'}),
-            'checkin_time': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
-            'checkout_time': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'check_in': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'check_out': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
         }
 
     def clean(self):

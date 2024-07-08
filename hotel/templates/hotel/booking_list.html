@@ -21,7 +21,7 @@
         <ul class="list-group">
             {% for booking in bookings %}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    {{ booking }}
+                    Check-in: {{ booking.check_in }} - Check-out: {{ booking.check_out }}
                     <div>
                         <a href="{% url 'booking_edit' booking.pk %}" class="btn btn-sm btn-warning">Edit</a>
                         <a href="{% url 'booking_delete' booking.pk %}" class="btn btn-sm btn-danger">Delete</a>

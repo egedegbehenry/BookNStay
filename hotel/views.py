@@ -62,12 +62,12 @@ class RoomCreateView(CreateView):
 class RoomUpdateView(UpdateView):
     model = Room
     form_class = RoomForm
-    template_name = 'room_form.html'
+    template_name = 'hotel/room_form.html'
     success_url = reverse_lazy('room_list')
 
 class RoomDeleteView(DeleteView):
     model = Room
-    template_name = 'room_confirm_delete.html'
+    template_name = 'hotel/room_confirm_delete.html'
     success_url = reverse_lazy('room_list')
 
 def room_delete_view(request, pk):
@@ -79,24 +79,35 @@ def room_delete_view(request, pk):
     return render(request, 'hotel/room_confirm_delete.html', {'object': room})
 
 # Booking Views
+from django.views.generic import ListView
+from .models import Booking
+
 class BookingListView(ListView):
     model = Booking
-    template_name = 'booking_list.html'
+    template_name = 'hotel/booking_list.html'
     context_object_name = 'bookings'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        bookings = context['bookings']
+        for booking in bookings:
+            print(f"Booking PK: {booking.pk}, Check-in: {booking.check_in}, Check-out: {booking.check_out}")  # Debugging line
+        return context
+
 
 class BookingCreateView(CreateView):
     model = Booking
     form_class = BookingForm
-    template_name = 'booking_form.html'
+    template_name = 'hotel/booking_form.html'
     success_url = reverse_lazy('booking_list')
 
 class BookingUpdateView(UpdateView):
     model = Booking
     form_class = BookingForm
-    template_name = 'booking_form.html'
+    template_name = 'hotel/booking_form.html'
     success_url = reverse_lazy('booking_list')
 
 class BookingDeleteView(DeleteView):
     model = Booking
-    template_name = 'booking_confirm_delete.html'
+    template_name = 'hotel/booking_confirm_delete.html'
     success_url = reverse_lazy('booking_list')
