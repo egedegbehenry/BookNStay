@@ -1,0 +1,34 @@
+{% extends 'hotel/base.html' %}
+
+{% block title %}Payment | BookNStay{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Payment</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.amount.id_for_label }}">Amount:</label>
+            {{ form.amount }}
+            {% if form.amount.errors %}
+                <div class="alert alert-danger">{{ form.amount.errors }}</div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.payment_date.id_for_label }}">Payment Date:</label>
+            {{ form.payment_date }}
+            {% if form.payment_date.errors %}
+                <div class="alert alert-danger">{{ form.payment_date.errors }}</div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.payment_method.id_for_label }}">Payment Method:</label>
+            {{ form.payment_method }}
+            {% if form.payment_method.errors %}
+                <div class="alert alert-danger">{{ form.payment_method.errors }}</div>
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary">Proceed to Payment</button>
+    </form>
+</div>
+{% endblock %}
