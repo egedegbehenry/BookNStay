@@ -7,7 +7,7 @@
         <h1>Hotel</h1>
     </div>
     <div id="search-bar" style="color: #fff;">
-        <form method="POST" class="search-form m-0 container" action="">
+        <form method="POST" class="search-form m-0 container needs-validation" action="" novalidate>
             {% csrf_token %}
             <div class="date-row row">
                 <div class="form-group d-flex justify-content-space-between col-sm-6">
@@ -38,4 +38,22 @@
         </form>
     </div>
 </div>
+
+<script>
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+</script>
 {% endblock %}
