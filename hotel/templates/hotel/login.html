@@ -1,20 +1,45 @@
 {% extends 'hotel/base.html' %}
+
 {% block content %}
-<h2>Login</h2>
-<form method="post" action="{% url 'login' %}" class="form-input" novalidate>
-    {% csrf_token %}
-    {% for field in form %}
-        <div class="form-group">
-            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-            {{ field }}
-            {% if field.help_text %}
-                <small class="form-text text-muted">{{ field.help_text }}</small>
-            {% endif %}
-            {% if field.errors %}
-                <div class="alert alert-danger">{{ field.errors }}</div>
-            {% endif %}
-        </div>
-    {% endfor %}
-    <button type="submit" class="btn btn-primary">Login</button>
-</form>
+<div class="container mt-4">
+    <h2>Login</h2>
+    <form method="post" action="{% url 'login' %}" class="needs-validation" novalidate>
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.help_text %}
+                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                {% endif %}
+                {% if field.errors %}
+                    <div class="invalid-feedback d-block">
+                        {% for error in field.errors %}
+                            <p class="mb-0">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>
+
+<script>
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+</script>
 {% endblock %}

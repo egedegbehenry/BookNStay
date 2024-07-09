@@ -1,5 +1,10 @@
 {% extends 'hotel/base.html' %}
+
 {% block content %}
-<h2>Logout</h2>
-<p>You have been logged out. <a href="{% url 'login' %}">Login again?</a></p>
+<div class="container mt-4">
+    <h2>Logout</h2>
+    <div class="alert alert-success">
+        <p>You have been logged out. <a href="{% url 'login' %}" class="alert-link">Login again?</a></p>
+    </div>
+</div>
 {% endblock %}
