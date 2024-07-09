@@ -65,7 +65,7 @@ def payment(request):
 # Custom view to handle booking process based on login status
 def book_now(request):
     if request.user.is_authenticated:
-        return redirect('booking')
+        return redirect('booking_list')
     else:
         return redirect('signup')
 

@@ -1,24 +1,31 @@
 {% extends 'hotel/base.html' %}
 
+{% block title %}Confirm Delete | BookNStay{% endblock %}
+
 {% block content %}
-<h2>Confirm Delete</h2>
-<p>Are you sure you want to delete {{ object }}?</p>
+<div class="container mt-3">
+    <h2>Confirm Delete</h2>
+    <p>Are you sure you want to delete {{ object }}?</p>
 
-<form method="post">
-    {% csrf_token %}
-    <div class="form-group">
-        <button type="submit" class="btn btn-danger">Yes, delete</button>
-        <a href="{% url 'room_list' %}" class="btn btn-secondary">Cancel</a>
-    </div>
-</form>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <button type="submit" class="btn btn-danger">Yes, delete</button>
+            <a href="{% url 'room_list' %}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
 
-{% if messages %}
-    <div class="mt-3">
-        {% for message in messages %}
-            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}">
-                {{ message }}
-            </div>
-        {% endfor %}
-    </div>
-{% endif %}
+    {% if messages %}
+        <div class="mt-3">
+            {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
 {% endblock %}
