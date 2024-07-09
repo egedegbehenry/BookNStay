@@ -3,9 +3,9 @@
 {% block title %}Sign Up | BookNStay{% endblock %}
 
 {% block content %}
-<div class="container-fluid mt-4 signup-page card">
+<div class="container mt-4 signup-page card p-4">
     <h2 class="mb-4">Sign Up</h2>
-    <form method="post" class="needs-validation">
+    <form method="post" class="needs-validation" novalidate>
         {% csrf_token %}
         <div class="form-group row mb-3">
             <label for="id_username" class="col-sm-2 col-form-label">Username:</label>
@@ -67,16 +67,39 @@
             </div>
         </div>
         {% if success_message %}
-        <div class="alert alert-success dismissible-message">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ first_name }} {{ success_message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
         {% endif %}
         {% if error_message %}
-        <div class="alert alert-danger dismissible-message">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
             {{ error_message }}
-            <button class="cancel-message">* Cancel</button>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
         {% endif %}
     </form>
 </div>
+
+<script>
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+</script>
 {% endblock %}
