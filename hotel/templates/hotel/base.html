@@ -10,13 +10,23 @@
   <meta name="generator" content="Hugo 0.72.0">
   <title>{% block title %}BookNStay{% endblock %}</title>
   <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/carousel/">
-  <link rel="stylesheet" href="{% static 'path/to/your/css/bootstrap.min.css' %}">
-  {% block extra_head %}{% endblock %}
+  
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+    rel="stylesheet">
 
-
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
     integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{% static 'hotel/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'hotel/css/room_list_view.css' %}">
+<link rel="stylesheet" href="{% static 'hotel/css/room_detail_view.css' %}">
+<link rel="stylesheet" href="{% static 'hotel/css/booking_list_view.css' %}">
 
   {% block extra_css %}
   <style>
