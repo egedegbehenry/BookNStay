@@ -96,6 +96,13 @@ class SignupView(View):
             request.session['error_message'] = 'There was an error with your signup. Please correct the errors below.'
             return render(request, self.template_name, {'form': form})
 
+def contact_us(request):
+    if request.method == 'POST':
+        # Handle form submission (if any)
+        pass
+    
+    return render(request, 'hotel/contact_us.html')
+
 # Login view
 class CustomLoginView(LoginView):
     template_name = 'hotel/login.html' 

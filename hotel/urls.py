@@ -36,6 +36,7 @@ urlpatterns = [
     path('bookings/<int:pk>/delete/', BookingDeleteView.as_view(), name='booking_delete'),
     path('book_now/', views.book_now, name='book_now'),
     path('contact_us/', views.contact_us, name='contact_us'),
+    
 
     #payment CRUD
     path('payment/', views.payment, name='payment'),
