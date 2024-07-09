@@ -2,6 +2,16 @@
 
 {% block title %}Gallery | BookNStay{% endblock %}
 
+{% block extra_css %}
+<style>
+    /* Custom CSS specific to gallery page */
+    .gallery-image {
+        height: 300px; /* Adjust height as needed */
+        object-fit: cover;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="container mt-4">
     <h2>Gallery</h2>
@@ -9,7 +19,7 @@
     <div class="row">
         <div class="col-md-6 mb-4">
             <div class="card">
-                <img src="{% static 'img/gallery/image1.jpg' %}" class="card-img-top" alt="Image 1">
+                <img src="{% static 'img/gallery/image1.jpg' %}" class="card-img-top gallery-image" alt="Image 1">
                 <div class="card-body">
                     <h5 class="card-title">Image 1</h5>
                     <p class="card-text">Description of Image 1.</p>
@@ -18,7 +28,7 @@
         </div>
         <div class="col-md-6 mb-4">
             <div class="card">
-                <img src="{% static 'img/gallery/image2.jpg' %}" class="card-img-top" alt="Image 2">
+                <img src="{% static 'img/gallery/image2.jpg' %}" class="card-img-top gallery-image" alt="Image 2">
                 <div class="card-body">
                     <h5 class="card-title">Image 2</h5>
                     <p class="card-text">Description of Image 2.</p>
@@ -30,7 +40,7 @@
     <div class="row">
         <div class="col-md-6 mb-4">
             <div class="card">
-                <img src="{% static 'img/gallery/image3.jpg' %}" class="card-img-top" alt="Image 3">
+                <img src="{% static 'img/gallery/image3.jpg' %}" class="card-img-top gallery-image" alt="Image 3">
                 <div class="card-body">
                     <h5 class="card-title">Image 3</h5>
                     <p class="card-text">Description of Image 3.</p>
@@ -39,7 +49,7 @@
         </div>
         <div class="col-md-6 mb-4">
             <div class="card">
-                <img src="{% static 'img/gallery/image4.jpg' %}" class="card-img-top" alt="Image 4">
+                <img src="{% static 'img/gallery/image4.jpg' %}" class="card-img-top gallery-image" alt="Image 4">
                 <div class="card-body">
                     <h5 class="card-title">Image 4</h5>
                     <p class="card-text">Description of Image 4.</p>
@@ -51,7 +61,7 @@
     <div class="row">
         <div class="col-md-6 mb-4">
             <div class="card">
-                <img src="{% static 'img/gallery/image5.jpg' %}" class="card-img-top" alt="Image 5">
+                <img src="{% static 'img/gallery/image5.jpg' %}" class="card-img-top gallery-image" alt="Image 5">
                 <div class="card-body">
                     <h5 class="card-title">Image 5</h5>
                     <p class="card-text">Description of Image 5.</p>
@@ -60,7 +70,7 @@
         </div>
         <div class="col-md-6 mb-4">
             <div class="card">
-                <img src="{% static 'img/gallery/image6.jpg' %}" class="card-img-top" alt="Image 6">
+                <img src="{% static 'img/gallery/image6.jpg' %}" class="card-img-top gallery-image" alt="Image 6">
                 <div class="card-body">
                     <h5 class="card-title">Image 6</h5>
                     <p class="card-text">Description of Image 6.</p>
@@ -71,10 +81,36 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div class="alert alert-danger mt-4" role="alert">
-                This is a validation message. Replace it with your actual validation message logic.
+            {% if messages %}
+            <div class="container mt-3">
+                {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}">
+                    {{ message }}
+                </div>
+                {% endfor %}
             </div>
+            {% endif %}
         </div>
     </div>
+
 </div>
+
+<script>
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByTagName('form');
+        Array.prototype.forEach.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+</script>
+
 {% endblock %}
