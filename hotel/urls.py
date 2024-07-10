@@ -1,5 +1,6 @@
 from django.contrib.auth import views as auth_views
-from django.urls import path
+from django.contrib import admin
+from django.urls import path, include
 from django.urls import reverse_lazy
 from . import views
 
@@ -15,6 +16,9 @@ from hotel.views import (
 )
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', views.home, name='home'),
+    path('', include('hotel.urls')),
     path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', CustomLogoutView.as_view(), name='logout'), 
     path('signup/', SignupView.as_view(), name='signup'), 
@@ -34,10 +38,10 @@ urlpatterns = [
     path('bookings/add/', BookingCreateView.as_view(), name='booking_add'),
     path('bookings/<int:pk>/edit/', BookingUpdateView.as_view(), name='booking_edit'),
     path('bookings/<int:pk>/delete/', BookingDeleteView.as_view(), name='booking_delete'),
+    path('booking/', views.booking_form, name='booking_form'),
     path('book_now/', views.book_now, name='book_now'),
     path('contact_us/', views.contact_us, name='contact_us'),
     
-
     #payment CRUD
     path('payment/', views.payment, name='payment'),
 ]

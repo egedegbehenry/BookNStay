@@ -66,6 +66,9 @@
                 <button class="btn btn-secondary" type="submit">Signup</button>
             </div>
         </div>
+        <div>
+            <p>Already have an account? <a href="{% url "login" %}">Login Here</a></p>
+        </div>
         {% if success_message %}
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ first_name }} {{ success_message }}

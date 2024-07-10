@@ -22,7 +22,7 @@
             <h1>Welcome To BookNStay: Where Comfort Meets Convenience</h1>
             <p>Experiencing Home Away From Home</p>
             {% if user.is_authenticated %}
-              <p><a class="btn btn-lg btn-primary" href="{% url 'booking_form' %}" role="button">Book Now</a></p>
+              <p><a class="btn btn-lg btn-primary" href="{% url 'booking_add' %}" role="button">Book Now</a></p>
             {% else %}
               <p><a class="btn btn-lg btn-primary" href="{% url 'signup' %}" role="button">Sign Up Now</a></p>
             {% endif %}
@@ -39,7 +39,7 @@
             <h1>Welcome To BookNStay: Luxury and Comfort in Every Stay.</h1>
             <p>Experiencing Home Away From Home</p>
             {% if user.is_authenticated %}
-              <p><a class="btn btn-lg btn-primary" href="{% url 'booking_form' %}" role="button">Book Now</a></p>
+              <p><a class="btn btn-lg btn-primary" href="{% url 'booking_add' %}" role="button">Book Now</a></p>
             {% else %}
               <p><a class="btn btn-lg btn-primary" href="{% url 'signup' %}" role="button">Sign Up Now</a></p>
             {% endif %}
@@ -56,7 +56,7 @@
             <h1>Welcome To BookNStay: Discover the Difference in Hospitality.</h1>
             <p>Experiencing Home Away From Home</p>
             {% if user.is_authenticated %}
-              <p><a class="btn btn-lg btn-primary" href="{% url 'booking_form' %}" role="button">Book Now</a></p>
+              <p><a class="btn btn-lg btn-primary" href="{% url 'booking_add' %}" role="button">Book Now</a></p>
             {% else %}
               <p><a class="btn btn-lg btn-primary" href="{% url 'signup' %}" role="button">Sign Up Now</a></p>
             {% endif %}
