@@ -4,11 +4,7 @@
 
 {% block content %}
 <div class="container">
-  <div>
-    <h1>Welcome to BookNStay</h1>
-    <h5><a href="{% url 'book_now' %}">Click Here to Book Now</a></h5>
-  </div>
-
+  
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -23,9 +19,13 @@
 
         <div class="container">
           <div class="carousel-caption text-left">
-            <h1>BookNStay: Where Comfort Meets Convenience</h1>
+            <h1>Welcome To BookNStay: Where Comfort Meets Convenience</h1>
             <p>Experiencing Home Away From Home</p>
-            <p><a class="btn btn-lg btn-primary" href="{% url 'signup' %}" role="button">Book Now</a></p>
+            {% if user.is_authenticated %}
+              <p><a class="btn btn-lg btn-primary" href="{% url 'booking_form' %}" role="button">Book Now</a></p>
+            {% else %}
+              <p><a class="btn btn-lg btn-primary" href="{% url 'signup' %}" role="button">Sign Up Now</a></p>
+            {% endif %}
           </div>
         </div>
       </div>
@@ -36,9 +36,13 @@
 
         <div class="container">
           <div class="carousel-caption">
-            <h1>BookNStay: Luxury and Comfort in Every Stay.</h1>
+            <h1>Welcome To BookNStay: Luxury and Comfort in Every Stay.</h1>
             <p>Experiencing Home Away From Home</p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            {% if user.is_authenticated %}
+              <p><a class="btn btn-lg btn-primary" href="{% url 'booking_form' %}" role="button">Book Now</a></p>
+            {% else %}
+              <p><a class="btn btn-lg btn-primary" href="{% url 'signup' %}" role="button">Sign Up Now</a></p>
+            {% endif %}
           </div>
         </div>
       </div>
@@ -49,9 +53,13 @@
 
         <div class="container">
           <div class="carousel-caption text-right">
-            <h1>BookNStay: Discover the Difference in Hospitality.</h1>
+            <h1>Welcome To BookNStay: Discover the Difference in Hospitality.</h1>
             <p>Experiencing Home Away From Home</p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+            {% if user.is_authenticated %}
+              <p><a class="btn btn-lg btn-primary" href="{% url 'booking_form' %}" role="button">Book Now</a></p>
+            {% else %}
+              <p><a class="btn btn-lg btn-primary" href="{% url 'signup' %}" role="button">Sign Up Now</a></p>
+            {% endif %}
           </div>
         </div>
       </div>
