@@ -22,6 +22,42 @@ from .forms import BookingForm, PaymentForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 
+# Account views
+# Login view
+class CustomLoginView(LoginView):
+    template_name = 'hotel/login.html' 
+    success_url = reverse_lazy('room_list') 
+
+# Logout view
+class CustomLogoutView(LoginRequiredMixin, View):
+    def get(self, request):
+        logout(request)
+        messages.success(request, 'Successfully logged out.')
+        return HttpResponseRedirect('/')
+
+    def clear_message(request):
+        request.session['success_message'] = ''
+        return JsonResponse({'status': 'message-cleared'}) # Redirect to home page after logout
+ 
+# Password reset request view
+class CustomPasswordResetView(PasswordResetView):
+    template_name = 'hotel/password_reset_form.html'  # Your custom password reset form template
+    email_template_name = 'hotel/password_reset_email.html'  # Your custom password reset email template
+    success_url = reverse_lazy('password_reset_done')  # Redirect to password reset done view upon success
+
+# Password reset done view
+class CustomPasswordResetDoneView(PasswordResetDoneView):
+    template_name = 'hotel/password_reset_done.html'  # Your custom password reset done template
+
+# Password reset confirm view
+class CustomPasswordResetConfirmView(PasswordResetConfirmView):
+    template_name = 'hotel/password_reset_confirm.html'  # Your custom password reset confirm template
+    success_url = reverse_lazy('password_reset_complete')  # Redirect to password reset complete view upon success
+
+# Password reset complete view
+class CustomPasswordResetCompleteView(PasswordResetCompleteView):
+    template_name = 'hotel/password_reset_complete.html'  # Your custom password reset complete template
+
 # View for the home page
 def home(request):
     return render(request, 'hotel/home.html')
@@ -38,6 +74,7 @@ def signup(request):
         form = SignupForm()
     return render(request, 'hotel/signup.html', {'form': form})
 
+# Booking View
 # View for the booking form
 @login_required
 def booking(request):
@@ -88,7 +125,7 @@ class SignupView(View):
                 login(request, user)
                 request.session['success_message'] = 'Successfully Signed up.'
                 request.session['first_name'] = form.cleaned_data.get('first_name')
-                return redirect(reverse('task_list'))
+                return redirect(reverse('booking_list'))
             else:
                 request.session['error_message'] = 'There was an error logging you in after signup. Please try logging in manually.'
                 return redirect(reverse('login'))
@@ -102,42 +139,6 @@ def contact_us(request):
         pass
     
     return render(request, 'hotel/contact_us.html')
-
-# Login view
-class CustomLoginView(LoginView):
-    template_name = 'hotel/login.html' 
-    success_url = reverse_lazy('room_list') 
-
-# Logout view
-class CustomLogoutView(LoginRequiredMixin, View):
-    def get(self, request):
-        logout(request)
-        messages.success(request, 'Successfully logged out.')
-        return HttpResponseRedirect('/')
-
-    def clear_message(request):
-        request.session['success_message'] = ''
-        return JsonResponse({'status': 'message-cleared'}) # Redirect to home page after logout
- 
-# Password reset request view
-class CustomPasswordResetView(PasswordResetView):
-    template_name = 'hotel/password_reset_form.html'  # Your custom password reset form template
-    email_template_name = 'hotel/password_reset_email.html'  # Your custom password reset email template
-    success_url = reverse_lazy('password_reset_done')  # Redirect to password reset done view upon success
-
-# Password reset done view
-class CustomPasswordResetDoneView(PasswordResetDoneView):
-    template_name = 'hotel/password_reset_done.html'  # Your custom password reset done template
-
-# Password reset confirm view
-class CustomPasswordResetConfirmView(PasswordResetConfirmView):
-    template_name = 'hotel/password_reset_confirm.html'  # Your custom password reset confirm template
-    success_url = reverse_lazy('password_reset_complete')  # Redirect to password reset complete view upon success
-
-# Password reset complete view
-class CustomPasswordResetCompleteView(PasswordResetCompleteView):
-    template_name = 'hotel/password_reset_complete.html'  # Your custom password reset complete template
-
 
 # Room Views
 class RoomListView(ListView):
@@ -192,7 +193,17 @@ class BookingCreateView(CreateView):
     model = Booking
     form_class = BookingForm
     template_name = 'hotel/booking_form.html'
-    success_url = reverse_lazy('booking_list')
+    success_url = reverse_lazy('booking_list')  # Redirect to booking_list URL upon successful form submission
+
+    def form_valid(self, form):
+        # Additional logic can be added here before saving the form
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['success_message'] = 'Booking successful! Your room has been reserved.'
+        context['error_message'] = None  # You can set error_message if needed based on specific conditions
+        return context
 
 class BookingUpdateView(UpdateView):
     model = Booking

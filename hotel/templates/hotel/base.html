@@ -6,131 +6,183 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="author" content="Henry Egedegbe">
   <meta name="generator" content="Hugo 0.72.0">
   <title>{% block title %}BookNStay{% endblock %}</title>
   <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/carousel/">
-  
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
     href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
     rel="stylesheet">
 
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
     integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
 
-<!-- Custom CSS -->
-<link rel="stylesheet" href="{% static 'hotel/css/style.css' %}">
-<link rel="stylesheet" href="{% static 'hotel/css/room_list_view.css' %}">
-<link rel="stylesheet" href="{% static 'hotel/css/room_detail_view.css' %}">
-<link rel="stylesheet" href="{% static 'hotel/css/booking_list_view.css' %}">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static 'hotel/css/account.css' %}">
+  <link rel="stylesheet" href="{% static 'hotel/css/room.css' %}">
+  <link rel="stylesheet" href="{% static 'hotel/css/booking.css' %}">
 
   {% block extra_css %}
   <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-
-    /* GLOBAL STYLES */
-    body {
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-      color: #5a5a5a;
-    }
-
-    /* Carousel base class */
-    .carousel {
-      margin-bottom: 4rem;
-    }
-
-    /* Since positioning the image, we need to help out the caption */
-    .carousel-caption {
-      bottom: 3rem;
-      z-index: 10;
-    }
-
-    /* Declare heights because of positioning of img element */
-    .carousel-item {
-      height: 32rem;
-    }
-
-    .carousel-item>img {
-      position: absolute;
+    /* Background container styling */
+    .background-container {
+      overflow-x: hidden;
+      position: fixed;
       top: 0;
       left: 0;
-      min-width: 100%;
-      height: 32rem;
+      min-width: 100vw;
+      min-height: 100vh;
+      background-image: url("{% static 'hotel/images/Hotelnightview.jpg' %}") !important;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      z-index: -99;
     }
 
-    /* MARKETING CONTENT */
-    .marketing .col-lg-4 {
+    /* Overlay styling for background container */
+    .background-container::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #f7f6f6;
+      opacity: 0.5;
+      z-index: -98;
+    }
+
+    /* Hero section styling */
+    .first-carousel-bg {
+      overflow-x: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      background-image: url("{% static 'hotel/images/hotelbuilding.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      z-index: 1;
+    }
+
+    .second-carousel-bg {
+      overflow-x: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      background-image: url("{% static 'hotel/images/hotelkingroom.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      z-index: 1;
+    }
+
+    .third-carousel-bg {
+      overflow-x: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      background-image: url("{% static 'hotel/images/hotelnightview.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      z-index: 1;
+    }
+
+    #heroCarousel {
+      overflow-x: hidden;
+      position: fixed;
+      min-width: 100vw;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .carousel-inner {
+      width: 100%;
+    }
+
+    .carousel-item {
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      text-align: left;
+      position: relative;
+    }
+
+    .carousel-caption {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(245, 240, 240, 0.9);
+      padding: 2rem;
+      border-radius: 10px;
+    }
+
+    .carousel-caption h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .carousel-caption .brand-highlight {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #1481f5;
+    }
+
+    .carousel-caption p {
+      font-size: 1.05rem;
       margin-bottom: 1.5rem;
-      text-align: center;
+      color: dimgray;
     }
 
-    .marketing h2 {
-      font-weight: 400;
+    .carousel-caption a {
+      font-size: 1.25rem;
+      padding: 0.75rem 1.5rem;
     }
 
-    .marketing .col-lg-4 p {
-      margin-right: .75rem;
-      margin-left: .75rem;
-    }
+    @media (max-width: 768px) {
+      .carousel-caption {
+        padding: 1rem;
+      }
 
-    /* Featurettes */
-    .featurette-divider {
-      margin: 5rem 0;
-    }
+      .carousel-caption h1 {
+        font-size: 2rem;
+      }
 
-    .featurette-heading {
-      font-weight: 300;
-      line-height: 1;
-      letter-spacing: -.05rem;
-    }
+      .carousel-caption .brand-highlight {
+        font-size: 2.5rem;
+      }
 
-    /* RESPONSIVE CSS */
-    @media (min-width: 40em) {
       .carousel-caption p {
-        margin-bottom: 1.25rem;
-        font-size: 1.25rem;
-        line-height: 1.4;
+        font-size: 1rem;
       }
 
-      .featurette-heading {
-        font-size: 50px;
-      }
-    }
-
-    @media (min-width: 62em) {
-      .featurette-heading {
-        margin-top: 7rem;
+      .carousel-caption a {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
       }
     }
   </style>
   {% endblock %}
-
-  <!-- Custom styles for this template -->
-  <link href="{% static 'carousel.css' %}" rel="stylesheet">
 </head>
+
 <body>
-    {% block content %}{% endblock %}
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <div class="background-container"></div>
+  <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">BookNStay</a>
@@ -155,21 +207,21 @@
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
-          </li>
+            </li>
 
-          {% else %}
-          <li class="nav-item active">
-            <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'signup' %}">Book Now</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
-        </li>
+            {% else %}
+            <li class="nav-item active">
+              <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'signup' %}">Book Now</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
+            </li>
           </ul>
           {% endif %}
           <form class="d-flex">
@@ -180,108 +232,46 @@
       </div>
     </nav>
   </header>
-
-  <style>
-      .alert-danger {
-          color: #721c24;
-          background-color: #f8d7da;
-          border-color: #f5c6cb;
-          padding: .75rem 1.25rem;
-          margin-top: .5rem;
-          margin-bottom: .5rem;
-          border: 1px solid transparent;
-          border-radius: .25rem;
-      }
-      .form-group {
-          margin-bottom: 1rem;
-      }
-      .form-text.text-muted {
-          font-size: .875em;
-      }
-  </style>
- 
-
-    <style>
-        .alert {
-            margin-top: .75rem;
-        }
-    </style>
-    {% if messages %}
-        <div class="container mt-3">
-            {% for message in messages %}
-                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}">
-                    {{ message }}
-                </div>
-            {% endfor %}
+  <main>
+    <!-- Error Handling -->
+    <div class="container">
+      {% if messages %}
+      <div class="mt-3">
+        {% for message in messages %}
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}">
+          {{ message }}
         </div>
-    {% endif %}
-</body>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div> <!-- Contents from other templates -->
+    {% block content %}
 
-
-<!--Adding CSS for room_list-->
-<link rel="stylesheet" href="{% static 'path/to/your/css/bootstrap.min.css' %}">
-    <style>
-        .alert {
-            margin-top: .75rem;
-        }
-    </style>
- 
-</head>
-<body>
-    <div class="container">
-        {% if messages %}
-            <div class="mt-3">
-                {% for message in messages %}
-                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            </div>
-        {% endif %}
-    </div>
-    
-  
-
-<!--Adding CSS for booking_list-->
-    <link rel="stylesheet" href="{% static 'path/to/your/css/bootstrap.min.css' %}">
-    <style>
-        .alert {
-            margin-top: .75rem;
-        }
-    </style>
-   
-</head>
-<body>
-    <div class="container">
-        {% if messages %}
-            <div class="mt-3">
-                {% for message in messages %}
-                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            </div>
-        {% endif %}
-    </div>
-
+    {% endblock %}
+  </main>
+  {% if user.is_authenticated %}
   <footer class="container">
     <div class="socials-container">
       <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram social-icon"></i></a>
       <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook social-icon"></i></a>
       <a href="https://github.com/egedegbehenry" target="_blank"><i class="fa-brands fa-github social-icon"></i></a>
-      <a href="https://www.linkedin.com/in/henry-egedegbe-38763284/" target="_blank"><i class="fa-brands fa-linkedin social-icon"></i></a>
+      <a href="https://www.linkedin.com/in/henry-egedegbe-38763284/" target="_blank"><i
+          class="fa-brands fa-linkedin social-icon"></i></a>
     </div>
     <p>&copy; Henry Egedegbe 2024</p>
   </footer>
+  {% endif %}
 
-  {% block extra_js %}
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
   <!-- Custom JS -->
-  <script src="{% static 'js/script.js' %}"></script>
-  {% endblock %}
+  <script src="{% static 'hotel/js/account.js' %}"></script>
+  <script src="{% static 'hotel/js/room.js' %}"></script>
+  <script src="{% static 'hotel/js/booking.js' %}"></script>
 </body>
 
 </html>

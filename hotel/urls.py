@@ -1,7 +1,6 @@
 from django.contrib.auth import views as auth_views
 from django.contrib import admin
 from django.urls import path, include
-from django.urls import reverse_lazy
 from . import views
 
 from .views import (
@@ -16,24 +15,21 @@ from hotel.views import (
 )
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path('', include('hotel.urls')),
     path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', CustomLogoutView.as_view(), name='logout'), 
     path('signup/', SignupView.as_view(), name='signup'), 
     path('password-reset/', CustomPasswordResetView.as_view(), name='password_reset'),  
     path('password-reset/done/', CustomPasswordResetDoneView.as_view(), name='password_reset_done'),
-    path('password-reset/confirm/<uidb64>/<token>/', CustomPasswordResetConfirmView.as_view(), name='password_reset_confirm'), #Not working 
-    path('password-reset/complete/', CustomPasswordResetCompleteView.as_view(), name='password_reset_complete'),   #Not working 
- 
-    #Rooms CRUD
+    path('password-reset/confirm/<uidb64>/<token>/', CustomPasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('password-reset/complete/', CustomPasswordResetCompleteView.as_view(), name='password_reset_complete'),
+
+    # Rooms CRUD
     path('rooms/', RoomListView.as_view(), name='room_list'),   
     path('rooms/add/', RoomCreateView.as_view(), name='room_add'),
     path('rooms/<int:pk>/edit/', RoomUpdateView.as_view(), name='room_edit'),
     path('rooms/<int:pk>/delete/', RoomDeleteView.as_view(), name='room_delete'),
 
-    #Bookings CRUD
+    # Bookings CRUD
     path('bookings/', BookingListView.as_view(), name='booking_list'),
     path('bookings/add/', BookingCreateView.as_view(), name='booking_add'),
     path('bookings/<int:pk>/edit/', BookingUpdateView.as_view(), name='booking_edit'),
@@ -41,18 +37,6 @@ urlpatterns = [
     path('book_now/', views.book_now, name='book_now'),
     path('contact_us/', views.contact_us, name='contact_us'),
     
-    #payment CRUD
+    # Payment CRUD
     path('payment/', views.payment, name='payment'),
 ]
-
-    
-    
-  
-   
-    
-
-
-
-
-
-   

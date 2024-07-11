@@ -1,59 +1,62 @@
 {% extends 'hotel/base.html' %}
 {% block title %}Booking | BookNStay{% endblock %}
 {% block content %}
-<div class="d-flex flex-column align-items-center justify-content-center check_availability">
-    <div class="headings m-4">
-        <h1>BookNStay</h1>
-        <h1>Hotel</h1>
-    </div>
-    <div id="search-bar" style="color: #fff;">
-        <form method="POST" class="search-form m-0 container needs-validation" action="" novalidate>
-            {% csrf_token %}
-            <div class="date-row row">
-                <div class="form-group d-flex justify-content-space-between col-sm-6">
-                    <label class="mr-2" for="{{ form.check_in.id_for_label }}">From:</label>
-                    {{ form.check_in }}
-                    {% if form.check_in.errors %}
-                        <div class="alert alert-danger">{{ form.check_in.errors }}</div>
-                    {% endif %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card p-4">
+                <h2 class="mb-4">Book a Room</h2>
+                <form method="POST" class="needs-validation" action="">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="{{ form.check_in.id_for_label }}">Check-in Date:</label>
+                        {{ form.check_in }}
+                        {% if form.check_in.errors %}
+                        <div class="invalid-feedback d-block">{{ form.check_in.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.check_out.id_for_label }}">Check-out Date:</label>
+                        {{ form.check_out }}
+                        {% if form.check_out.errors %}
+                        <div class="invalid-feedback d-block">{{ form.check_out.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.room.id_for_label }}">Room:</label>
+                        {{ form.room }}
+                        {% if form.room.errors %}
+                        <div class="invalid-feedback d-block">{{ form.room.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.name.id_for_label }}">Your Name:</label>
+                        {{ form.name }}
+                        {% if form.name.errors %}
+                        <div class="invalid-feedback d-block">{{ form.name.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.address.id_for_label }}">Address:</label>
+                        {{ form.address }}
+                        {% if form.address.errors %}
+                        <div class="invalid-feedback d-block">{{ form.address.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <button class="btn btn-primary" type="submit">Book Now</button>
+                </form>
+                {% if success_message %}
+                <div class="alert alert-success mt-3">
+                    {{ success_message }}
                 </div>
-                <div class="form-group d-flex justify-content-space-around col-sm-6">
-                    <label for="{{ form.check_out.id_for_label }}">To: </label>
-                    {{ form.check_out }}
-                    {% if form.check_out.errors %}
-                        <div class="alert alert-danger">{{ form.check_out.errors }}</div>
-                    {% endif %}
+                {% endif %}
+                {% if error_message %}
+                <div class="alert alert-danger mt-3">
+                    {{ error_message }}
                 </div>
-            </div>
-            <div class="form-group row">
-                <label for="{{ form.room_category.id_for_label }}">Room Category:</label>
-                {{ form.room_category }}
-                {% if form.room_category.errors %}
-                    <div class="alert alert-danger">{{ form.room_category.errors }}</div>
                 {% endif %}
             </div>
-            <div class="form-group row mw-50 m-2">
-                <button class="btn btn-primary col-12 mw-50" type="submit">Save</button>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
-
-<script>
-(function() {
-    'use strict';
-    window.addEventListener('load', function() {
-        var forms = document.getElementsByClassName('needs-validation');
-        var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-                if (form.checkValidity() === false) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            }, false);
-        });
-    }, false);
-})();
-</script>
 {% endblock %}
