@@ -1,22 +1,10 @@
 {% load static %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="Henry Egedegbe">
-  <meta name="generator" content="Hugo 0.72.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}BookNStay{% endblock %}</title>
-  <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/carousel/">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
-    rel="stylesheet">
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
@@ -27,157 +15,7 @@
   <link rel="stylesheet" href="{% static 'hotel/css/room.css' %}">
   <link rel="stylesheet" href="{% static 'hotel/css/booking.css' %}">
 
-  {% block extra_css %}
-  <style>
-    /* Background container styling */
-    .background-container {
-      overflow-x: hidden;
-      position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100vw;
-      min-height: 100vh;
-      background-image: url("{% static 'hotel/images/Hotelnightview.jpg' %}") !important;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      z-index: -99;
-    }
-
-    /* Overlay styling for background container */
-    .background-container::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: #f7f6f6;
-      opacity: 0.5;
-      z-index: -98;
-    }
-
-    /* Hero section styling */
-    .first-carousel-bg {
-      overflow-x: hidden;
-      position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100vw;
-      min-height: 100vh;
-      background-image: url("{% static 'hotel/images/hotelbuilding.jpg' %}");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      z-index: 1;
-    }
-
-    .second-carousel-bg {
-      overflow-x: hidden;
-      position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100vw;
-      min-height: 100vh;
-      background-image: url("{% static 'hotel/images/hotelkingroom.jpg' %}");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      z-index: 1;
-    }
-
-    .third-carousel-bg {
-      overflow-x: hidden;
-      position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100vw;
-      min-height: 100vh;
-      background-image: url("{% static 'hotel/images/hotelnightview.jpg' %}");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      z-index: 1;
-    }
-
-    #heroCarousel {
-      overflow-x: hidden;
-      position: fixed;
-      min-width: 100vw;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-    }
-
-    .carousel-inner {
-      width: 100%;
-    }
-
-    .carousel-item {
-      height: 100vh;
-      background-size: cover;
-      background-position: center;
-      text-align: left;
-      position: relative;
-    }
-
-    .carousel-caption {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: rgba(245, 240, 240, 0.9);
-      padding: 2rem;
-      border-radius: 10px;
-    }
-
-    .carousel-caption h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .carousel-caption .brand-highlight {
-      font-size: 3rem;
-      font-weight: bold;
-      color: #1481f5;
-    }
-
-    .carousel-caption p {
-      font-size: 1.05rem;
-      margin-bottom: 1.5rem;
-      color: dimgray;
-    }
-
-    .carousel-caption a {
-      font-size: 1.25rem;
-      padding: 0.75rem 1.5rem;
-    }
-
-    @media (max-width: 768px) {
-      .carousel-caption {
-        padding: 1rem;
-      }
-
-      .carousel-caption h1 {
-        font-size: 2rem;
-      }
-
-      .carousel-caption .brand-highlight {
-        font-size: 2.5rem;
-      }
-
-      .carousel-caption p {
-        font-size: 1rem;
-      }
-
-      .carousel-caption a {
-        font-size: 1rem;
-        padding: 0.5rem 1rem;
-      }
-    }
-  </style>
-  {% endblock %}
+  {% block extra_css %}{% endblock %}
 </head>
 
 <body>
@@ -186,32 +24,35 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">BookNStay</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
           aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto mb-2 mb-md-0">
-
-            {% csrf_token %}
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
             {% if user.is_authenticated %}
-
-            <li class="nav-item active">
-              <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'contact_us' %}">Contact Us</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Book Now</a>
+            <li class="nav-item dropdown">
+              <button class="nav-link dropdown-toggle" onclick="toggleDropdown('bookingDropdown')" aria-haspopup="true"
+                aria-expanded="false">
+                Book Now ▼
+              </button>
+              <ul id="bookingDropdown" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{% url 'booking_add' %}">Make Booking</a></li>
+                <li><a class="dropdown-item" href="{% url 'booking_list' %}">Manage Booking</a></li>
+              </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
             </li>
-
             {% else %}
-            <li class="nav-item active">
-              <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Contact Us</a>
@@ -220,58 +61,63 @@
               <a class="nav-link" href="{% url 'signup' %}">Book Now</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
             </li>
+            {% endif %}
           </ul>
-          {% endif %}
           <form class="d-flex">
-            <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
         </div>
       </div>
     </nav>
   </header>
-  <main>
-    <!-- Error Handling -->
-    <div class="container">
-      {% if messages %}
-      <div class="mt-3">
-        {% for message in messages %}
-        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}">
-          {{ message }}
-        </div>
-        {% endfor %}
-      </div>
-      {% endif %}
-    </div> <!-- Contents from other templates -->
-    {% block content %}
 
-    {% endblock %}
+  <main>
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
   </main>
+
   {% if user.is_authenticated %}
   <footer class="container">
     <div class="socials-container">
-      <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram social-icon"></i></a>
-      <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook social-icon"></i></a>
-      <a href="https://github.com/egedegbehenry" target="_blank"><i class="fa-brands fa-github social-icon"></i></a>
+      <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram social-icon"></i></a>
+      <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook social-icon"></i></a>
+      <a href="https://github.com/egedegbehenry" target="_blank"><i class="fab fa-github social-icon"></i></a>
       <a href="https://www.linkedin.com/in/henry-egedegbe-38763284/" target="_blank"><i
-          class="fa-brands fa-linkedin social-icon"></i></a>
+          class="fab fa-linkedin social-icon"></i></a>
     </div>
     <p>&copy; Henry Egedegbe 2024</p>
   </footer>
   {% endif %}
 
   <!-- Bootstrap JS and dependencies -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
 
   <!-- Custom JS -->
-  <script src="{% static 'hotel/js/account.js' %}"></script>
-  <script src="{% static 'hotel/js/room.js' %}"></script>
-  <script src="{% static 'hotel/js/booking.js' %}"></script>
-</body>
+  <script>
+    // Function to toggle dropdown visibility
+    function toggleDropdown(id) {
+      var dropdown = document.getElementById(id);
+      dropdown.classList.toggle('show');
+    }
 
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.closest('.dropdown-menu')) {
+        var dropdowns = document.getElementsByClassName('dropdown-menu');
+        for (var i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
+</body>
 </html>
