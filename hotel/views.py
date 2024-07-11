@@ -193,7 +193,7 @@ class BookingCreateView(CreateView):
     model = Booking
     form_class = BookingForm
     template_name = 'hotel/booking_form.html'
-    success_url = reverse_lazy('booking_list')  # Redirect to booking_list URL upon successful form submission
+    success_url = reverse_lazy('hotel/booking_list.html')  # Redirect to booking_list URL upon successful form submission
 
     def form_valid(self, form):
         # Additional logic can be added here before saving the form

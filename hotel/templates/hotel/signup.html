@@ -5,6 +5,20 @@
 {% block content %}
 <div class="container mt-4 signup-page card p-4">
     <h2 class="mb-4">Sign Up</h2>
+    
+    {% if messages %}
+        <div id="message-container">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
     <form method="post" class="needs-validation" novalidate>
         {% csrf_token %}
         <div class="form-group row mb-3">
@@ -69,22 +83,6 @@
         <div>
             <p>Already have an account? <a href="{% url 'login' %}">Login Here</a></p>
         </div>
-        {% if success_message %}
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ first_name }} {{ success_message }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        {% endif %}
-        {% if error_message %}
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            {{ error_message }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        {% endif %}
     </form>
 </div>
 
@@ -102,6 +100,14 @@
                     form.classList.add('was-validated');
                 }, false);
             });
+
+            // Hide messages after 5 seconds
+            var messageContainer = document.getElementById('message-container');
+            if (messageContainer) {
+                setTimeout(function () {
+                    messageContainer.style.display = 'none';
+                }, 5000); // 5000 milliseconds = 5 seconds
+            }
         }, false);
     })();
 </script>
