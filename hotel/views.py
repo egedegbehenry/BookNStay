@@ -188,22 +188,26 @@ class BookingListView(ListView):
             print(f"Booking PK: {booking.pk}, Check-in: {booking.check_in}, Check-out: {booking.check_out}")  # Debugging line
         return context
 
-
 class BookingCreateView(CreateView):
     model = Booking
     form_class = BookingForm
     template_name = 'hotel/booking_form.html'
-    success_url = reverse_lazy('hotel/booking_list.html')  # Redirect to booking_list URL upon successful form submission
+    success_url = reverse_lazy('booking_list')  # Ensure this matches the URL name in urls.py
 
     def form_valid(self, form):
-        # Additional logic can be added here before saving the form
-        return super().form_valid(form)
+        response = super().form_valid(form)
+        messages.success(self.request, 'Booking successful! Your room has been reserved.')
+        return response
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['success_message'] = 'Booking successful! Your room has been reserved.'
-        context['error_message'] = None  # You can set error_message if needed based on specific conditions
-        return context
+    def form_invalid(self, form):
+        messages.error(self.request, 'There was an error with your booking. Please try again.')
+        return super().form_invalid(form)
+    if request.method == 'POST':
+        room.delete()
+        messages.success(request, 'Room has been deleted successfully.')
+        return redirect('booking_list')
+
+
 
 class BookingUpdateView(UpdateView):
     model = Booking
