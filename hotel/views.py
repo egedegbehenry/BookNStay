@@ -202,10 +202,18 @@ class BookingCreateView(CreateView):
     def form_invalid(self, form):
         messages.error(self.request, 'There was an error with your booking. Please try again.')
         return super().form_invalid(form)
-    if request.method == 'POST':
-        room.delete()
-        messages.success(request, 'Room has been deleted successfully.')
-        return redirect('booking_list')
+
+    def post(self, request, *args, **kwargs):
+        if 'delete_room' in request.POST:  # Assuming you have a delete button with this name
+            room_id = request.POST.get('room_id')  # Assuming you're passing the room ID
+            try:
+                room = Room.objects.get(id=room_id)
+                room.delete()
+                messages.success(request, 'Room has been deleted successfully.')
+                return redirect('booking_list')
+            except Room.DoesNotExist:
+                messages.error(request, 'Room not found.')
+        return super().post(request, *args, **kwargs)
 
 
 
