@@ -14,7 +14,8 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
     rel="stylesheet">
 
   <!-- Font Awesome -->
@@ -208,12 +209,17 @@
                 Booking
               </a>
               <ul class="dropdown-menu card" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item nav-link" href="{% url 'booking_add' %}" style="color: black;">Make Booking</a></li>
-                <li><a class="dropdown-item nav-link" href="{% url 'booking_list' %}" style="color: black;">Manage Booking</a></li>
+                <li><a class="dropdown-item nav-link" href="{% url 'booking_add' %}" style="color: black;">Make
+                    Booking</a></li>
+                <li><a class="dropdown-item nav-link" href="{% url 'booking_list' %}" style="color: black;">Manage
+                    Booking</a></li>
               </ul>
             </li>
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="{% url 'logout' %}">Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'profile' %}">Profile</a>
             </li>
             {% else %}
             <li class="nav-item">
@@ -251,12 +257,11 @@
       </div>
       {% endif %}
     </div>
-    <!-- Contents from other templates -->
     {% block content %}
 
     {% endblock %}
   </main>
-  {% if user.is_authenticated %}
+
   <footer class="container">
     <div class="socials-container">
       <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram social-icon"></i></a>
@@ -267,7 +272,6 @@
     </div>
     <p>&copy; Henry Egedegbe 2024</p>
   </footer>
-  {% endif %}
 
   <!-- Bootstrap JS and dependencies -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

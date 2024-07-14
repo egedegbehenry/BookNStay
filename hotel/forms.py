@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordResetForm
 from .models import User, Room, Booking, Payment
 
+from django.contrib.auth import get_user_model
 
 class SignupForm(UserCreationForm):
     username = forms.CharField(
@@ -51,10 +52,10 @@ class SignupForm(UserCreationForm):
             self.add_error('password2', "The two password fields didn't match.")
         return cleaned_data
 
-class CustomUserCreationForm(UserCreationForm):
-    class Meta:
-        model = User
-        fields = ('username', 'email', 'first_name', 'last_name', 'password1', 'password2')
+# class CustomUserCreationForm(UserCreationForm):
+#     class Meta:
+#         model = User
+#         fields = ('username', 'email', 'first_name', 'last_name', 'password1', 'password2')
 
 
 class CustomUserChangeForm(UserChangeForm):
@@ -133,3 +134,8 @@ class CustomPasswordResetForm(PasswordResetForm):
             'placeholder': 'Enter your email',
         })
     )
+
+class CustomUserChangeForm(UserChangeForm):
+    class Meta:
+        model = get_user_model()
+        fields = ['username', 'email', 'first_name', 'last_name']
