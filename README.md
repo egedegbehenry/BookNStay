@@ -155,11 +155,11 @@ A "search box" is a graphical user interface (GUI) element was implemented to al
 A delete button was added to the manage bookings page that will enable users to delete their booking.
 ![Edit & Delete](https://github.com/room edit / delete .......)
 
-#### Footer:
+<!-- #### Footer:
 ![footer](https://github.com/footer.....)
 
 Links in the footer redirect to respective social media pages. 
-It allows users to stay connected with the The Book Booth on social media platforms, keeping them informed about any changes that may occur over time.
+It allows users to stay connected with the The Book Booth on social media platforms, keeping them informed about any changes that may occur over time. -->
 
 ### Error Pages
 
@@ -202,8 +202,7 @@ This functionality not only enhances user experience but also ensures that custo
 Entity Relationship Diagrams (ERD) help the developer to make connections between databases and information. Creating an ERD helped me understand how the tables relate to one another. I used db diagram to create the diagram and the arrow represent how the data fields relate to one another.
 
 
-![Data base diagram](https://github.com/..................)
-
+![DataBase Diagram](<BookNStay db-diagram.png>)
 
 ## Security
 Views were secured by using the django class based view mixin, UserPassesTextMixin. A test function was created to use the mixin and checks were ran to ensure that the user who is trying to access the page is authorized. Any staff restricted functionality, user edit/delete functionality listed in the features was secured using this method.
