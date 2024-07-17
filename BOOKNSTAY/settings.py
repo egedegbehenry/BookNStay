@@ -98,8 +98,14 @@ WSGI_APPLICATION = 'BOOKNSTAY.wsgi.application'
 #        }  
 #        }
 
+#DATABASES = {
+    #'default': dj_database_url.parse(os.getenv("DATABASE_URL"))
+#}
+
 DATABASES = {
-    'default': dj_database_url.parse(os.getenv("DATABASE_URL"))
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
 }
 
 # Password validation
