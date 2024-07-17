@@ -132,7 +132,7 @@ A booking page for users was designed with a form that enables the user to enter
 
 Some booking validation criteria was applied to the form to ensure that there there is no overlapping booking made by different users on the same room. If the room is booked by other customer the form alerts the user that booking is not available on the given date.
 
-![book form](https://github.com/room gallery .......)
+![Make Booking](<BookNStayMakeBoooking.jpeg>)
 
 ### Manage bookings page
 
