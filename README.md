@@ -25,7 +25,6 @@ https://thebookbooth1-559d9131718c.herokuapp.com/
 
 Henry is a passionate traveler who loves exploring new places and experiencing different cultures. She spends most of her free time planning her next adventure and is always on the lookout for the best hotels to stay in. He often travels to new cities and would like to view available hotel rooms and amenities before making a reservation.
 
-
 ## User Stories:
 
 * As a guest, I want to be able to browse the available hotel rooms before booking, so I can choose the best option for my stay.
@@ -43,6 +42,8 @@ Henry is a passionate traveler who loves exploring new places and experiencing d
 * As a user, I want to be able to read more information about a room and hotel, so I can ensure it meets my needs and preferences.
 
 * As an admin, I want to be able to moderate user bookings and reviews, so I can ensure the information is appropriate and helpful for all users.
+
+*As a user.......
 
 ## Wireframe & Initial Design:
 
