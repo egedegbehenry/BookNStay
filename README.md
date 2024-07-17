@@ -70,7 +70,7 @@ Logout - Visible to logged in users
 
 The navigation menu is displayed on all pages and they adapt to different screen sizes and devices. This will provide users with a structured and organized way to move around a website. It helps users find and access the content or functionality they are looking for.
 
-![home](github link to the picture of the home page)
+![Home Page](<BookNStayHomePage.jpeg>)
 
 Welcome to BookNStay, your ultimate hotel booking platform! Our landing page introduces you to our website and features a call-to-action button encouraging new guests and users to sign up. By signing up and logging in, you'll gain access to view available rooms and manage your bookings seamlessly.
 
@@ -81,13 +81,13 @@ Our intuitive navigation bar provides quick and easy access to essential section
 
 Registration on BookNStay allows users to view available rooms and detailed booking information. It also enables them to add, edit, and delete their bookings, ensuring the hotel listings are always up-to-date and accurate. Sign up now to manage your reservations effortlessly and enjoy a seamless booking experience! 
 
-![signup](https://github.com/signup.......)
+![Sign up](<BookNStaySignUp.jpeg>)
 
 
 
 #### Sign In:
 
-![sign-in](https://github.com/signin.......)
+![Sign in](<BookNStaySignUp.jpeg>)
 
 
 #### Rooms:
@@ -188,7 +188,7 @@ A 500 error page has been displayed to alert users when an internal server error
 ## Agile Methodology:
 This project was developed using Agile principles and managed through a GitHub project board. As an individual developer implementing Agile for the first time, I found that creating user stories and identifying acceptance criteria provided a clear roadmap for targeting the various features and functionalities of the BookNStay hotel booking system. This approach helped me stay focused and minimized distractions.
 
-![project board](https://github.com/..................)
+![Project Board](<BookNStayKanbanBoard.jpeg>)
 
 ### Database-Design
 The application's database is composed of several distinct tables, each serving a specific purpose. These tables include Room, Booking, Category, User, and Auth-User. Together, they empower users to seamlessly carry out CRUD (Create, Read, Update, Delete) operations through an intuitive web-based user interface.
@@ -261,9 +261,9 @@ The social media links in the footer section were adorned with icons obtained fr
 
 ## Colour scheme:
 
-#fafafa - Header
+Dark - Header
 
-Dark  - Buttons
+#fafafa  - Buttons
 
 #809977 - Footer
 
