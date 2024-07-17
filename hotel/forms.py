@@ -78,18 +78,17 @@ class RoomForm(forms.ModelForm):
             'star_rating': forms.NumberInput(attrs={'class': 'form-control', 'required': 'required'}),
         }
 
-
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ['user', 'room', 'name', 'address', 'check_in', 'check_out']
+        fields = ['check_in', 'check_out', 'room', 'name', 'address']
+
         widgets = {
-            'user': forms.Select(attrs={'class': 'form-control'}),
+            'check_in': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'check_out': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'room': forms.Select(attrs={'class': 'form-control'}),
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'address': forms.TextInput(attrs={'class': 'form-control'}),
-            'check_in': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
-            'check_out': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
         }
 
     def clean(self):
@@ -102,8 +101,6 @@ class BookingForm(forms.ModelForm):
                 self.add_error('check_out', 'Checkout date must be after check-in date.')
 
         return cleaned_data
-
-
 class PaymentForm(forms.ModelForm):
     class Meta:
         model = Payment

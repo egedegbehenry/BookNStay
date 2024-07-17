@@ -1,7 +1,7 @@
 from django.urls import reverse_lazy
+from django.urls import reverse
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView, View
 from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
@@ -9,6 +9,8 @@ from django.http import HttpResponseRedirect, JsonResponse
 from .models import Room, Booking
 from .forms import RoomForm, BookingForm, SignupForm, PaymentForm, CustomUserChangeForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.views.generic import CreateView
 
 # Account views
 class CustomLoginView(LoginView):
@@ -159,14 +161,18 @@ class BookingCreateView(CreateView):
     success_url = reverse_lazy('booking_list')
 
     def form_valid(self, form):
-        response = super().form_valid(form)
+        # Assign the current user to the booking before saving
+        booking = form.save(commit=False)
+        booking.user = self.request.user  # Assuming you have a 'user' field in your Booking model
+        booking.save()
+        
         messages.success(self.request, 'Booking successful! Your room has been reserved.')
-        return response
+        return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.error(self.request, 'There was an error with your booking. Please try again.')
+        # Handling form errors
+        messages.error(self.request, 'There was an error with your booking. Please correct the errors below.')
         return super().form_invalid(form)
-
 class BookingUpdateView(UpdateView):
     model = Booking
     form_class = BookingForm
