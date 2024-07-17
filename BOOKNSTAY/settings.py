@@ -1,8 +1,10 @@
 import os
 import dj_database_url
+from decouple import config
 from pathlib import Path
 if os.path.isfile("env.py"):
     import env
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -98,14 +100,8 @@ WSGI_APPLICATION = 'BOOKNSTAY.wsgi.application'
 #        }  
 #        }
 
-#DATABASES = {
-    #'default': dj_database_url.parse(os.getenv("DATABASE_URL"))
-#}
-
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
+    'default': dj_database_url.parse(os.getenv("DATABASE_URL"))
 }
 
 # Password validation
