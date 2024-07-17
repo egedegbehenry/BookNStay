@@ -43,7 +43,6 @@ Henry is a passionate traveler who loves exploring new places and experiencing d
 
 * As an admin, I want to be able to moderate user bookings and reviews, so I can ensure the information is appropriate and helpful for all users.
 
-*As a user.......
 
 ## Wireframe & Initial Design:
 
