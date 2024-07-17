@@ -1,548 +1,359 @@
-<a name="readme-top"></a>
-
-<!--
-*** Thank you for checking out and/or using this README Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "improvement".
-*** Adapt appropriately and replace all placeholder text with accurate information relating to your project.
-*** Do not forget to take the asset folder along with the README.md file so that the icons link will not be broken.
-*** Remove all *N/B* comments!
-*** Don't forget to give the project a star!
--->
-
-<!-- PROJECT LOGO (N/B: Replace logo url and image to match your project)-->
-<br />
-<div align="center">
-  <a href="https://github.com/scientistigwe/README-Template">
-    <img src="./assets/images/logo.png" alt="Project Logo" width="80" height="80">
-    </div>
-  </a>
-
-  <h1 align="center">PROJECT TITLE</h1>
-
-  <p align="center">
-    A README template that can be adapted to suite your projects!
-    <br>
-    (Replace with a short intro sentence about your project).
-    <br />
-    <br />
-    <a href="https://github.com/path-to-readme-file"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-
-<!-- TABLE OF CONTENTS -->
-
-Table of Contents
-
-<!-- INTRODUCTION SECTION -->
-
-  <details>
-  <summary><a href="#introduction">SECTION 1: INTRODUCTION</a></summary>
-        <li><a href="#about-the-project">About The Project</a>
-        <li><a href='#ux'>User Experience (UX)</a></li>
-        <li><a href='#user-stories'>User Stories</a></li>
-        <li><a href="#technology-stack">Technology Stack</a></li>
-        <li><a href="#languages-frameworks-libraries">Languages, Frameworks and Libraries</a></li>
-        <li><a href="#management-and-development">Project Management and Development Approach</a></li>
-    </details>
-    <!-- PROJECT SETUP SECTION -->
-    <details>
-    <summary><a href="#project-setup">SECTION 2: PROJECT SETUP</a>
-</summary>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-    </details>
-    <details>
-    <summary><a href="#features-and-structure">SECTION 3: PROJECT FEATURES AND STRUCTURE</summary>
-    <li><a href="#features">Features</a></li>
-        <li><a href="#structure-and-navigation">Structure and Navigation</a></li>
-        <li><a href="#wireframes">Wireframes</a></li>
-         <li><a href="#design-and-styling">Design and Styling</a>
-        <ol>
-            <li><a href="#design">Design</a></li>
-            <li><a href="#color">Color</a></li>
-            <li><a href="#font">font</a></li>
-            <li><a href="#media">media</a></li>
-        </ol>
-        </li>
-</details>
-<details>
-<summary><a href="#testing-and-validation">SECTION 4: TESTING AND VALIDATION</a>
-</summary>
-    <li><a href="#testing">Testing</a></li>
-        <li><a href="#validation">Validation</a>
-        <ol>
-        <li><a href="#html-validator-report">HTML Validator Report</a></li>
-        <li><a href="#css-validator-report">CSS Validator Report</a></li>
-        </ol>
-        </li>
-        <li><a href="#user-story-testing">User Story Testing</a></li>
-        <li><a href="#bugs-and-issues">Bugs and Issues</a></li>
-</details>
-<details>
-<summary><a href="#deployment-and-credits">SECTION 5: DEPLOYMENT AND CREDITS</a>
-</summary>
-        <li><a href="#final-product">Final Product</a></li>
-        <li>
-            <a href="#credits">Credits</a>
-            <ol>
-                <li><a href="#template">Template</a></li>
-                <li><a href="#content">Content</a></li>
-                <li><a href="#media2">Media</a></li>
-            </ol>
-        </li>
-<li><a href="#acknowledgments">Acknowledgments</a></li>
-<li><a href="#contact">Contact</a></li>
-</details>
+BookNStay 
 
-<!-- INTRODUCTION -->
+BookNStay is a hotel booking project that is a Full Stack website built using Django framework. This booking website is built to enable guest and users to look for a hotel room online and make booking with respect to their choice. Users are required to register in order to make booking. When a user registered a user profile will be generated and user can update profile biography and profile image. Users can put their reviews on the booking they made and manage their own booking details. In addition users can create, update or edit and delete their own room booking.
 
-#
+![Responsice Mockup](https://github.com/BookNStay_mockup.png)
 
-<section>
-<h1 id="introduction">SECTION 1: INTRODUCTION </h1>
 
-This section contains summary information about the project, the user expections and tools used in building this solution.
+The live application can be viewed here : 
 
-<h2 id="about-the-project">About The Project</h2>
+https://thebookbooth1-559d9131718c.herokuapp.com/
 
-<p align="center"><a href="https://path-to-deployed-site.com">"**name-of-project**"</a></p>
 
-<a href="https://github.com/scientistigwe/README-Template">
-<img src="./assets/images/screenshot.png" alt="Product Screenshot" width="600" height="600">
-</a>
+# Purpose and Target Audience:
 
-<h2 id="ux">User Experience (UX)</h2>
+*Problem Statement:* Travelers face difficulties in knowing the availability of rooms across various hotels before making a trip. Additionally, they have no effective way to communicate their booking preferences or receive updates on their reservations.
 
-"**name-of-project**" is a software designed to provide abc services.
+*Purpose:* This hotel booking system will provide a detailed list of available rooms and their statuses. Users will be able to book, modify, and cancel their reservations easily, ensuring the application remains up-to-date and user-friendly.
 
-The uniqueness of this project are:
+*Target Audience:* This system is designed for frequent travelers who need reliable hotel booking options and for individuals seeking a streamlined and community-driven platform to share their experiences and preferences with fellow travelers.
 
-- abc
-- xyz
-- 123
-- etc
+#Personal and User Stories:
 
-You can view the deployed website [here](https://path-to-deployed-site.com)
+Henry is a passionate traveler who loves exploring new places and experiencing different cultures. She spends most of her free time planning her next adventure and is always on the lookout for the best hotels to stay in. He often travels to new cities and would like to view available hotel rooms and amenities before making a reservation.
 
-<h2 id="user-stories">User Stories</h2>
 
-- As a new user of this website, I want to easily.......
-- As a new user of this website, I want to quickly.......
-- As a new user of this website, I want to quickly.......
-- As a new user of this website, I want to see.......
-- As a new user of this website, I want to see.......
-- As a new user of this website, I want to easily find.......
-- As a new user to this website, I want to meet the team
-- As a user, I want to follow xyz on social media.......
-- etc
+## User Stories:
 
-<h2 id="technology-stack">Technology Stack</h2>
+* As a guest, I want to be able to browse the available hotel rooms before booking, so I can choose the best option for my stay.
 
-This subsection outlines the technologies, frameworks, libraries, and tools used in the development of this project. It provides insight into the foundational components that power "**name-of-project**". Add-ons ad plugins are captured in the acknowledgements subsection (N/B: below are dummy samples. Replace with the actual project frameworks and libraries).
+* As a user, I want to be able to add a booking with all relevant details, so other users can see the latest available rooms and services.
 
-<h2 id="languages-frameworks-libraries">Languages, Frameworks and Libraries</h2>
+* As a user, I want to be able to create an account, so I can view available rooms and detailed booking information.
 
-- <img src="./assets/icons/html5.svg" width="20px" align="top"><a href="https://en.wikipedia.org/wiki/HTML5"> HTML5</a> - Used for designing the structure of the project.
+* As a guest, I want to be able to browse the available hotel rooms before booking, so I can choose the best option for my stay.
 
-- <img src="./assets/icons/css3-alt.svg" width="20px" align="top"><a href="https://en.wikipedia.org/wiki/CSS"> CSS3</a> - Used for styling the project.
+* As a user, I want to be able to edit and delete my bookings, so my information remains accurate and up-to-date.
 
-- <img src="./assets/icons/Google.png" width="20px" align="top"><a href="https://fonts.google.com/"> Google Fonts</a> - Provides all of the fonts for this website.
+* As a user, I want to explore new hotels and room options, so I can discover the best places to stay.
 
-- <img src="./assets/icons/font_awesome.png" width="20px" align="top"><a href="https://fontawesome.com/"> Font Awesome</a> - Used for the site icons.
+* As a user, I want to be able to read more information about a room and hotel, so I can ensure it meets my needs and preferences.
 
-- <img src="./assets/icons/javascript.png" width="20px" align="top"><a href="https://en.wikipedia.org/wiki/JavaScript"> JavaScript</a> - Used for the hamburger navigation and icons.
+* As an admin, I want to be able to moderate user bookings and reviews, so I can ensure the information is appropriate and helpful for all users.
 
-- <img src="./assets/icons/github.png" width="20px" align="top"><a href="https://github.com/IrisSmok"> Github</a> - Used to store the project code.
+## Wireframe & Initial Design:
 
-- <img src="./assets/icons/gitpod.png" width="20px" align="top"><a href="https://www.gitpod.io/"> Gitpod</a> - An IDE Used for coding.
+![Home Page](<BookNStay_Large Screen.png>)
 
-- <img src="./assets/icons/balsamiq.png" width="20px" align="top"><a href="https://balsamiq.com/"> Balsamiq</a> - Used to create site wireframes.
+## Website-Structure-Design
 
-- <img src="./assets/icons/shutterstock.png" width="20px" align="top"><a href="https://www.shutterstock.com/home"> Shutterstock</a> and <img src="./assets/icons/unsplash.png" width="20px" align="top"><a href="https://unsplash.com/"> Unsplash photo</a> - Used for all images on the website.
+## Features:
 
-- <img src="./assets/icons/google_map.png" width="20px" align="top"><a href="https://google-map-generator.com/"> Google Map Generator</a> - Used to import business location.
+### Home Page:
 
-- <img src="./assets/icons/responsive-devices.png" width="20px" align="top"><a href="http://ami.responsivedesign.is/"> Am I Responsive</a> - Used to check if the site is responsive on different screen sizes.
+#### Navbar & Hero Image:
+The Navigation menu is made up of the follow tabs:Home, About, Rooms, Bookings, Profile, Reviews, Register and Login tabs.
 
-- <img src="./assets/icons/IMG2GO.png" width="20px" align="top"><a href="https://www.img2go.com/compress-image#j=f26cc008-23b4-4d4e-9934-96877fa9a7e7"> IMG2GO</a> and <img src="./assets/icons/Tiny_PNG.png" width="20px" align="top"><a href="https://tinypng.com/"> Tiny PNG</a> - Used to help compress the images.
+The navigation menu serves as a navigational tool that allows users to access different sections, pages, or features of the website. Here are some key points about navigation menus:
 
-- <img src="./assets/icons/html_formatter.png" width="20px" align="top"><a href="https://www.freeformatter.com/html-formatter.html"> Free Online HTML Formatter</a> - Used to correct indentation issues and get rid of excess whitespace.
+*Home - Visible to all
+*About - Visible to all
+*Rooms - Visible to all
+           *Manage Bookings - accessible by logged in users
+           *Create Booking - accessible by logged in users
+*Booking (Drop Down):
+                *Make Bookings - accessible by logged in users
+                *Manage Booking - accessible by logged in users
+*Login - Visible to logged out users
+Register - Visible to logged out users
+Logout - Visible to logged in users
 
-- <img src="./assets/icons/next_js.png" width="20px" align="top"><a href="[Next-url]"> Next.js</a> - Used for server-side rendering and building modern, scalable web applications.
+The navigation menu is displayed on all pages and they adapt to different screen sizes and devices. This will provide users with a structured and organized way to move around a website. It helps users find and access the content or functionality they are looking for.
 
-- <img src="./assets/icons/react..png" width="20px" align="top"><a href="[React-url]"> React.js</a> - Used for building user interfaces, especially single-page applications.
+![home](github link to the picture of the home page)
 
-- <img src="./assets/icons/Vue_js.png" width="20px" align="top"><a href="[Vue-url]"> Vue.js</a> - Used for building interactive web interfaces and single-page applications.
+Welcome to BookNStay, your ultimate hotel booking platform! Our landing page introduces you to our website and features a call-to-action button encouraging new guests and users to sign up. By signing up and logging in, you'll gain access to view available rooms and manage your bookings seamlessly.
 
-- <img src="./assets/icons/angular.png" width="20px" align="top"><a href="[Angular-url]"> Angular</a> - Used for building large-scale, high-performance web applications.
+Our intuitive navigation bar provides quick and easy access to essential sections of the website, including Home, Rooms, Add a Booking, Register/Logout, and Sign In. The hero image, showcasing stunning hotel destinations, enhances the aesthetic appeal and reflects our commitment to providing top-notch accommodations worldwide.
 
-- <img src="./assets/icons/svelte.png" width="20px" align="top"><a href="[Svelte-url]"> Svelte</a> - Used for building fast, lightweight web applications with minimal overhead.
 
-- <img src="./assets/icons/laravel.png" width="20px" align="top"><a href="[Laravel-url]"> Laravel</a> - Used for building web applications with elegant syntax and a robust ecosystem.
+#### Registration:
 
-- <img src="./assets/icons/bootstrap.png" width="20px" align="top"><a href="[Bootstrap-url]"> Bootstrap</a> - Used for building responsive and mobile-first websites and web applications.
+Registration on BookNStay allows users to view available rooms and detailed booking information. It also enables them to add, edit, and delete their bookings, ensuring the hotel listings are always up-to-date and accurate. Sign up now to manage your reservations effortlessly and enjoy a seamless booking experience! 
 
-- <img src="./assets/icons/jquery.png" width="20px" align="top"><a href="[JQuery-url]"> jQuery</a> - Used for simplifying HTML document traversing, event handling, and animation.
+![signup](https://github.com/signup.......)
 
-<h2 id="management-and-development">Project Management and Development Approach</h2>
 
-This project was implemented using the Agile Manifesto methodology. Below are the ways this project adhered to the 4 core values and 12 core principles of the aforementioned method:
 
-<strong>Four Values of the Agile Manifesto:</strong>
+#### Sign In:
 
-- Vision 1: Customer collaboration over contract negotiation: **[Sample description]** The Team held [**number of meetings**] planning sessions via **Zoom, Google Meet, or Microsoft Teams**, ensuring alignment with customer needs and prioritizing features through user story mapping.
-- **a screenshot or graphic representation of a Zoom meeting with team members.**
+![sign-in](https://github.com/signin.......)
 
-- Vision 2: Responding to change over following a plan: **[Sample description]**: Throughout the project, the team managed (
-  [![GitHub issues](https://img.shields.io/github/issues-closed/github-username/name-of-repository?)](https://github.com/github-username/name-of-repository/issues) + [![GitHub issues](https://img.shields.io/github/issues/github-username/name-of-repository?)](https://github.com/github-username/name-of-repository/issues) ) GitHub issues, adapting to changing requirements and feedback iteratively.
-  **A screenshot of the GitHub project board demonstrates their flexibility.**
 
-- Vision 3: Working software over comprehensive documentation: **[Sample description]** Achieved **[number of story points]** across **[number of sprints]**, emphasizing the focus on delivering functional software increments.
-- **A snapshot of the scrum/kanban board tracks their progress.**
+#### Rooms:
 
-- Vision 4: Individuals and interactions over processes and tools
-  Description: Daily interactions on GitHub led to **[number of commits]**, fostering collaboration and knowledge sharing among team members.
-- **A snapshot of GitHub issue discussions illustrates their collaborative environment.**
+BookNStay Hotel offers a diverse range of accommodations to meet the unique needs and preferences of every guest. Each room is designed with comfort, luxury, and convenience in mind, ensuring a pleasant and memorable stay.
 
-<strong>Twelve Principles of the Agile Manifesto</strong>
+Whether you're traveling solo, as a couple, or with family, our rooms provide a cozy and comfortable environment with essential amenities. For those seeking extra space and enhanced features, our upgraded options offer additional comforts and luxurious decor.
 
-- Satisfy the customer: Held regular stakeholder meetings to ensure alignment with customer needs.
-- Deliver working software: Prioritized delivering functional increments in each sprint, allowing for early feedback.
-- Welcome changing requirements: Maintained open communication channels and adapted plans iteratively.
-- Collaborate daily: Conducted **(frequency of standup) stand-up** meetings to facilitate collaboration and problem-solving.
-- Face-to-face conversation: Utilized **in-person and/or virtual meetings (select one or all the options)** to enhance clarity and understanding.
-- Motivated individuals: Empowered team members through skill development and recognition.
-- Measure progress through working product: Evaluated progress based on delivered functionality in each sprint.
-- Promote sustainable development: Prioritized sustainability practices to ensure long-term success.
-- Simplicity is essential: Used MoSCoW prioritization and focused on MVP delivery to avoid unnecessary complexity.
-- Continuous attention to technical excellence: Adopted show and tell technique to ensure all team members learn while collaborating.
-- Self-organizing team: Encouraged autonomy and collaboration within the team.
-- Regular reflection on continuous improvement: Conducted regular retrospectives to identify areas for improvement.
+Business travelers will find our accommodations well-suited to their needs, with dedicated workspaces and high-speed internet to ensure productivity and relaxation. For guests desiring the ultimate in luxury, our premium options deliver expansive living spaces, premium furnishings, and exclusive services for an extraordinary experience.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+At BookNStay Hotel, we are committed to providing a comfortable, enjoyable, and tailored experience for all our guests.
 
-<!-- PROJECT SETUP -->
+![add a book](https://github.com/room.......)
 
-#
 
-<h1 id="project-setup">SECTION 2: PROJECT SETUP</h1>
+# Room categories:
+The Room Details page on BookNStay allows users to find more information about the room they are interested in. The room details include the room type, amenities, price per night, and a brief description, along with an image of the room. This provides users with sufficient information to make an informed decision about their stay.
 
-In this section, a detailed account of all requirements needed for "**name-of-project**" to be setup and running. It also includes installation instructions and a link to all necessary documentations for these tools.
+At BookNStay Hotel, we offer a diverse range of rooms to cater to every guest's needs and preferences. Our accommodations are designed to provide comfort, luxury, and convenience, ensuring a memorable stay with a feeling of home away from home.
 
-<h2 id="prerequisites">Prerequisites</h2>
+*Single Room:* Perfect for solo travelers, our Single Rooms offer a cozy and comfortable space equipped with all essential amenities. Ideal for business trips or short stays.
 
-Below are the list of softwares required to setup and start using "**name-of-project**" (N/B: if no installation is required. Then write: "**name-of-project**" does not rely on any external dependencies or services.):
+*King Room:* Spacious and elegantly furnished, our King Rooms feature a large king-sized bed, providing ample space for relaxation and a restful night's sleep.
 
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
-- etc
+*Queen Room:* Our Queen Rooms offer a blend of comfort and style with a plush queen-sized bed. These rooms are perfect for couples or individuals seeking a bit more space.
 
-<h2 id="installation">Installation</h2>
+*Deluxe Room:* The Deluxe Rooms provide an upgraded experience with additional space, enhanced amenities, and luxurious decor. Perfect for guests looking for a premium stay.
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+*Executive Room:* Designed for business travelers, our Executive Rooms offer a sophisticated environment with a work desk, high-speed internet, and other business-friendly amenities, ensuring productivity and relaxation.
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API";
-   ```
+*Presidential Room:* The epitome of luxury, our Presidential Rooms offer unparalleled comfort and elegance. These rooms feature expansive living spaces, premium furnishings, and exclusive services, providing an extraordinary stay for our most discerning guests.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+No matter which room you choose, BookNStay Hotel guarantees a comfortable and enjoyable experience tailored to your specific needs.
 
-#
 
-<h1 id="features-and-structure">SECTION 3: PROJECT FEATURES AND STRUCTURE</h1>
+![room list](https://github.com/room.......)
 
-This section encompasses the various elements and functionalities aimed at enhancing the user experience and achieving the goals of ["**name-of-project**"] website. It outlines the key features and structural components intended to provide visitors with a seamless and informative journey through the platform.
 
-<h1 id="features">Features</h1>
+#### Create booking page:
 
-The key features are:
+A booking page for users was designed with a form that enables the user to enter details for booking enables the user to easily make a booking through the UI.
 
-- <strong>Navigation:</strong> Designed to facilitate users effortlessly access to different sections and pages.
-- <strong>Services:</strong> Provides comprehensive information about the services offered by the project.
-- <strong>Pricing:</strong> Provides corresponding prices on services offered by ["**name-of-project**"], enabling users to make informed decisions about their choices.
-- <strong>Testimonials:</strong> Showcases testimonials and highlights positive experiences from previous clients, fostering trust and credibility among potential customers.
-- <strong>Gallery:</strong> Presents a visually appealing gallery displaying a pictorial representation of ["**name-of-project**"], serving as a source of inspiration for clients.
-- <strong>Contact Form:</strong> Offers a user-friendly contact form that simplifies the process of reaching out to the team. This will empower clients to submit inquiries, book appointments, or provide feedback seamlessly.
-- <strong>Contact Information:</strong> Displays essential contact details of the team prominently on the website, ensuring users can easily reach out to the establishment via phone, email, or physical address.
-- <strong>Social Links:</strong> Includes links to the company's social media profiles, enabling users to stay connected and updated with the latest news, promotions, and announcements.
-- <strong>Responsive Design:</strong> Ensures that the website is accessible and functional across various devices and screen sizes, providing a consistent user experience.
-- <strong>Interactive Elements:</strong> Incorporates interactive elements such as buttons, sliders, and hover effects to enhance user engagement and interactivity, making the browsing experience more enjoyable and intuitive.
+Some booking validation criteria was applied to the form to ensure that there there is no overlapping booking made by different users on the same room. If the room is booked by other customer the form alerts the user that booking is not available on the given date.
 
-- Other features to be implemented in the future include:
+![book form](https://github.com/room gallery .......)
 
-- <strong>Online Booking:</strong> Implementing an online booking system that enables clients to schedule appointments directly through the website, offering convenience and flexibility in selecting desired dates and times for their visits.
+### Manage bookings page
 
-- <strong>ChatBot:</strong>: An AI-powered self service system that will guide and direct clients based on their specific needs.
+A manage bookings page was add in order for user to have access of bookings made previously. Login validation is required for the user in order to have access on their own bookings. If the user is validated then the user will be redirected to the bookings list to view their scheduled bookings.
 
-<h2 id="structure-and-navigation">Structure and Navigation</h2>
+![Edit & Delete](https://github.com/room edit / delete .......)
 
-- **File Organisation**
+Edit Booking Page
 
-  - The files where structured into folders and clustered based on functionality. Also file naming convention that reflects the functions of the conetent of the file was adopted.
+On the 'Manage Bookings' page, you'll find an 'Edit' button that directs users to a form, enabling them to update their booking as needed. This convenient feature empowers users to effortlessly oversee and modify their own reservations.
 
-- **Header**
+![Edit & Delete](https://github.com/room edit / delete .......)
 
-  - "**name-of-project**" logo positioned [left|right|center]
-  - Appears on every page
+### Search box
 
-- **Nav bar**
+A "search box" is a graphical user interface (GUI) element was implemented to allow users to input specific keywords, phrases, or queries to search for rooms within the hotel. Search box facilitates information retrieval and navigation within the website, making it easier for users to find what they're looking for quickly and efficiently.
 
-  - Appers on every page
-  - Navigation bar on the [left|right|center]
+### Delete Booking
 
-- **Menu items**
+A delete button was added to the manage bookings page that will enable users to delete their booking.
+![Edit & Delete](https://github.com/room edit / delete .......)
 
-  - Appers on every page
-  - Directs users to specific page
+#### Footer:
+![footer](https://github.com/footer.....)
 
-- **Footer**
+Links in the footer redirect to respective social media pages. 
+It allows users to stay connected with the The Book Booth on social media platforms, keeping them informed about any changes that may occur over time.
 
-  - Includes a [contact information, contact form, newsletter, Resources and social links] (N/B: adjust as appropriate)
-  - Appears on every page
+### Error Pages
 
-- **Home Page**
-  - _Hero image_ - appears at the top-[left|right|center] of the home page, below the header section.
-  - _Testimonials_ - just below the "**name-of-section**" section, responsively arrange to maximize various device screen width and give users a good experience.
-  - _Call to action buttons_ - provides an easy portal to other specific page of "**name-of-project**".
-- **Services** - Services has a dedicated page with a navigation link on both the navbar and one of the call-to-action buttons on the homepage.
-- **Pricing** - Pricing and Plans has a dedicated page with a navigation link on both the navbar and one of the call-to-action buttons on the homepage.
-- **Our Team** - Our Teams has a dedicated page with a navigation link on both the navbar and one of the call-to-action buttons on the homepage.
-- **Gallery** - Gallery has a dedicated page with a navigation link on both the navbar and one of the call-to-action buttons on the homepage.
-- **Contact Us** - This is located at the [left|right|center] of the footer.
+## 404 Page
 
-<h2 id="wireframes">Wireframes</h2>
+a "404 Error Page" or simply an "Error 404 Page," is displayed to a user when they try to access a URL (Uniform Resource Locator) on a website, but the server cannot find the requested page. The "404" status code is part of the HTTP protocol, indicating that the requested resource (web page) does not exist.
 
-### _File Organisation Tree_
+The custom 404 page will allow the user to easily navigate back to the main page if they direct to a broken link / missing page, with custom link that directs the user to home page.
 
-<p align="center">
-<img src="wireframe/file_org_tree.png" width="600" height="700">
-</p>
+### 500 Page
 
-### _Home Page_
+A 500 error page has been displayed to alert users when an internal server error occurs. The message relays to users that the problem is on our end, not theirs.
 
-<p align="center">
-<img src="wireframe/home-page.png" width="600" height="700">
-</p>
+# Future Features:
 
-### _Services & Prices_
+* Payment option
 
-<p align="center">
-<img src="wireframe/services-prices.png" width="600" height="900">
-</p>
+* Rewiews
 
-### _OurTeam_
+### Features Left to Implement
 
-<p align="center">
-<img src="wireframe/our-team.png" width="600" height="900">
-</p>
+- Another feature idea
 
-### _Gallery_
+### User Experience - Design
 
-<p align="center">
-<img src="wireframe/gallery.png" width="600" height="900">
-</p>
+## Agile Methodology:
+This project was developed using Agile principles and managed through a GitHub project board. As an individual developer implementing Agile for the first time, I found that creating user stories and identifying acceptance criteria provided a clear roadmap for targeting the various features and functionalities of the BookNStay hotel booking system. This approach helped me stay focused and minimized distractions.
 
-### _Contact Us_
+![project board](https://github.com/..................)
 
-<p align="center">
-<img src="wireframe/contact.png" width="600" height="900">
-</p>
+### Database-Design
+The application's database is composed of several distinct tables, each serving a specific purpose. These tables include Room, Booking, Category, User, and Auth-User. Together, they empower users to seamlessly carry out CRUD (Create, Read, Update, Delete) operations through an intuitive web-based user interface.
 
-### _Mobile View - Home Page_
+Of these tables, the User database takes center stage, serving as the primary table within the application. It establishes vital connections with other tables through foreign key relationships, enhancing the overall functionality and cohesion of the system.
 
-<p align="center">
-<img src="wireframe/mobile-home-page.png" width="400" height="1000">
-</p>
+Within the database, bookings are intricately linked to customers (users) through a Foreign Key relationship. This connection empowers users with the capability to seamlessly access, view, and update bookings associated with their individual accounts.
 
-<h2 id="design-and-styling">Design and Styling</h2>
+This functionality not only enhances user experience but also ensures that customers have full control and visibility over their reservations. It provides a convenient means to make changes, check booking details, and manage their bookings efficiently, contributing to a user-centric approach within the application.
 
-<h3 id="design">Design</h3>
+Entity Relationship Diagrams (ERD) help the developer to make connections between databases and information. Creating an ERD helped me understand how the tables relate to one another. I used db diagram to create the diagram and the arrow represent how the data fields relate to one another.
 
-Given the serene ambiance of the establishment, the website echoes this sentiment through its design. Employing a predominantly white background conveys cleanliness, brightness, and sterility—attributes associated with a tranquil setting. Complementary background hues evoke a sense of calmness, while vibrant and colorful imagery aims to immerse visitors in the **[name of project]** ambiance.
 
-<h3 id="color">Color</h3>
+![Data base diagram](https://github.com/..................)
 
-- **Main background color - **#color hex** (color name)** - I chose this color because **\*\***\***\*\***
-- **h1 headings and nav bar - [color]** - reason
-- **h2 headings - [color]** - reason
-- **p - [color]** - reason
-- **footer - [color]** - reason
 
-<h3 id="font">Font</h3>
+## Security
+Views were secured by using the django class based view mixin, UserPassesTextMixin. A test function was created to use the mixin and checks were ran to ensure that the user who is trying to access the page is authorized. Any staff restricted functionality, user edit/delete functionality listed in the features was secured using this method.
 
-- main font: Font name
-- Secondary font - Font name
+Environment variables were stored in an env.py for local development for security purposes to ensure no secret keys, api keys or sensitive information was added the the repository. In production, these variables were added to the heroku config vars within the project.
 
-<h3 id="media">Media</h3>
+### Technologies
+*Python*
+  *Python is the programming language applied to design this application.
 
-**Hero image** - short description and reason for selection
+*JavaScript*
+  *JavaScript was utilized to create a custom modal on the profile page, to integrate the Bootstrap, further enriching the website's interactivity.
 
-**Contact section** - short description and reason for selection
+*Visual Studio Code and Gitpod*
+ *Visual Studio Code and Gitpod IDE tool was utilized in building the website.
 
-**Services** - short description and reason for selection
+*HTML*
+ *The primary language utilized in constructing the Website's structure was HTML.
 
-**Plans and Pricing** - short description and reason for selection
+*CSS*
+  *The styling of the Website was designed by utilizing an separate CSS file.
 
-**Our Team** - short description and reason for selection
+*Bootstrap*
+  *Bootstrap used as the front-end CSS framework for modern responsiveness and pre-built components.
 
-**Gallery** - short description and reason for selection
+*ElephantSQL*
+  ElephantSQL used as the Postgres database.
 
-**Contact Us** - short description and reason for selection
+*Heroku*
 
-**etc** - short description and reason for selection
+Heroku used for hosting the deployed back-end site.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+*Git*
+  *The source code of the Website was regularly committed and pushed during its development using Git.
 
-#
+*GitHub*
+  *The source code of the website is accessible on GitHub, and it has been uploaded using Git Pages.
 
-<h1 id="testing-and-validation">SECTION 4: TESTING AND VALIDATION</h1>
-- In this section, the functionalities of the final product was tested and validated to ensure consistency with user stories.
-<h2 id="testing">Testing</h2>
+*Favicon.io*
+  *The favicon files were generated using https://favicon.io/favicon-converter/.
 
-- **Browser Compatibility Testing:** Ensured compatibility with Chrome, Opera, Microsoft Edge, and Firefox desktop browsers.
+*Font Awesome*
+The social media links in the footer section were adorned with icons obtained from https://fontawesome.com/.
 
-- **Responsiveness Testing:** Utilized Chrome Developer Tools to verify responsiveness across multiple devices: Desktop, Laptop, Moto G4, Galaxy S5, iPhone 5/SE, iPhone 6/7/8, iPhone 6/7/8 Plus, iPad, iPad Pro, Galaxy Fold
 
-<h2 id="validation">Validation</h2>
+### Python Modules
 
-The W3C Markup Validator and W3C CSS Validator Services were used to check my code for syntax errors in this project.
+*Django Class-Based Views (ListView, UpdateView, DeleteView, CreateView): These classes were utilized to streamline the creation, reading, updating, and deletion of content in the application, simplifying the view logic and promoting code reusability.
 
-- [HTML](https://validator.w3.org/#validate_by_input)- I checked each page by direct input method on HTML validator site
+*Mixins (LoginRequiredMixin, UserPassesTestMixin): Mixins such as LoginRequiredMixin and UserPassesTestMixin were employed to enforce essential features like requiring user authentication before accessing specific views and verifying whether a user is authorized to perform certain actions within the application.
 
-<p align="center">
-<img src="assets/images/readme/html-validator.png" width="400" height="100%">
-</p>
+*Messages: The 'messages' framework in Django was harnessed to provide informative and user-friendly feedback to site visitors. It facilitated the display of toasts and notifications to communicate actions' outcomes effectively.
 
-- [CSS](https://jigsaw.w3.org/css-validator/)
+# Design Choices:
 
-<p align="center">
-<img src="assets/images/readme/css-validator.png" width="400" height="100%">
-</p>
+## Colour scheme:
 
-- I used Lighthouse tools to test my website
-<p align="center">
-<img src="assets/images/readme/lighthouse.png" width="400" height="100%">
-</p>
+#fafafa - Header
 
-<h3 id="html-validator-report">HTML Validator Report</h3>
+Dark  - Buttons
 
-- _Warning_ : [details of any warning]
+#809977 - Footer
 
-  - [actions taken to remedy it].
+The colours were selected with the intention of complementing the hero image and the idea was to ensure the image was appreciated.
 
-- _Value Error_ : [details of any error]
+## Typography:
+ Consistency in typography enhances the website's overall aesthetic and readability. To achieve this, the website employs the modern and versatile Roboto font for the body text, ensuring a clean and legible reading experience for users.
 
-  - [actions taken to remedy it].
+For titles and headings, the elegant Font awesome, sourced from Google Fonts, is employed. This distinctive typeface adds a touch of sophistication and visual impact to key elements across the website.
 
-<h3 id="css-validator-report">CSS Validator Report</h3>
+### Imagery
+The website's images were sourced from Pexels and Unsplash, both reputable platforms offering a wide selection of royalty-free images. This choice ensures that the visuals used on the website not only enhance its aesthetic appeal but also adhere to legal and ethical standards regarding image usage.
 
-- _Warning_ : [details of any warning]
 
-  - [actions taken to remedy it].
+## Testing 
 
-- _Value Error_ : [details of any error]
+In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your project’s features and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
 
-  - [actions taken to remedy it].
+In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
 
-<h2 id="user-story-testing">User Story Testing</h2>
+You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
 
-- **User Story 1:** [user story here]
+If this section grows too long, you may want to split it off into a separate file and link to it from here.
 
-  - [how it was implemented here]
+### Lighthouse Audit:
+I've tested my deployed project using the Lighthouse Audit tool to check for any major issues.
 
-  (N/B: Use image generated from https://ui.dev/amiresponsive to show the the page in 4 different devices)
+*On a laptop:*
+Home
 
-  <p align="center">
-  <img src="assets/images/readme/logo-navbar.png" width="700" height="100%">
-  </p>
+................pictures
 
-- **User Story 2:** [user story here]
 
-  - [how it was implemented here]
+### Validator Testing 
 
-  (N/B: Use image generated from https://ui.dev/amiresponsive to show the the page in 4 different devices)
+- HTML
+  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcode-institute-org.github.io%2Flove-running-2.0%2Findex.html)
+- CSS
+  - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fcode-institute-org.github.io%252Flove-running-2.0%252Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#css)
 
-  <p align="center">
-  <img src="assets/images/readme/logo-navbar.png" width="700" height="100%">
-  </p>
+### Unfixed Bugs
 
-reapeat for all user stories
+You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed. 
 
-<h2 id="bugs-and-issues">Bugs and Issues</h2>
+### Repository
+The website was developed using the Visual Studio code and gitpod editor and uploaded to the remote repository named 'BookNStay' on GitHub.
 
-- Detail any bug and/or issues encountered, steps taken to correct it. Add images if possible.
+During the development process, the following Git commands were utilized to push the code to the remote repository:
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+ *git add [file] command was utilized to include the file(s) in the staging area prior to committing them.
+  *git commit -m [commit message] command was employed to record and save the changes made to the local repository, preparing them for the final step.
+  *git push command was utilized to upload all committed code to the remote repository on GitHub. 
 
-#
+### Hosting on Heroku
+ *The website was successfully published on Heroku applications. The deployment process involved the following steps:
+ *Open Heroku website and click "New" to create a new app.
+ *Create an app name and region region, click "Create app".
+ *Click "Settings" and click Config Vars. Add the following config variables:
+ *KEY: PORT
+ *VALUE: 8000
+ *SECRET_KEY: (Your secret key)
+ *DATABASE_URL: (This include the database)
+ *CLOUDINARY_URL: (This include the cloudinary storage url)
+ *Select Buildpacks and add buildpacks for Python and NodeJS (in that order).
+ *Click to "Deploy". Select the deployment type to Github and enter repository name and connect.
+ *At the bottom of the page go to Manual Deploy, select "main" branch and select "Deploy Branch".
+ *Once completed successfully, after waiting for some time the app will be deployed to heroku.
 
-<h2 id="deployment-and-credits">SECTION 5: DEPLOYMENT AND CREDITS</h2>
+### Clone the repository code locally
+ To create a local copy of the repository code by cloning it just do the following steos:
 
--In this section, the tested and validated product will be deployed and external resources used during this exercise will be mentioned.
+ *Navigate to the GitHub Repository that you want to clone locally, and then click on the dropdown button labeled "Code".
+ *Click on "HTTPS" and copy the link.
+ *Open your IDE and install git.
+ *On your cmd line write git clone "your https link".
 
-<h2 id="final-product">Final Product</h2>
 
-- The product is live and can be seen on **[url of deployed site]**
+### Credits
+ *The Room and Living room Images was taken from pexels.
 
-### _Home Page_
+ *The Logo Images was taken from LOGO.com
 
-<p align="center">
-<img src="assets/images/readme/desktop-home-page.png" width="600" height="100%">
-</p>
+ *A special thanks to Chibueze Igwe, Ernest Dapaah, Ikenna Egwin, and all the students in our cohort for their continuous help and support throughout the course.
 
-- Add images of various sections of the final product as above.
+ *Font Awesome was used for icons and the fonts used were derived from Google Fonts.
 
-<h2 id="credits">Credits</h2>
+ *Code institute django blog and other resources provided on the LMS.
 
-<h3 id="template">Template</h3>
+ *Wireframes were design by Balsamiq Wireframes
 
-- This template was adopted and adapted from README.md templates published by <a href="https://github.com/scientistigwe/README-Template" alt="Github page of Chibueze C. Igwe" target="_blank">Chibueze C. Igwe</a>, <a href="https://github.com/Iris-Smok/Vannas-Beauty-Salon_PP1" alt="Github page of Iris Smok" target="_blank">Iris Smok</a> and <a href="https://github.com/othneildrew/Best-README-Template" alt="Github page of Othneil Drew" target="_blank">Othneil Drew</a>.
+ *Other past projects especially from https://github.com/hiboibrahim/thebookbooth1 and https://github.com/bky201/HotelBooking
 
-<h3 id="content">Content</h3>
-
-- All content was written by [**Your Name**]
-- Mention sections that was not original and the source where it was adopted from.
-
-- I utilized the guidance provided by [Responsive navbar and hamburger menu](https://dev.to/devggaurav/let-s-build-a-responsive-navbar-and-hamburger-menu-using-html-css-and-javascript-4gci) to develop the responsive navbar and hamburger menu.
-
-<h3 id="media2">Media</h3>
-
-- All images were taken from [Shutterstock](https://www.shutterstock.com/home) and [Unsplash photo](https://unsplash.com/)
-
-<!-- ACKNOWLEDGMENTS -->
-<h2 id="acknowledgments">Acknowledgments</h2>
-
-Use this space to list individuals, groups or resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-- [Choose an Open Source License](https://choosealicense.com)
-- [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-- [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-- [Malven's Grid Cheatsheet](https://grid.malven.co/)
-- [Img Shields](https://shields.io)
-- [GitHub Pages](https://pages.github.com)
-- [Font Awesome](https://fontawesome.com)
-- [React Icons](https://react-icons.github.io/react-icons/search)
-
-<!-- CONTACT -->
-
-<h2 id="contact">Contact</h2>
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-</section>
+ *Code Institute for Full stack development online classe, our facilitators, Iris Smok, Kevin, Martin, David and others. .
