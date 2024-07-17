@@ -57,16 +57,26 @@ The Navigation menu is made up of the follow tabs:Home, About, Rooms, Bookings, 
 The navigation menu serves as a navigational tool that allows users to access different sections, pages, or features of the website. Here are some key points about navigation menus:
 
 *Home - Visible to all
+
 *About - Visible to all
+
 *Rooms - Visible to all
+
            *Manage Bookings - accessible by logged in users
+
            *Create Booking - accessible by logged in users
+
 *Booking (Drop Down):
+
                 *Make Bookings - accessible by logged in users
+
                 *Manage Booking - accessible by logged in users
+
 *Login - Visible to logged out users
-Register - Visible to logged out users
-Logout - Visible to logged in users
+
+*Register - Visible to logged out users
+
+*Logout - Visible to logged in users
 
 The navigation menu is displayed on all pages and they adapt to different screen sizes and devices. This will provide users with a structured and organized way to move around a website. It helps users find and access the content or functionality they are looking for.
 
