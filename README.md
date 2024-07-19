@@ -2,7 +2,7 @@ BookNStay
 
 BookNStay is a hotel booking project that is a Full Stack website built using Django framework. This booking website is built to enable guest and users to look for a hotel room online and make booking with respect to their choice. Users are required to register in order to make booking. When a user registered a user profile will be generated and user can update profile biography and profile image. Users can put their reviews on the booking they made and manage their own booking details. In addition users can create, update or edit and delete their own room booking.
 
-![Responsice Mockup](https://github.com/BookNStay_mockup.png)
+![Responsice Mockup](hotel\static\hotel\images\BookNStayResponsive8.jpeg)
 
 
 ![1](static\hotel\images\BookNStayHomePage.jpeg)
@@ -13,7 +13,7 @@ The live application can be viewed here :
 https://booknstay-e428637d9b82.herokuapp.com/
 
 
-# Purpose and Target Audience:
+## Purpose and Target Audience:
 
 *Problem Statement:* Travelers face difficulties in knowing the availability of rooms across various hotels before making a trip. Additionally, they have no effective way to communicate their booking preferences or receive updates on their reservations.
 
@@ -53,6 +53,8 @@ Henry is a passionate traveler who loves exploring new places and experiencing d
 ![Home Page](hotel\static\hotel\wireframes\BookNStay_phone.png)
 
 ## Website-Structure-Design
+
+![Data base Diagram](hotel\static\hotel\wireframes)
 
 ## Features:
 
@@ -117,7 +119,7 @@ Business travelers will find our accommodations well-suited to their needs, with
 
 At BookNStay Hotel, we are committed to providing a comfortable, enjoyable, and tailored experience for all our guests.
 
-![Book a room / Make booking](https://github.com/room.......)
+![Book a room / Make booking](hotel\static\hotel\images\BookNStayBookingEditDeleteBooking.jpeg)
 
 
 # Room categories:
@@ -140,7 +142,7 @@ At BookNStay Hotel, we offer a diverse range of rooms to cater to every guest's 
 No matter which room you choose, BookNStay Hotel guarantees a comfortable and enjoyable experience tailored to your specific needs.
 
 
-![room list](https://github.com/room.......)
+![room list](hotel\static\hotel\images\BookNStayBookingEditDeleteBooking.jpeg)
 
 
 #### Create booking page:
@@ -149,28 +151,30 @@ A booking page for users was designed with a form that enables the user to enter
 
 Some booking validation criteria was applied to the form to ensure that there there is no overlapping booking made by different users on the same room. If the room is booked by other customer the form alerts the user that booking is not available on the given date.
 
-![Make Booking](<BookNStayMakeBoooking.jpeg>)
+![Make Booking](hotel\static\hotel\images\BookNStayMakeManageBooking.jpeg)
 
 ### Manage bookings page
 
 A manage bookings page was add in order for user to have access of bookings made previously. Login validation is required for the user in order to have access on their own bookings. If the user is validated then the user will be redirected to the bookings list to view their scheduled bookings.
 
-![Edit & Delete](https://github.com/room edit / delete .......)
+![Edit & Delete](hotel\static\hotel\images\BookNStayBookingEditDeleteBooking.jpeg)
 
 Edit Booking Page
 
 On the 'Manage Bookings' page, you'll find an 'Edit' button that directs users to a form, enabling them to update their booking as needed. This convenient feature empowers users to effortlessly oversee and modify their own reservations.
 
-![Edit & Delete](https://github.com/room edit / delete .......)
+![Edit & Delete](hotel\static\hotel\images\BookNStayBookingEditDeleteBooking.jpeg)
 
 ### Search box
 
 A "search box" is a graphical user interface (GUI) element was implemented to allow users to input specific keywords, phrases, or queries to search for rooms within the hotel. Search box facilitates information retrieval and navigation within the website, making it easier for users to find what they're looking for quickly and efficiently.
 
+![Search box in Home Page](hotel\static\hotel\images\BookNStayHomePage.jpeg)
+
 ### Delete Booking
 
 A delete button was added to the manage bookings page that will enable users to delete their booking.
-![Edit & Delete](https://github.com/room edit / delete .......)
+![Edit & Delete](hotel\static\hotel\images\BookNStayBookingEditDeleteBooking.jpeg)
 
 <!-- #### Footer:
 ![footer](https://github.com/footer.....)
@@ -196,16 +200,20 @@ A 500 error page has been displayed to alert users when an internal server error
 
 * Rewiews
 
-### Features Left to Implement
+# Features Left to implement.
 
-- Another feature idea
+*Gallery of the rooms to the home page, showing the different rooms.
+
+![Single room](hotel\static\hotel\images\Single Room.jpg)
+![King room](hotel\static\hotel\images\King Room.jpg)
+![Suite](hotel\static\hotel\images\Presidential Suite.jpg)
 
 ### User Experience - Design
 
 ## Agile Methodology:
 This project was developed using Agile principles and managed through a GitHub project board. As an individual developer implementing Agile for the first time, I found that creating user stories and identifying acceptance criteria provided a clear roadmap for targeting the various features and functionalities of the BookNStay hotel booking system. This approach helped me stay focused and minimized distractions.
 
-![Project Board](<BookNStayKanbanBoard.jpeg>)
+![Project Board](hotel\static\hotel\images\BookNStayKanbanBoard.jpeg)
 
 ### Database-Design
 The application's database is composed of several distinct tables, each serving a specific purpose. These tables include Room, Booking, Category, User, and Auth-User. Together, they empower users to seamlessly carry out CRUD (Create, Read, Update, Delete) operations through an intuitive web-based user interface.
@@ -219,12 +227,16 @@ This functionality not only enhances user experience but also ensures that custo
 Entity Relationship Diagrams (ERD) help the developer to make connections between databases and information. Creating an ERD helped me understand how the tables relate to one another. I used db diagram to create the diagram and the arrow represent how the data fields relate to one another.
 
 
-![DataBase Diagram](<BookNStay db-diagram.png>)
+![DataBase Diagram](hotel\static\hotel\wireframes\BookNStay db-diagram.png)
 
 ## Security
 Views were secured by using the django class based view mixin, UserPassesTextMixin. A test function was created to use the mixin and checks were ran to ensure that the user who is trying to access the page is authorized. Any staff restricted functionality, user edit/delete functionality listed in the features was secured using this method.
 
 Environment variables were stored in an env.py for local development for security purposes to ensure no secret keys, api keys or sensitive information was added the the repository. In production, these variables were added to the heroku config vars within the project.
+
+Users / guest gets authenticated when they login, logout or delete their profile.
+
+![Authentication](hotel\static\hotel\images\BookNStaySuccesfully logout.jpeg)
 
 ### Technologies
 *Python*
@@ -270,6 +282,13 @@ The social media links in the footer section were adorned with icons obtained fr
 
 *Messages: The 'messages' framework in Django was harnessed to provide informative and user-friendly feedback to site visitors. It facilitated the display of toasts and notifications to communicate actions' outcomes effectively.
 
+![Model](hotel\static\hotel\images\BookNStayModel.jpeg)
+
+![Form](hotel\static\hotel\images\BookNStayBookingForm.jpeg)
+
+![Views](hotel\static\hotel\images\BookNStayViews.jpeg)
+
+
 # Design Choices:
 
 ## Colour scheme:
@@ -278,7 +297,7 @@ Dark - Header
 
 #fafafa  - Buttons
 
-#809977 - Footer
+Dark - Footer
 
 The colours were selected with the intention of complementing the hero image and the idea was to ensure the image was appreciated.
 
@@ -304,19 +323,28 @@ If this section grows too long, you may want to split it off into a separate fil
 ### Lighthouse Audit:
 I've tested my deployed project using the Lighthouse Audit tool to check for any major issues.
 
+![Light House Testing](hotel\static\hotel\images\BookNStayLightHouseTest.jpeg)
+
 *On a laptop:*
 Home
 
-................pictures
+![Responsiveness](hotel\static\hotel\images\BookNStayResponsive1.jpeg)
+![Responsiveness](hotel\static\hotel\images\BookNStayResponsive5.jpeg)
+![Responsiveness](hotel\static\hotel\images\BookNStayResponsive7.jpeg)
 
 
 ### Validator Testing 
 
 - HTML
-  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcode-institute-org.github.io%2Flove-running-2.0%2Findex.html)
+  - No errors were returned when passing through the official 
+  
+  [W3C validator](hotel\static\hotel\images\BookNStayHtmlValidation1.jpeg)
+  [W3C validator](hotel\static\hotel\images\BookNStayHtmlValidation2.jpeg)
+ ![W3C validator](hotel\static\hotel\images\BookNStayHtmlValidation3.jpeg)
+
 - CSS
   - No errors were found when passing through the official 
-  [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fcode-institute-org.github.io%252Flove-running-2.0%252Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#css)
+  [(Jigsaw) validator](hotel\static\hotel\images\BookNStayCSSvalidation.jpeg)
 
   ### Cross Browser Compatibility Testing
   I ensured compatibility with Chrome, Opera, Microsoft Edge, and Firefox desktop browsers and verified responsiveness using Chrome Developer Tools across various devices including:
