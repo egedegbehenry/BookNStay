@@ -10,13 +10,13 @@ html, body {
   overflow-x: hidden;
 }
 
-.wrapper {
+/* .wrapper {
   min-height: 100vh;
   min-width: 100vw;
-}
+} */
 
 main {
-  min-width: 100vw;
+  min-width: 100vw !important;
   min-height: 110vh;
   margin-bottom: 30vh;
   margin-top: 50px;
@@ -25,7 +25,7 @@ main {
 }
 
 .card .login {
-  max-width: 600px;
+  max-width: 70vw;
   margin: auto;
   padding: 20px;
 }
@@ -45,27 +45,8 @@ h2 {
   padding: 10px;
 }
 
-/* CAROUSEL STYLING */
-.carousel {
-  margin-bottom: 4rem;
-}
 
-.carousel-caption {
-  bottom: 3rem;
-  z-index: 10;
-}
 
-.carousel-item {
-  height: 32rem;
-}
-
-.carousel-item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 32rem;
-}
 
 /* MARKETING CONTENT */
 .marketing .col-lg-4 {

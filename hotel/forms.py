@@ -1,10 +1,13 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordResetForm
+from django.contrib.auth import get_user_model
 from .models import User, Room, Booking, Payment
 
-from django.contrib.auth import get_user_model
 
 class SignupForm(UserCreationForm):
+    """
+    Form for user signup including username, password, email, and name fields.
+    """
     username = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}),
         error_messages={'unique': 'A user with that username already exists.'}
@@ -41,7 +44,9 @@ class SignupForm(UserCreationForm):
     def clean_username(self):
         username = self.cleaned_data['username']
         if User.objects.filter(username=username).exists():
-            raise forms.ValidationError(self.fields['username'].error_messages['unique'], code='unique')
+            raise forms.ValidationError(
+                self.fields['username'].error_messages['unique'], code='unique'
+            )
         return username
 
     def clean(self):
@@ -52,22 +57,25 @@ class SignupForm(UserCreationForm):
             self.add_error('password2', "The two password fields didn't match.")
         return cleaned_data
 
-# class CustomUserCreationForm(UserCreationForm):
-#     class Meta:
-#         model = User
-#         fields = ('username', 'email', 'first_name', 'last_name', 'password1', 'password2')
-
 
 class CustomUserChangeForm(UserChangeForm):
+    """
+    Form for updating user information.
+    """
     class Meta:
-        model = User
-        fields = ('username', 'email', 'first_name', 'last_name')
+        model = get_user_model()
+        fields = ['username', 'email', 'first_name', 'last_name']
 
 
 class RoomForm(forms.ModelForm):
+    """
+    Form for creating and updating room information.
+    """
     class Meta:
         model = Room
-        fields = ['category', 'description', 'capacity', 'room_price', 'number',  'status', 'star_rating']
+        fields = [
+            'category', 'description', 'capacity', 'room_price', 'number', 'status', 'star_rating'
+        ]
         widgets = {
             'description': forms.TextInput(attrs={'class': 'form-control', 'rows': 3, 'required': 'required'}),
             'capacity': forms.NumberInput(attrs={'class': 'form-control', 'required': 'required'}),
@@ -78,11 +86,14 @@ class RoomForm(forms.ModelForm):
             'star_rating': forms.NumberInput(attrs={'class': 'form-control', 'required': 'required'}),
         }
 
+
 class BookingForm(forms.ModelForm):
+    """
+    Form for booking a room.
+    """
     class Meta:
         model = Booking
         fields = ['check_in', 'check_out', 'room', 'name', 'address']
-
         widgets = {
             'check_in': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'check_out': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
@@ -101,7 +112,12 @@ class BookingForm(forms.ModelForm):
                 self.add_error('check_out', 'Checkout date must be after check-in date.')
 
         return cleaned_data
+
+
 class PaymentForm(forms.ModelForm):
+    """
+    Form for processing payments.
+    """
     class Meta:
         model = Payment
         fields = ['booking', 'user', 'amount', 'payment_date', 'payment_method']
@@ -113,16 +129,11 @@ class PaymentForm(forms.ModelForm):
             'payment_method': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
-class PasswordResetForm(forms.Form):
-    email = forms.EmailField(
-        label="Email",
-        widget=forms.EmailInput(attrs={
-            'class': 'form-control',
-            'placeholder': 'Enter your email'
-        })
-    )
 
 class CustomPasswordResetForm(PasswordResetForm):
+    """
+    Form for resetting user passwords.
+    """
     email = forms.EmailField(
         label="Email",
         max_length=254,
@@ -131,8 +142,3 @@ class CustomPasswordResetForm(PasswordResetForm):
             'placeholder': 'Enter your email',
         })
     )
-
-class CustomUserChangeForm(UserChangeForm):
-    class Meta:
-        model = get_user_model()
-        fields = ['username', 'email', 'first_name', 'last_name']

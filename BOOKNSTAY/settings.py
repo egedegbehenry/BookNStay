@@ -5,11 +5,8 @@ from pathlib import Path
 if os.path.isfile("env.py"):
     import env
 
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -113,8 +110,16 @@ WSGI_APPLICATION = 'BOOKNSTAY.wsgi.application'
 #        }  
 #        }
 
+# Fetch the DATABASE_URL and decode it if necessary
+database_url = os.getenv("DATABASE_URL")
+
+# Check if database_url is bytes and decode it
+if isinstance(database_url, bytes):
+    database_url = database_url.decode('utf-8')
+
+# Parse the database URL
 DATABASES = {
-    'default': dj_database_url.parse(os.getenv("DATABASE_URL"))
+    'default': dj_database_url.parse(database_url)
 }
 
 #DATABASES = {"default": dj_database_url.config(default=os.environ.get("DATABASE_URL"))}

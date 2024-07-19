@@ -3,20 +3,20 @@
 {% block title %}Sign Up | BookNStay{% endblock %}
 
 {% block content %}
-<div class="container mt-4 signup-page card p-4">
+<div class="container mt-4 signup-page card p-4 card-styling">
     <h2 class="mb-4">Sign Up</h2>
-    
+
     {% if messages %}
-        <div id="message-container">
-            {% for message in messages %}
-                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                    {{ message }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            {% endfor %}
+    <div id="message-container">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
+        {% endfor %}
+    </div>
     {% endif %}
 
     <form method="post" class="needs-validation" novalidate>

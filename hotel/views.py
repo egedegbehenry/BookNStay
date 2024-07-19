@@ -1,55 +1,81 @@
-from django.urls import reverse_lazy
-from django.urls import reverse
+"""
+Views for the hotel application.
+"""
+
+import logging
+from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView, View
-from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
+from django.contrib.auth.views import (LoginView, PasswordResetView, PasswordResetDoneView, 
+                                       PasswordResetConfirmView, PasswordResetCompleteView)
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.http import HttpResponseRedirect, JsonResponse
-from .models import Room, Booking
-from .forms import RoomForm, BookingForm, SignupForm, PaymentForm, CustomUserChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import CreateView
-import logging
 from django.contrib.messages.views import SuccessMessageMixin
+from .models import Room, Booking
+from .forms import RoomForm, BookingForm, SignupForm, PaymentForm, CustomUserChangeForm
 
 logger = logging.getLogger(__name__)
 
-# Account views
 class CustomLoginView(LoginView):
+    """
+    Custom login view that redirects to bookings after successful login.
+    """
     template_name = 'hotel/login.html'
     success_url = reverse_lazy('bookings')
 
 class CustomLogoutView(LoginRequiredMixin, View):
+    """
+    Custom logout view that logs the user out and redirects to home.
+    """
     def get(self, request):
         logout(request)
         messages.success(request, 'Successfully logged out.')
         return HttpResponseRedirect('/')
 
-    def clear_message(request):
+    def clear_message(self, request):
         request.session['success_message'] = ''
         return JsonResponse({'status': 'message-cleared'})
 
 class CustomPasswordResetView(PasswordResetView):
+    """
+    Custom password reset view.
+    """
     template_name = 'hotel/password_reset_form.html'
     email_template_name = 'hotel/password_reset_email.html'
     success_url = reverse_lazy('password_reset_done')
 
 class CustomPasswordResetDoneView(PasswordResetDoneView):
+    """
+    Custom password reset done view.
+    """
     template_name = 'hotel/password_reset_done.html'
 
 class CustomPasswordResetConfirmView(PasswordResetConfirmView):
+    """
+    Custom password reset confirm view.
+    """
     template_name = 'hotel/password_reset_confirm.html'
     success_url = reverse_lazy('password_reset_complete')
 
 class CustomPasswordResetCompleteView(PasswordResetCompleteView):
+    """
+    Custom password reset complete view.
+    """
     template_name = 'hotel/password_reset_complete.html'
 
 class ProfileView(LoginRequiredMixin, TemplateView):
+    """
+    User profile view.
+    """
     template_name = 'hotel/profile.html'
 
 class ProfileEditView(LoginRequiredMixin, UpdateView):
+    """
+    View for editing user profile.
+    """
     form_class = CustomUserChangeForm
     template_name = 'hotel/profile_edit.html'
     success_url = reverse_lazy('room_list')
@@ -66,6 +92,9 @@ class ProfileEditView(LoginRequiredMixin, UpdateView):
         return super().form_invalid(form)
 
 class DeleteAccountView(LoginRequiredMixin, View):
+    """
+    View for deleting user account.
+    """
     def get(self, request, *args, **kwargs):
         return render(request, 'hotel/delete_account.html')
 
@@ -81,12 +110,16 @@ class DeleteAccountView(LoginRequiredMixin, View):
             messages.error(request, 'Incorrect password. Account not deleted.')
             return redirect('delete_account')
 
-# Home View
 def home(request):
+    """
+    Home page view.
+    """
     return render(request, 'hotel/home.html')
 
-# Signup and Contact Views
 class SignupView(View):
+    """
+    View for user signup.
+    """
     template_name = 'hotel/signup.html'
 
     def get(self, request):
@@ -110,35 +143,52 @@ class SignupView(View):
             return render(request, self.template_name, {'form': form})
 
 def contact_us(request):
+    """
+    Contact us page view.
+    """
     if request.method == 'POST':
         # Handle form submission (if any)
         pass
     return render(request, 'hotel/contact_us.html')
 
-# Room Views
 class RoomListView(ListView):
+    """
+    View for listing all rooms.
+    """
     model = Room
     template_name = 'hotel/room_list.html'
     context_object_name = 'rooms'
 
 class RoomCreateView(CreateView):
+    """
+    View for creating a new room.
+    """
     model = Room
     form_class = RoomForm
     template_name = 'hotel/room_form.html'
     success_url = reverse_lazy('room_list')
 
 class RoomUpdateView(UpdateView):
+    """
+    View for updating an existing room.
+    """
     model = Room
     form_class = RoomForm
     template_name = 'hotel/room_form.html'
     success_url = reverse_lazy('room_list')
 
 class RoomDeleteView(DeleteView):
+    """
+    View for deleting a room.
+    """
     model = Room
     template_name = 'hotel/room_confirm_delete.html'
     success_url = reverse_lazy('room_list')
 
 def room_delete_view(request, pk):
+    """
+    Custom view for deleting a room.
+    """
     room = get_object_or_404(Room, pk=pk)
     if request.method == 'POST':
         room.delete()
@@ -147,6 +197,9 @@ def room_delete_view(request, pk):
     return render(request, 'hotel/room_confirm_delete.html', {'object': room})
 
 class BookingListView(LoginRequiredMixin, ListView):
+    """
+    View for listing all bookings.
+    """
     model = Booking
     template_name = 'hotel/booking_list.html'
     context_object_name = 'bookings'
@@ -154,35 +207,40 @@ class BookingListView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         for booking in context['bookings']:
-            logger.info(f"Booking PK: {booking.pk}, Check-in: {booking.check_in}, Check-out: {booking.check_out}")
+            logger.info("Booking PK: %d, Check-in: %s, Check-out: %s", booking.pk, booking.check_in, booking.check_out)
         return context
-    
+
     def get_queryset(self):
         if self.request.user.is_superuser:
             return Booking.objects.all()
         else:
             return Booking.objects.filter(user=self.request.user)
+
 class BookingCreateView(CreateView):
+    """
+    View for creating a new booking.
+    """
     model = Booking
     form_class = BookingForm
     template_name = 'hotel/booking_form.html'
     success_url = reverse_lazy('booking_list')
 
     def form_valid(self, form):
-        # Assign the current user to the booking before saving
         booking = form.save(commit=False)
-        booking.user = self.request.user  # Assuming you have a 'user' field in your Booking model
+        booking.user = self.request.user
         booking.save()
         
         messages.success(self.request, 'Booking successful! Your room has been reserved.')
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        # Handling form errors
         messages.error(self.request, 'There was an error with your booking. Please correct the errors below.')
         return super().form_invalid(form)
-    
+
 class BookingUpdateView(SuccessMessageMixin, UpdateView):
+    """
+    View for updating an existing booking.
+    """
     model = Booking
     form_class = BookingForm
     template_name = 'hotel/booking_form.html'
@@ -192,14 +250,20 @@ class BookingUpdateView(SuccessMessageMixin, UpdateView):
     def form_invalid(self, form):
         messages.error(self.request, "There was an error updating the booking.")
         return super().form_invalid(form)
+
 class BookingDeleteView(DeleteView):
+    """
+    View for deleting a booking.
+    """
     model = Booking
     template_name = 'hotel/booking_confirm_delete.html'
     success_url = reverse_lazy('booking_list')
 
-# Payment View
 @login_required
 def payment(request):
+    """
+    View for handling payments.
+    """
     if request.method == 'POST':
         form = PaymentForm(request.POST)
         if form.is_valid():
@@ -209,8 +273,10 @@ def payment(request):
         form = PaymentForm()
     return render(request, 'hotel/payment.html', {'form': form})
 
-# Custom view to handle booking process based on login status
 def book_now(request):
+    """
+    Custom view to handle booking process based on login status.
+    """
     if request.user.is_authenticated:
         return redirect('booking_list')
     else:

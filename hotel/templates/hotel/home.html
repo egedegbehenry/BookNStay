@@ -3,61 +3,17 @@
 {% block title %}Home | BookNStay{% endblock %}
 
 {% block content %}
-<div class="container my-4">
-  <div class="row justify-content-center">
-    <div class="col-12">
-      <div class="card">
-        <div class="card-body p-0">
-          <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active first-carousel-bg">
-                <div class="carousel-caption">
-                  <p>Welcome To</p>
-                  <h1 class="brand-highlight">BookNStay</h1>
-                  <p><i>Experience luxury, comfort, exceptional hospitality and Home Away From Home</i></p>
-                  {% if user.is_authenticated %}
-                  <p><a class="btn btn-primary" href="{% url 'booking_add' %}" role="button">Book Now</a></p>
-                  {% else %}
-                  <p><a class="btn btn-primary" href="{% url 'signup' %}" role="button">Sign Up Now</a></p>
-                  {% endif %}
-                </div>
-              </div>
-              <div class="carousel-item second-carousel-bg">
-                <div class="carousel-caption">
-                  <p>Welcome To</p>
-                  <h1 class="brand-highlight">BookNStay</h1>
-                  <p><i>Experience luxury, comfort, exceptional hospitality and Home Away From Home</i></p>
-                  {% if user.is_authenticated %}
-                  <p><a class="btn btn-primary" href="{% url 'booking_add' %}" role="button">Book Now</a></p>
-                  {% else %}
-                  <p><a class="btn btn-primary" href="{% url 'signup' %}" role="button">Sign Up Now</a></p>
-                  {% endif %}
-                </div>
-              </div>
-              <div class="carousel-item third-carousel-bg">
-                <div class="carousel-caption">
-                  <p>Welcome To</p>
-                  <h1 class="brand-highlight">BookNStay</h1>
-                  <p><i>Experience luxury, comfort, exceptional hospitality and Home Away From Home</i></p>
-                  {% if user.is_authenticated %}
-                  <p><a class="btn btn-primary" href="{% url 'booking_add' %}" role="button">Book Now</a></p>
-                  {% else %}
-                  <p><a class="btn btn-primary" href="{% url 'signup' %}" role="button">Sign Up Now</a></p>
-                  {% endif %}
-                </div>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div>
-      </div>
+<div class="container-fluid">
+  <div class="row d-flex justify-content-center">
+    <div class="carousel-caption">
+      <p>Welcome To</p>
+      <h1 class="brand-highlight">BookNStay</h1>
+      <p><i>Experience luxury, comfort, exceptional hospitality and Home Away From Home</i></p>
+      {% if user.is_authenticated %}
+      <p><a class="btn btn-primary" href="{% url 'booking_add' %}" role="button">Book Now</a></p>
+      {% else %}
+      <p><a class="btn btn-primary" href="{% url 'signup' %}" role="button">Sign Up Now</a></p>
+      {% endif %}
     </div>
   </div>
 </div>
