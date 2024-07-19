@@ -10,7 +10,7 @@ BookNStay is a hotel booking project that is a Full Stack website built using Dj
 
 The live application can be viewed here : 
 
-https://thebookbooth1-559d9131718c.herokuapp.com/
+https://booknstay-e428637d9b82.herokuapp.com/
 
 
 # Purpose and Target Audience:
@@ -46,7 +46,11 @@ Henry is a passionate traveler who loves exploring new places and experiencing d
 
 ## Wireframe & Initial Design:
 
-![Home Page](<BookNStay_Large Screen.png>)
+![Home Page](hotel\static\hotel\wireframes\BookNStay_Large Screen.png)
+
+![Home Page](hotel\static\hotel\wireframes\BookNStay_ipad.png)
+
+![Home Page](hotel\static\hotel\wireframes\BookNStay_phone.png)
 
 ## Website-Structure-Design
 
@@ -65,15 +69,15 @@ The navigation menu serves as a navigational tool that allows users to access di
 
 *Rooms - Visible to all
 
-           *Manage Bookings - accessible by logged in users
+           - Manage Bookings - accessible by logged in users
 
-           *Create Booking - accessible by logged in users
+           -Create Booking - accessible by logged in users
 
 *Booking (Drop Down):
 
-                *Make Bookings - accessible by logged in users
+                -Make Bookings - accessible by logged in users
 
-                *Manage Booking - accessible by logged in users
+                -Manage Booking - accessible by logged in users
 
 *Login - Visible to logged out users
 
@@ -83,7 +87,7 @@ The navigation menu serves as a navigational tool that allows users to access di
 
 The navigation menu is displayed on all pages and they adapt to different screen sizes and devices. This will provide users with a structured and organized way to move around a website. It helps users find and access the content or functionality they are looking for.
 
-![Home Page](<BookNStayHomePage.jpeg>)
+![Home Page](hotel\static\hotel\images\BookNStayHomePage.jpeg)
 
 Welcome to BookNStay, your ultimate hotel booking platform! Our landing page introduces you to our website and features a call-to-action button encouraging new guests and users to sign up. By signing up and logging in, you'll gain access to view available rooms and manage your bookings seamlessly.
 
@@ -94,13 +98,13 @@ Our intuitive navigation bar provides quick and easy access to essential section
 
 Registration on BookNStay allows users to view available rooms and detailed booking information. It also enables them to add, edit, and delete their bookings, ensuring the hotel listings are always up-to-date and accurate. Sign up now to manage your reservations effortlessly and enjoy a seamless booking experience! 
 
-![Sign up](<BookNStaySignUp.jpeg>)
+![Sign up](hotel\static\hotel\images\BookNStaySignUp.jpeg)
 
 
 
-#### Sign In:
+#### Log In:
 
-![Sign in](<BookNStaySignUp.jpeg>)
+![Log in](hotel\static\hotel\images\BookNStayLogin.jpeg)
 
 
 #### Rooms:
@@ -113,7 +117,7 @@ Business travelers will find our accommodations well-suited to their needs, with
 
 At BookNStay Hotel, we are committed to providing a comfortable, enjoyable, and tailored experience for all our guests.
 
-![add a book](https://github.com/room.......)
+![Book a room / Make booking](https://github.com/room.......)
 
 
 # Room categories:
