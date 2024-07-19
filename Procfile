@@ -1,1 +1,1 @@
-web: gunicorn BookNStay.wsgi
+web: gunicorn BOOKNSTAY.wsgi
