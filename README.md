@@ -254,9 +254,6 @@ Heroku used for hosting the deployed back-end site.
 *GitHub*
   *The source code of the website is accessible on GitHub, and it has been uploaded using Git Pages.
 
-*Favicon.io*
-  *The favicon files were generated using https://favicon.io/favicon-converter/.
-
 *Font Awesome*
 The social media links in the footer section were adorned with icons obtained from https://fontawesome.com/.
 
