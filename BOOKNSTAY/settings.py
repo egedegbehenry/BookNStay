@@ -15,7 +15,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+#SECRET_KEY = os.environ.get('SECRET_KEY')
+
+SECRET_KEY = os.getenv('SECRET_KEY', 'default-secret-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -23,12 +25,15 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '8000-egedegbehenry-booknstay-0bpqw0tupam.ws-eu114.gitpod.io', 
     '127.0.0.1',
-    '*.herokuapp.com',
+    '.herokuapp.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.herokuapp.com",
 ]
+
+# Allow CORS from all origins if set to True
+CORS_ALLOW_ALL_ORIGINS = os.getenv('CORS_ALLOW_ALL_ORIGINS', 'True').lower() == 'true'
 
 # Application definition
 
@@ -47,21 +52,26 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     #my apps start here
     'hotel',
+    'corsheaders',
 
 ]
 
+# Middleware configuration
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'allauth.account.middleware.AccountMiddleware',
-
+     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
+# Default message storage backend
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 AUTHENTICATION_BACKENDS = [
 
@@ -75,7 +85,9 @@ ROOT_URLCONF = 'BOOKNSTAY.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [
+            BASE_DIR / 'templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
