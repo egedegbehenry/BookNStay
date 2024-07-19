@@ -1,6 +1,6 @@
 import os
 import dj_database_url
-from decouple import config
+#from decouple import config
 from pathlib import Path
 if os.path.isfile("env.py"):
     import env
@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(r%13z73o0@#(ffe_rm%u^6f(zd$gjjz+ogfsg3z6kv1yollx*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-egedegbehenry-booknstay-0bpqw0tupam.ws-eu114.gitpod.io', 
@@ -154,7 +154,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Login settings
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'room_list'
+LOGIN_REDIRECT_URL = 'booking_list'
 LOGOUT_REDIRECT_URL = '/'
 
 # Email backend for development

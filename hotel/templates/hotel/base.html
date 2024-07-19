@@ -35,38 +35,40 @@
     /* Background container styling */
     .background-container {
       overflow-x: hidden;
-      position: fixed;
+      position: absolute;
       top: 0;
-      left: 0;
+      left: -10;
       min-width: 100vw;
       min-height: 100vh;
       background-image: url("{% static 'hotel/images/Hotelnightview.jpg' %}") !important;
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      z-index: -99;
+      z-index: -2;
     }
 
     /* Overlay styling for background container */
     .background-container::before {
       content: "";
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
       background-color: #f7f6f6;
       opacity: 0.5;
-      z-index: -98;
+      z-index: -3;
     }
 
     /* Hero section styling */
     .first-carousel-bg {
       overflow-x: hidden;
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
-      min-width: 100vw;
+      margin: 0;
+      padding: 0;
+      min-width: 100vw !important;
       min-height: 100vh;
       background-image: url("{% static 'hotel/images/hotelbuilding.jpg' %}");
       background-repeat: no-repeat;
@@ -77,10 +79,10 @@
 
     .second-carousel-bg {
       overflow-x: hidden;
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
-      min-width: 100vw;
+      min-width: 100vw !important;
       min-height: 100vh;
       background-image: url("{% static 'hotel/images/hotelkingroom.jpg' %}");
       background-repeat: no-repeat;
@@ -91,10 +93,10 @@
 
     .third-carousel-bg {
       overflow-x: hidden;
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
-      min-width: 100vw;
+      min-width: 100vw !important;
       min-height: 100vh;
       background-image: url("{% static 'hotel/images/hotelnightview.jpg' %}");
       background-repeat: no-repeat;
@@ -108,9 +110,7 @@
       position: fixed;
       min-width: 100vw;
       min-height: 100vh;
-      display: flex;
       align-items: center;
-      justify-content: flex-start;
     }
 
     .carousel-inner {
@@ -131,7 +131,6 @@
       left: 50%;
       transform: translate(-50%, -50%);
       background-color: rgba(245, 240, 240, 0.9);
-      padding: 2rem;
       border-radius: 10px;
     }
 
@@ -185,103 +184,68 @@
 
 <body>
   <div class="background-container"></div>
-  <header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">BookNStay</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            {% csrf_token %}
-            {% if user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'contact_us' %}">Contact Us</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Booking
-              </a>
-              <ul class="dropdown-menu card" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item nav-link" href="{% url 'booking_add' %}" style="color: black;">Make
-                    Booking</a></li>
-                <li><a class="dropdown-item nav-link" href="{% url 'booking_list' %}" style="color: black;">Manage
-                    Booking</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="{% url 'logout' %}">Logout</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'profile' %}">Profile</a>
-            </li>
-            {% else %}
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'signup' %}">Booking</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
-            </li>
-            {% endif %}
-          </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <main>
-    <!-- Error Handling -->
-    <div class="container">
-      {% if messages %}
-      <div class="mt-3">
-        {% for message in messages %}
-        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}">
-          {{ message }}
-        </div>
-        {% endfor %}
-      </div>
-      {% endif %}
-    </div>
-    {% block content %}
+  <!-- Include header partial template -->
+  {% include 'partials/header.html' %}
 
-    {% endblock %}
+  <main class="container-fluid main-container">
+    <div class="row">
+      <div class="col">
+        <!-- Display messages -->
+        {% if messages %}
+        <div class="alert-messages dismissible-message">
+          {% for message in messages %}
+          <div
+            class="alert {% if message.tags == 'error' %}alert-danger{% elif message.tags == 'success' %}alert-success{% endif %}"
+            role="alert">
+            {{ message }}
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="px-md-4">
+      <!-- Content block where specific page content will be injected -->
+      {% block content %}
+      {% endblock %}
+    </div>
+    </div>
   </main>
+  </div>
+  <!-- Include footer partial template -->
+  {% include 'partials/footer.html' %}
 
-  <footer class="container">
-    <div class="socials-container">
-      <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram social-icon"></i></a>
-      <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook social-icon"></i></a>
-      <a href="https://github.com/egedegbehenry" target="_blank"><i class="fab fa-github social-icon"></i></a>
-      <a href="https://www.linkedin.com/in/henry-egedegbe-38763284/" target="_blank"><i
-          class="fab fa-linkedin social-icon"></i></a>
-    </div>
-    <p>&copy; Henry Egedegbe 2024</p>
-  </footer>
+  <!-- Include Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Bootstrap JS and dependencies -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+  <!-- Include jQuery first, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.6.0/js/bootstrap.min.js"></script>
 
-  <!-- Custom JS -->
+  <!-- JQuery Link -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Bootstrap, Popper and Feather Icons JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+    integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js"
+    integrity="sha384-EbSscX4STvYAC/DxHse8z5gEDaNiKAIGW+EpfzYTfQrgIlHywXXrM9SUIZ0BlyfF"
+    crossorigin="anonymous"></script>
+
+
+
+  <!-- Chart.js & its adapters Link -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+  <!-- Custom JS Link -->
   <script src="{% static 'hotel/js/account.js' %}"></script>
   <script src="{% static 'hotel/js/room.js' %}"></script>
   <script src="{% static 'hotel/js/booking.js' %}"></script>
+
 </body>
 
 </html>

@@ -1,0 +1,46 @@
+/* Messaging */
+.alert {
+    margin-top: .75rem;
+  }
+
+  .alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: .75rem 1.25rem;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-text.text-muted {
+    font-size: .875em;
+  }
+
+.check_availability {
+    flex: 1;
+}
+
+/* Adjustments for small screens */
+@media (max-width: 768px) {
+    .headings {
+        text-align: center;
+    }
+
+    #search-bar {
+        padding: 0 10px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+}

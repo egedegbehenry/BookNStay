@@ -9,13 +9,17 @@ from django.http import HttpResponseRedirect, JsonResponse
 from .models import Room, Booking
 from .forms import RoomForm, BookingForm, SignupForm, PaymentForm, CustomUserChangeForm
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView
+import logging
+from django.contrib.messages.views import SuccessMessageMixin
+
+logger = logging.getLogger(__name__)
 
 # Account views
 class CustomLoginView(LoginView):
     template_name = 'hotel/login.html'
-    success_url = reverse_lazy('room_list')
+    success_url = reverse_lazy('bookings')
 
 class CustomLogoutView(LoginRequiredMixin, View):
     def get(self, request):
@@ -142,8 +146,7 @@ def room_delete_view(request, pk):
         return redirect('room_list')
     return render(request, 'hotel/room_confirm_delete.html', {'object': room})
 
-# Booking Views
-class BookingListView(ListView):
+class BookingListView(LoginRequiredMixin, ListView):
     model = Booking
     template_name = 'hotel/booking_list.html'
     context_object_name = 'bookings'
@@ -151,9 +154,14 @@ class BookingListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         for booking in context['bookings']:
-            print(f"Booking PK: {booking.pk}, Check-in: {booking.check_in}, Check-out: {booking.check_out}")
+            logger.info(f"Booking PK: {booking.pk}, Check-in: {booking.check_in}, Check-out: {booking.check_out}")
         return context
-
+    
+    def get_queryset(self):
+        if self.request.user.is_superuser:
+            return Booking.objects.all()
+        else:
+            return Booking.objects.filter(user=self.request.user)
 class BookingCreateView(CreateView):
     model = Booking
     form_class = BookingForm
@@ -173,12 +181,17 @@ class BookingCreateView(CreateView):
         # Handling form errors
         messages.error(self.request, 'There was an error with your booking. Please correct the errors below.')
         return super().form_invalid(form)
-class BookingUpdateView(UpdateView):
+    
+class BookingUpdateView(SuccessMessageMixin, UpdateView):
     model = Booking
     form_class = BookingForm
     template_name = 'hotel/booking_form.html'
     success_url = reverse_lazy('booking_list')
+    success_message = "Booking was updated successfully."
 
+    def form_invalid(self, form):
+        messages.error(self.request, "There was an error updating the booking.")
+        return super().form_invalid(form)
 class BookingDeleteView(DeleteView):
     model = Booking
     template_name = 'hotel/booking_confirm_delete.html'

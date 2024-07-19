@@ -1,0 +1,175 @@
+/* GLOBAL STYLES */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color: #5a5a5a;
+}
+/* GLOBAL STYLES */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color: #5a5a5a;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  max-width: 80vw;
+  min-height: 110vh;
+  flex: 1;
+  margin-bottom: 30vh;
+  margin-top: 50px;
+  padding-bottom: 50px;
+}
+
+.card .login {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* TYPOGRAPHY */
+h2 {
+  margin-bottom: 20px;
+}
+
+/* FORM STYLING */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.btn-primary, .btn-secondary {
+  width: 100%;
+  padding: 10px;
+}
+
+/* CAROUSEL STYLING */
+.carousel {
+  margin-bottom: 4rem;
+}
+
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+
+.carousel-item {
+  height: 32rem;
+}
+
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 32rem;
+}
+
+/* MARKETING CONTENT */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.marketing h2 {
+  font-weight: 400;
+}
+
+.marketing .col-lg-4 p {
+  margin: 0 .75rem;
+}
+
+/* FEATURETTES */
+.featurette-divider {
+  margin: 5rem 0;
+}
+
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.05rem;
+}
+
+/* FOOTER STYLING */
+footer {
+  width: 100%;
+  height: 50px;
+  background: #343a40;
+  color: white;
+  border-top: 1px solid #dee2e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-container {
+  background: rgba(9, 9, 9, 0.7);
+  color: white;
+  padding: 1rem;
+}
+
+.footer-links a {
+  color: white;
+}
+
+.social-icon {
+  font-size: 24px;
+}
+
+footer p {
+  margin: 0;
+  padding: 0;
+}
+
+/* RESPONSIVE CSS */
+@media (min-width: 40em) {
+  .carousel-caption p {
+      margin-bottom: 1.25rem;
+      font-size: 1.25rem;
+      line-height: 1.4;
+  }
+
+  .featurette-heading {
+      font-size: 50px;
+  }
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+      margin-top: 7rem;
+  }
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+  }
+}
