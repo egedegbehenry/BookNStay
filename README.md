@@ -325,7 +325,7 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 
 ![Light House Testing](hotel\static\hotel\images\BookNStayLightHouseTest.jpeg)
 
-*On a laptop:*
+*On a laptop, ipad, phone:*
 Home
 
 ![Responsiveness](hotel\static\hotel\images\BookNStayResponsive1.jpeg)
