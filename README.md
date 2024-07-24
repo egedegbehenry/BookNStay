@@ -5,7 +5,7 @@ BookNStay is a hotel booking project that is a Full Stack website built using Dj
 ![Responsice Mockup](hotel\static\hotel\images\BookNStayResponsive8.jpeg)
 
 
-![1](static\hotel\images\BookNStayHomePage.jpeg)
+![1](hotel\static\hotel\images\BookNStayHomePage.jpeg)
 
 
 The live application can be viewed here : 
@@ -46,7 +46,8 @@ Henry is a passionate traveler who loves exploring new places and experiencing d
 
 ## Wireframe & Initial Design:
 
-![Home Page](hotel\static\hotel\wireframes\BookNStay_Large Screen.png)
+![Home Page](hotel\static\hotel\wireframes\BookNStay_Large_Screen.png)
+
 
 ![Home Page](hotel\static\hotel\wireframes\BookNStay_ipad.png)
 
@@ -204,9 +205,14 @@ A 500 error page has been displayed to alert users when an internal server error
 
 *Gallery of the rooms to the home page, showing the different rooms.
 
-![Single room](hotel\static\hotel\images\Single Room.jpg)
-![King room](hotel\static\hotel\images\King Room.jpg)
-![Suite](hotel\static\hotel\images\Presidential Suite.jpg)
+![Single room](hotel\static\hotel\images\Single_Room.jpg)
+
+
+![King room](hotel\static\hotel\images\King_Room.jpg)
+
+
+![Suite](hotel\static\hotel\images\Presidential_Suite.jpg)
+
 
 ### User Experience - Design
 
@@ -226,8 +232,7 @@ This functionality not only enhances user experience but also ensures that custo
 
 Entity Relationship Diagrams (ERD) help the developer to make connections between databases and information. Creating an ERD helped me understand how the tables relate to one another. I used db diagram to create the diagram and the arrow represent how the data fields relate to one another.
 
-
-![DataBase Diagram](hotel\static\hotel\wireframes\BookNStay db-diagram.png)
+![DataBase Diagram](hotel\static\hotel\wireframes\BookNStay_db_diagram.png)
 
 ## Security
 Views were secured by using the django class based view mixin, UserPassesTextMixin. A test function was created to use the mixin and checks were ran to ensure that the user who is trying to access the page is authorized. Any staff restricted functionality, user edit/delete functionality listed in the features was secured using this method.
@@ -236,7 +241,7 @@ Environment variables were stored in an env.py for local development for securit
 
 Users / guest gets authenticated when they login, logout or delete their profile.
 
-![Authentication](hotel\static\hotel\images\BookNStaySuccesfully logout.jpeg)
+![Authentication](hotel\static\hotel\images\BookNStaySuccesfully_logout2.jpeg)
 
 ### Technologies
 *Python*
@@ -409,4 +414,4 @@ During the development process, the following Git commands were utilized to push
 
  *Other past projects especially from https://github.com/hiboibrahim/thebookbooth1 and https://github.com/bky201/HotelBooking
 
- *Code Institute for Full stack development online classe, our facilitators, Iris Smok, Kevin, Martin, David and others. .
+ *Code Institute for Full stack development online classe, our facilitators, Iris Smok, Kevin, Martin, David and others.
