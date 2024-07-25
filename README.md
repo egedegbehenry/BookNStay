@@ -3,14 +3,14 @@ BookNStay
 BookNStay is a hotel booking project that is a Full Stack website built using Django framework. This booking website is built to enable guest and users to look for a hotel room online and make booking with respect to their choice. Users are required to register in order to make booking. When a user registered a user profile will be generated and user can update profile biography and profile image. Users can put their reviews on the booking they made and manage their own booking details. In addition users can create, update or edit and delete their own room booking.
 
 <div align="center">
-<img src='./hotel/static/hotel/images/BookNStayResponsive8.jpeg' width="100%" align="top" alt="Project Logo">
+<img src='./hotel/static/hotel/images/BookNStayResponsive8.jpeg' width="100%" align="top" alt="Responsive Mockup">
 </div>
 
-![Responsive Mockup](../BookNStay/hotel/static/hotel/images/BookNStayResponsive8.jpeg)
 
-
-![1](../BookNStay/hotel/static/hotel/images/BookNStayHomePage.jpeg)
-
+![1](..//hotel/static/hotel/images/BookNStayHomePage.jpeg)
+<div align="center">
+<img src='./hotel/static/hotel/images/BookNStayResponsive8.jpeg' width="100%" align="top" alt="Responsive Mockup">
+</div>
 
 The live application can be viewed here : 
 
