@@ -1,4 +1,4 @@
-BookNStay 
+### BookNStay 
 
 BookNStay is a hotel booking project that is a Full Stack website built using Django framework. This booking website is built to enable guest and users to look for a hotel room online and make booking with respect to their choice. Users are required to register in order to make booking. When a user registered a user profile will be generated and user can update profile biography and profile image. Users can put their reviews on the booking they made and manage their own booking details. In addition users can create, update or edit and delete their own room booking.
 
@@ -8,10 +8,7 @@ BookNStay is a hotel booking project that is a Full Stack website built using Dj
 
 ![1](./hotel/static/hotel/images/BookNStayHomePage.jpeg)
 
-![1](..//hotel/static/hotel/images/BookNStayHomePage.jpeg)
-<div align="center">
-<img src='./hotel/static/hotel/images/BookNStayResponsive8.jpeg' width="100%" align="top" alt="Responsive Mockup">
-</div>
+![1](./hotel/static/hotel/images/BookNStayHomePage.jpeg)
 
 The live application can be viewed here : 
 
@@ -20,13 +17,13 @@ https://booknstay-e428637d9b82.herokuapp.com/
 
 ## Purpose and Target Audience:
 
-*Problem Statement:* Travelers face difficulties in knowing the availability of rooms across various hotels before making a trip. Additionally, they have no effective way to communicate their booking preferences or receive updates on their reservations.
+* Problem Statement: * Travelers face difficulties in knowing the availability of rooms across various hotels before making a trip. Additionally, they have no effective way to communicate their booking preferences or receive updates on their reservations.
 
 *Purpose:* This hotel booking system will provide a detailed list of available rooms and their statuses. Users will be able to book, modify, and cancel their reservations easily, ensuring the application remains up-to-date and user-friendly.
 
 *Target Audience:* This system is designed for frequent travelers who need reliable hotel booking options and for individuals seeking a streamlined and community-driven platform to share their experiences and preferences with fellow travelers.
 
-#Personal and User Stories:
+# Personal and User Stories:
 
 Henry is a passionate traveler who loves exploring new places and experiencing different cultures. She spends most of her free time planning her next adventure and is always on the lookout for the best hotels to stay in. He often travels to new cities and would like to view available hotel rooms and amenities before making a reservation.
 
@@ -71,27 +68,27 @@ The Navigation menu is made up of the follow tabs:Home, About, Rooms, Bookings, 
 
 The navigation menu serves as a navigational tool that allows users to access different sections, pages, or features of the website. Here are some key points about navigation menus:
 
-*Home - Visible to all
+* Home - Visible to all
 
-*About - Visible to all
+* About - Visible to all
 
-*Rooms - Visible to all
+* Rooms - Visible to all
 
            - Manage Bookings - accessible by logged in users
 
-           -Create Booking - accessible by logged in users
+           - Create Booking - accessible by logged in users
 
-*Booking (Drop Down):
+* Booking (Drop Down):
 
-                -Make Bookings - accessible by logged in users
+                - Make Bookings - accessible by logged in users
 
-                -Manage Booking - accessible by logged in users
+                - Manage Booking - accessible by logged in users
 
-*Login - Visible to logged out users
+* Login - Visible to logged out users
 
-*Register - Visible to logged out users
+* Register - Visible to logged out users
 
-*Logout - Visible to logged in users
+* Logout - Visible to logged in users
 
 The navigation menu is displayed on all pages and they adapt to different screen sizes and devices. This will provide users with a structured and organized way to move around a website. It helps users find and access the content or functionality they are looking for.
 
@@ -204,11 +201,11 @@ A 500 error page has been displayed to alert users when an internal server error
 
 * Payment option
 
-* Rewiews
+* Reviews
 
 # Features Left to implement.
 
-*Gallery of the rooms to the home page, showing the different rooms.
+* Gallery of the rooms to the home page, showing the different rooms.
 
 ![Single room](./hotel/static/hotel/images/Single_Room.jpg)
 
@@ -249,20 +246,20 @@ Users / guest gets authenticated when they login, logout or delete their profile
 ![Authentication](./hotel/static/hotel/images/BookNStaySuccesfully_logout2.jpeg)
 
 ### Technologies
-*Python*
-  *Python is the programming language applied to design this application.
+* Python *
+  * Python is the programming language applied to design this application.
 
 *JavaScript*
-  *JavaScript was utilized to create a custom modal on the profile page, to integrate the Bootstrap, further enriching the website's interactivity.
+  * JavaScript was utilized to create a custom modal on the profile page, to integrate the Bootstrap, further enriching the website's interactivity.
 
 *Visual Studio Code and Gitpod*
- *Visual Studio Code and Gitpod IDE tool was utilized in building the website.
+ * Visual Studio Code and Gitpod IDE tool was utilized in building the website.
 
 *HTML*
- *The primary language utilized in constructing the Website's structure was HTML.
+ * The primary language utilized in constructing the Website's structure was HTML.
 
 *CSS*
-  *The styling of the Website was designed by utilizing an separate CSS file.
+  * The styling of the Website was designed by utilizing an separate CSS file.
 
 *Bootstrap*
   *Bootstrap used as the front-end CSS framework for modern responsiveness and pre-built components.
@@ -275,10 +272,10 @@ Users / guest gets authenticated when they login, logout or delete their profile
 Heroku used for hosting the deployed back-end site.
 
 *Git*
-  *The source code of the Website was regularly committed and pushed during its development using Git.
+  * The source code of the Website was regularly committed and pushed during its development using Git.
 
 *GitHub*
-  *The source code of the website is accessible on GitHub, and it has been uploaded using Git Pages.
+  * The source code of the website is accessible on GitHub, and it has been uploaded using Git Pages.
 
 *Font Awesome*
 The social media links in the footer section were adorned with icons obtained from https://fontawesome.com/.
@@ -286,11 +283,11 @@ The social media links in the footer section were adorned with icons obtained fr
 
 ### Python Modules
 
-*Django Class-Based Views (ListView, UpdateView, DeleteView, CreateView): These classes were utilized to streamline the creation, reading, updating, and deletion of content in the application, simplifying the view logic and promoting code reusability.
+* Django Class-Based Views (ListView, UpdateView, DeleteView, CreateView): These classes were utilized to streamline the creation, reading, updating, and deletion of content in the application, simplifying the view logic and promoting code reusability.
 
-*Mixins (LoginRequiredMixin, UserPassesTestMixin): Mixins such as LoginRequiredMixin and UserPassesTestMixin were employed to enforce essential features like requiring user authentication before accessing specific views and verifying whether a user is authorized to perform certain actions within the application.
+* Mixins (LoginRequiredMixin, UserPassesTestMixin): Mixins such as LoginRequiredMixin and UserPassesTestMixin were employed to enforce essential features like requiring user authentication before accessing specific views and verifying whether a user is authorized to perform certain actions within the application.
 
-*Messages: The 'messages' framework in Django was harnessed to provide informative and user-friendly feedback to site visitors. It facilitated the display of toasts and notifications to communicate actions' outcomes effectively.
+* Messages: The 'messages' framework in Django was harnessed to provide informative and user-friendly feedback to site visitors. It facilitated the display of toasts and notifications to communicate actions' outcomes effectively.
 
 ![Model](./hotel/static/hotel/images/BookNStayModel.jpeg)
 
@@ -409,18 +406,18 @@ During the development process, the following Git commands were utilized to push
 
 
 ### Credits
- *The Room and Living room Images was taken from pexels.
+ * The Room and Living room Images was taken from pexels.
 
- *The Logo Images was taken from LOGO.com
+ * The Logo Images was taken from LOGO.com
 
- *A special thanks to Chibueze Igwe, Ernest Dapaah, Ikenna Egwin, and all the students in our cohort for their continuous help and support throughout the course.
+ * A special thanks to Chibueze Igwe, Ernest Dapaah, Ikenna Egwin, and all the students in our cohort for their continuous help and support throughout the course.
 
- *Font Awesome was used for icons and the fonts used were derived from Google Fonts.
+ * Font Awesome was used for icons and the fonts used were derived from Google Fonts.
 
- *Code institute django blog and other resources provided on the LMS.
+ * Code institute django blog and other resources provided on the LMS.
 
- *Wireframes were design by Balsamiq Wireframes
+ * Wireframes were design by Balsamiq Wireframes
 
- *Other past projects especially from https://github.com/hiboibrahim/thebookbooth1 and https://github.com/bky201/HotelBooking
+ * Other past projects especially from https://github.com/hiboibrahim/thebookbooth1 and https://github.com/bky201/HotelBooking
 
- *Code Institute for Full stack development online classe, our facilitators, Iris Smok, Kevin, Martin, David and others.
+ * Code Institute for Full stack development online classe, our facilitators, Iris Smok, Kevin, Martin, David and others.
