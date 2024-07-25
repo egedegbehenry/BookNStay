@@ -354,7 +354,7 @@ Home
 
 - CSS
   - No errors were found when passing through the official 
-  [(Jigsaw) validator](./hotel/static/hotel/images/BookNStayCSSvalidation.jpeg)
+  [Jigsaw validator](./hotel/static/hotel/images/BookNStayCSSvalidation.jpeg)
 
   ### Cross Browser Compatibility Testing
   I ensured compatibility with Chrome, Opera, Microsoft Edge, and Firefox desktop browsers and verified responsiveness using Chrome Developer Tools across various devices including:
