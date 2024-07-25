@@ -2,26 +2,23 @@
 
 BookNStay is a hotel booking project that is a Full Stack website built using Django framework. This booking website is built to enable guest and users to look for a hotel room online and make booking with respect to their choice. Users are required to register in order to make booking. When a user registered a user profile will be generated and user can update profile biography and profile image. Users can put their reviews on the booking they made and manage their own booking details. In addition users can create, update or edit and delete their own room booking.
 
-
 ![Responsive Mockup](./hotel/static/hotel/images/BookNStayResponsive8.jpeg)
 
 
 ![1](./hotel/static/hotel/images/BookNStayHomePage.jpeg)
 
-![1](./hotel/static/hotel/images/BookNStayHomePage.jpeg)
 
 The live application can be viewed here : 
 
 https://booknstay-e428637d9b82.herokuapp.com/
 
-
 ## Purpose and Target Audience:
 
-* Problem Statement: * Travelers face difficulties in knowing the availability of rooms across various hotels before making a trip. Additionally, they have no effective way to communicate their booking preferences or receive updates on their reservations.
+* Problem Statement: Travelers face difficulties in knowing the availability of rooms across various hotels before making a trip. Additionally, they have no effective way to communicate their booking preferences or receive updates on their reservations.
 
-*Purpose:* This hotel booking system will provide a detailed list of available rooms and their statuses. Users will be able to book, modify, and cancel their reservations easily, ensuring the application remains up-to-date and user-friendly.
+* Purpose: This hotel booking system will provide a detailed list of available rooms and their statuses. Users will be able to book, modify, and cancel their reservations easily, ensuring the application remains up-to-date and user-friendly.
 
-*Target Audience:* This system is designed for frequent travelers who need reliable hotel booking options and for individuals seeking a streamlined and community-driven platform to share their experiences and preferences with fellow travelers.
+* Target Audience: This system is designed for frequent travelers who need reliable hotel booking options and for individuals seeking a streamlined and community-driven platform to share their experiences and preferences with fellow travelers.
 
 # Personal and User Stories:
 
