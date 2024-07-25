@@ -26,6 +26,7 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
+    'https://8000-egedegbehenry-booknstay-0bpqw0tupam.ws-eu114.gitpod.io',
     "https://*.herokuapp.com",
 ]
 
