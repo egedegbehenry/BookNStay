@@ -2,11 +2,8 @@ BookNStay
 
 BookNStay is a hotel booking project that is a Full Stack website built using Django framework. This booking website is built to enable guest and users to look for a hotel room online and make booking with respect to their choice. Users are required to register in order to make booking. When a user registered a user profile will be generated and user can update profile biography and profile image. Users can put their reviews on the booking they made and manage their own booking details. In addition users can create, update or edit and delete their own room booking.
 
-<div align="center">
-<img src='./hotel/static/hotel/images/BookNStayResponsive8.jpeg' width="100%" align="top" alt="Project Logo">
-</div>
 
-![Responsive Mockup](../BookNStay/hotel/static/hotel/images/BookNStayResponsive8.jpeg)
+![Responsive Mockup](./hotel/static/hotel/images/BookNStayResponsive8.jpeg)
 
 
 ![1](./hotel/static/hotel/images/BookNStayHomePage.jpeg)
@@ -50,16 +47,16 @@ Henry is a passionate traveler who loves exploring new places and experiencing d
 
 ## Wireframe & Initial Design:
 
-![Home Page](../BookNStay/hotel/static/hotel/wireframes/BookNStay_Large_Screen.png)
+![Home Page](./hotel/static/hotel/wireframes/BookNStay_Large_Screen.png)
 
 
-![Home Page](../BookNStay/hotel/static/hotel/wireframes/BookNStay_ipad.png)
+![Home Page](./hotel/static/hotel/wireframes/BookNStay_ipad.png)
 
-![Home Page](../BookNStay/hotel/static/hotel/wireframes/BookNStay_phone.png)
+![Home Page](./hotel/static/hotel/wireframes/BookNStay_phone.png)
 
 ## Website-Structure-Design
 
-![Data base Diagram](../BookNStay/hotel/static/hotel/wireframes/BookNStay_db_diagram.png)
+![Data base Diagram](./hotel/static/hotel/wireframes/BookNStay_db_diagram.png)
 
 ## Features:
 
@@ -94,7 +91,7 @@ The navigation menu serves as a navigational tool that allows users to access di
 
 The navigation menu is displayed on all pages and they adapt to different screen sizes and devices. This will provide users with a structured and organized way to move around a website. It helps users find and access the content or functionality they are looking for.
 
-![Home Page](../BookNStay/hotel/static/hotel/images/BookNStayHomePage.jpeg)
+![Home Page](./hotel/static/hotel/images/BookNStayHomePage.jpeg)
 
 Welcome to BookNStay, your ultimate hotel booking platform! Our landing page introduces you to our website and features a call-to-action button encouraging new guests and users to sign up. By signing up and logging in, you'll gain access to view available rooms and manage your bookings seamlessly.
 
@@ -105,13 +102,13 @@ Our intuitive navigation bar provides quick and easy access to essential section
 
 Registration on BookNStay allows users to view available rooms and detailed booking information. It also enables them to add, edit, and delete their bookings, ensuring the hotel listings are always up-to-date and accurate. Sign up now to manage your reservations effortlessly and enjoy a seamless booking experience! 
 
-![Sign up](../BookNStay/hotel/static/hotel/images/BookNStaySignUp.jpeg)
+![Sign up](./hotel/static/hotel/images/BookNStaySignUp.jpeg)
 
 
 
 #### Log In:
 
-![Log in](../BookNStay/hotel/static/hotel/images/BookNStayLogin.jpeg)
+![Log in](./hotel/static/hotel/images/BookNStayLogin.jpeg)
 
 
 #### Rooms:
@@ -124,7 +121,7 @@ Business travelers will find our accommodations well-suited to their needs, with
 
 At BookNStay Hotel, we are committed to providing a comfortable, enjoyable, and tailored experience for all our guests.
 
-![Book a room / Make booking](../BookNStay/hotel/static/hotel/images/BookNStay_Edit_Delete.jpeg)
+![Book a room / Make booking](./hotel/static/hotel/images/BookNStay_Edit_Delete.jpeg)
 
 # Room categories:
 The Room Details page on BookNStay allows users to find more information about the room they are interested in. The room details include the room type, amenities, price per night, and a brief description, along with an image of the room. This provides users with sufficient information to make an informed decision about their stay.
@@ -146,7 +143,7 @@ At BookNStay Hotel, we offer a diverse range of rooms to cater to every guest's 
 No matter which room you choose, BookNStay Hotel guarantees a comfortable and enjoyable experience tailored to your specific needs.
 
 
-![room list](../BookNStay/hotel/static/hotel/images/BookNStay_Edit_Delete.jpeg)
+![room list](./hotel/static/hotel/images/BookNStay_Edit_Delete.jpeg)
 
 
 #### Create booking page:
@@ -155,31 +152,31 @@ A booking page for users was designed with a form that enables the user to enter
 
 Some booking validation criteria was applied to the form to ensure that there there is no overlapping booking made by different users on the same room. If the room is booked by other customer the form alerts the user that booking is not available on the given date.
 
-![Make Booking](../BookNStay/hotel/static/hotel/images/BookNStayMakeManageBooking.jpeg)
+![Make Booking](./hotel/static/hotel/images/BookNStayMakeManageBooking.jpeg)
 
 ### Manage bookings page
 
 A manage bookings page was add in order for user to have access of bookings made previously. Login validation is required for the user in order to have access on their own bookings. If the user is validated then the user will be redirected to the bookings list to view their scheduled bookings.
 
-![Edit & Delete](../BookNStay/hotel/static/hotel/images/BookNStay_Edit_Delete.jpeg)
+![Edit & Delete](./hotel/static/hotel/images/BookNStay_Edit_Delete.jpeg)
 
 Edit Booking Page
 
 On the 'Manage Bookings' page, you'll find an 'Edit' button that directs users to a form, enabling them to update their booking as needed. This convenient feature empowers users to effortlessly oversee and modify their own reservations.
 
-![Edit & Delete](../BookNStay/hotel/static/hotel/images/BookNStay_Edit_Delete.jpeg)
+![Edit & Delete](./hotel/static/hotel/images/BookNStay_Edit_Delete.jpeg)
 
 ### Search box
 
 A "search box" is a graphical user interface (GUI) element was implemented to allow users to input specific keywords, phrases, or queries to search for rooms within the hotel. Search box facilitates information retrieval and navigation within the website, making it easier for users to find what they're looking for quickly and efficiently.
 
-![Search box in Home Page](../BookNStay/hotel/static/hotel/images/BookNStayHomePage.jpeg)
+![Search box in Home Page](./hotel/static/hotel/images/BookNStayHomePage.jpeg)
 
 ### Delete Booking
 
 A delete button was added to the manage bookings page that will enable users to delete their booking.
 
-![Edit & Delete](../BookNStay/hotel/static/hotel/images/BookNStay_Edit_Delete.jpeg)
+![Edit & Delete](./hotel/static/hotel/images/BookNStay_Edit_Delete.jpeg)
 
 <!-- #### Footer:
 ![footer](https://github.com/footer.....)
@@ -209,13 +206,13 @@ A 500 error page has been displayed to alert users when an internal server error
 
 *Gallery of the rooms to the home page, showing the different rooms.
 
-![Single room](../BookNStay/hotel/static/hotel/images/Single_Room.jpg)
+![Single room](./hotel/static/hotel/images/Single_Room.jpg)
 
 
-![King room](../BookNStay/hotel/static/hotel/images/King_Room.jpg)
+![King room](./hotel/static/hotel/images/King_Room.jpg)
 
 
-![Suite](../BookNStay/hotel/static/hotel/images/Presidential_Suite.jpg)
+![Suite](./hotel/static/hotel/images/Presidential_Suite.jpg)
 
 
 ### User Experience - Design
@@ -223,7 +220,7 @@ A 500 error page has been displayed to alert users when an internal server error
 ## Agile Methodology:
 This project was developed using Agile principles and managed through a GitHub project board. As an individual developer implementing Agile for the first time, I found that creating user stories and identifying acceptance criteria provided a clear roadmap for targeting the various features and functionalities of the BookNStay hotel booking system. This approach helped me stay focused and minimized distractions.
 
-![Project Board](../BookNStay/hotel/static/hotel/images/BookNStayKanbanBoard.jpeg)
+![Project Board](./hotel/static/hotel/images/BookNStayKanbanBoard.jpeg)
 
 ### Database-Design
 The application's database is composed of several distinct tables, each serving a specific purpose. These tables include Room, Booking, Category, User, and Auth-User. Together, they empower users to seamlessly carry out CRUD (Create, Read, Update, Delete) operations through an intuitive web-based user interface.
@@ -236,7 +233,7 @@ This functionality not only enhances user experience but also ensures that custo
 
 Entity Relationship Diagrams (ERD) help the developer to make connections between databases and information. Creating an ERD helped me understand how the tables relate to one another. I used db diagram to create the diagram and the arrow represent how the data fields relate to one another.
 
-![DataBase Diagram](../BookNStay/hotel/static/hotel/wireframes/BookNStay_db_diagram.png)
+![DataBase Diagram](./hotel/static/hotel/wireframes/BookNStay_db_diagram.png)
 
 ## Security
 Views were secured by using the django class based view mixin, UserPassesTextMixin. A test function was created to use the mixin and checks were ran to ensure that the user who is trying to access the page is authorized. Any staff restricted functionality, user edit/delete functionality listed in the features was secured using this method.
@@ -245,7 +242,7 @@ Environment variables were stored in an env.py for local development for securit
 
 Users / guest gets authenticated when they login, logout or delete their profile.
 
-![Authentication](../BookNStay/hotel/static/hotel/images/BookNStaySuccesfully_logout2.jpeg)
+![Authentication](./hotel/static/hotel/images/BookNStaySuccesfully_logout2.jpeg)
 
 ### Technologies
 *Python*
@@ -291,11 +288,11 @@ The social media links in the footer section were adorned with icons obtained fr
 
 *Messages: The 'messages' framework in Django was harnessed to provide informative and user-friendly feedback to site visitors. It facilitated the display of toasts and notifications to communicate actions' outcomes effectively.
 
-![Model](../BookNStay/hotel/static/hotel/images/BookNStayModel.jpeg)
+![Model](./hotel/static/hotel/images/BookNStayModel.jpeg)
 
-![Form](../BookNStay/hotel/static/hotel/images/BookNStayBookingForm.jpeg)
+![Form](./hotel/static/hotel/images/BookNStayBookingForm.jpeg)
 
-![Views](../BookNStay/hotel/static/hotel/images/BookNStayViews.jpeg)
+![Views](./hotel/static/hotel/images/BookNStayViews.jpeg)
 
 
 
@@ -334,14 +331,14 @@ If this section grows too long, you may want to split it off into a separate fil
 ### Lighthouse Audit:
 I've tested my deployed project using the Lighthouse Audit tool to check for any major issues.
 
-![Light House Testing](../BookNStay/hotel/static/hotel/images/BookNStayLightHouseTest.jpeg)
+![Light House Testing](./hotel/static/hotel/images/BookNStayLightHouseTest.jpeg)
 
 *On a laptop, ipad, phone:*
 Home
 
-![Responsiveness](../BookNStay/hotel/static/hotel/images/BookNStayResponsive1.jpeg)
-![Responsiveness](../BookNStay/hotel/static/hotel/images/BookNStayResponsive5.jpeg)
-![Responsiveness](../BookNStay/hotel/static/hotel/images/BookNStayResponsive7.jpeg)
+![Responsiveness](./hotel/static/hotel/images/BookNStayResponsive1.jpeg)
+![Responsiveness](./hotel/static/hotel/images/BookNStayResponsive5.jpeg)
+![Responsiveness](./hotel/static/hotel/images/BookNStayResponsive7.jpeg)
 
 
 ### Validator Testing 
@@ -349,15 +346,15 @@ Home
 - HTML
   - No errors were returned when passing through the official 
   
-  ![W3C validator](../BookNStay/hotel/static/hotel/images/BookNStayHtmlValidation1.jpeg)
+  ![W3C validator](./hotel/static/hotel/images/BookNStayHtmlValidation1.jpeg)
 
-  ![W3C validator](../BookNStay/hotel/static/hotel/images/BookNStayHtmlValidation2.jpeg)
+  ![W3C validator](./hotel/static/hotel/images/BookNStayHtmlValidation2.jpeg)
 
-  ![W3C validator](../BookNStay/hotel/static/hotel/images/BookNStayHtmlValidation3.jpeg)
+  ![W3C validator](./hotel/static/hotel/images/BookNStayHtmlValidation3.jpeg)
 
 - CSS
   - No errors were found when passing through the official 
-  [(Jigsaw) validator](../BookNStay/hotel/static/hotel/images/BookNStayCSSvalidation.jpeg)
+  [(Jigsaw) validator](./hotel/static/hotel/images/BookNStayCSSvalidation.jpeg)
 
   ### Cross Browser Compatibility Testing
   I ensured compatibility with Chrome, Opera, Microsoft Edge, and Firefox desktop browsers and verified responsiveness using Chrome Developer Tools across various devices including:
