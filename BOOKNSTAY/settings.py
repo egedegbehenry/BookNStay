@@ -23,6 +23,7 @@ ALLOWED_HOSTS = [
     '8000-egedegbehenry-booknstay-0bpqw0tupam.ws-eu114.gitpod.io', 
     '127.0.0.1',
     '.herokuapp.com',
+    '.gitpod.io',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -188,3 +189,29 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'your-email@example.com'
 EMAIL_HOST_PASSWORD = 'your-email-password'
 DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": "/path/to/django/debug.log",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["file"],
+            "level": "DEBUG",
+            "propagate": True,
+        },
+    },
+}
+
+
+
+
+
+
