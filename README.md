@@ -9,7 +9,7 @@ BookNStay is a hotel booking project that is a Full Stack website built using Dj
 ![Responsive Mockup](../BookNStay/hotel/static/hotel/images/BookNStayResponsive8.jpeg)
 
 
-![1](../BookNStay/hotel/static/hotel/images/BookNStayHomePage.jpeg)
+![1](./hotel/static/hotel/images/BookNStayHomePage.jpeg)
 
 
 The live application can be viewed here : 
