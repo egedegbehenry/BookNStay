@@ -167,7 +167,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'hotel' / 'static',
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -185,30 +185,30 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.example.com'
 EMAIL_PORT = 587
+
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'your-email@example.com'
 EMAIL_HOST_PASSWORD = 'your-email-password'
 DEFAULT_FROM_EMAIL = 'webmaster@localhost'
 
 
-LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "handlers": {
-        "file": {
-            "level": "DEBUG",
-            "class": "logging.FileHandler",
-            "filename": "/path/to/django/debug.log",
-        },
-    },
-    "loggers": {
-        "django": {
-            "handlers": ["file"],
-            "level": "DEBUG",
-            "propagate": True,
-        },
-    },
-}
+#LOGGING = {
+    #"disable_existing_loggers": False,
+    #"handlers": {
+        #"file": {
+            #"level": "DEBUG",
+            #"class": "logging.FileHandler",
+            #"filename": "/path/to/django/debug.log",
+        #},
+    #},
+    #"loggers": {
+       # "django": {
+          #  "handlers": ["file"],
+          #  "level": "DEBUG",
+          #  "propagate": True,
+        #},
+    #},
+#}
 
 
 
