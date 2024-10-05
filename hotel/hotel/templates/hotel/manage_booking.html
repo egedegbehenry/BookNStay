@@ -1,0 +1,140 @@
+{% extends 'hotel/base.html' %}
+
+{% block title %}Manage Booking | BookNStay{% endblock %}
+
+{% block content %}
+<div class="container mt-4 card-styling row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card p-4">
+            <h2 class="mb-4">Update Booking</h2>
+
+            <form method="POST" class="needs-validation" novalidate>
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+
+                <div class="form-group mb-3">
+                    <label for="{{ form.check_in.id_for_label }}" class="form-label">Check-in Date:</label>
+                    <input type="date" name="check_in" id="{{ form.check_in.id_for_label }}" class="form-control"
+                        value="{{ form.check_in.value|date:'Y-m-d' }}" required min="{{ today }}">
+                    <div class="invalid-feedback">
+                        {% if form.check_in.errors %}
+                        {{ form.check_in.errors|join:", " }}
+                        {% else %}
+                        Please provide a valid check-in date.
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="{{ form.check_out.id_for_label }}" class="form-label">Check-out Date:</label>
+                    <input type="date" name="check_out" id="{{ form.check_out.id_for_label }}" class="form-control"
+                        value="{{ form.check_out.value|date:'Y-m-d' }}" required min="{{ today }}">
+                    <div class="invalid-feedback">
+                        {% if form.check_out.errors %}
+                        {{ form.check_out.errors|join:", " }}
+                        {% else %}
+                        Please provide a valid check-out date.
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="{{ form.room.id_for_label }}" class="form-label">Room:</label>
+                    <select name="room" id="{{ form.room.id_for_label }}" class="form-select" required>
+                        {% for choice in form.room.field.choices %}
+                        {% with selected_value=form.room.value|stringformat:"s" %}
+                        <option value="{{ choice.0 }}" {% if
+                            selected_value|default:choice.0|stringformat:"s"==choice.0|stringformat:"s" %} selected {%
+                            endif %}>
+                            {{ choice.1 }}
+                        </option>
+                        {% endwith %}
+                        {% endfor %}
+                    </select>
+                    <div class="invalid-feedback">
+                        {% if form.room.errors %}
+                        {{ form.room.errors|join:", " }}
+                        {% else %}
+                        Please select a room.
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="{{ form.name.id_for_label }}" class="form-label">Your Name:</label>
+                    <input type="text" name="name" id="{{ form.name.id_for_label }}" class="form-control"
+                        value="{{ form.name.value }}" required minlength="2" maxlength="50">
+                    <div class="invalid-feedback">
+                        {% if form.name.errors %}
+                        {{ form.name.errors|join:", " }}
+                        {% else %}
+                        Please enter your name (2-50 characters).
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="{{ form.address.id_for_label }}" class="form-label">Address:</label>
+                    <textarea name="address" id="{{ form.address.id_for_label }}" class="form-control" required
+                        minlength="5" maxlength="200">{{ form.address.value }}</textarea>
+                    <div class="invalid-feedback">
+                        {% if form.address.errors %}
+                        {{ form.address.errors|join:", " }}
+                        {% else %}
+                        Please enter your address (5-200 characters).
+                        {% endif %}
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" type="submit">Update Booking</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            var form = document.querySelector('.needs-validation');
+            var checkInInput = document.querySelector('#{{ form.check_in.id_for_label }}');
+            var checkOutInput = document.querySelector('#{{ form.check_out.id_for_label }}');
+
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+
+                var checkInDate = new Date(checkInInput.value);
+                var checkOutDate = new Date(checkOutInput.value);
+                var today = new Date();
+                today.setHours(0, 0, 0, 0);
+
+                if (checkInDate < today) {
+                    checkInInput.setCustomValidity('Check-in date cannot be earlier than today.');
+                } else if (checkOutDate <= checkInDate) {
+                    checkOutInput.setCustomValidity('Check-out date must be after check-in date.');
+                } else {
+                    checkInInput.setCustomValidity('');
+                    checkOutInput.setCustomValidity('');
+                }
+
+                form.classList.add('was-validated');
+            }, false);
+
+            // Set minimum date for inputs
+            var todayString = new Date().toISOString().split('T')[0];
+            checkInInput.min = todayString;
+            checkOutInput.min = todayString;
+
+            // Update check-out min date when check-in changes
+            checkInInput.addEventListener('change', function () {
+                checkOutInput.min = this.value;
+            });
+        }, false);
+    })();
+</script>
+{% endblock %}

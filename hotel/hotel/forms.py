@@ -2,7 +2,8 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordResetForm
 from django.contrib.auth import get_user_model
 from .models import User, Room, Booking, Payment
-
+from django.utils import timezone
+from datetime import datetime
 
 class SignupForm(UserCreationForm):
     """
@@ -86,11 +87,11 @@ class RoomForm(forms.ModelForm):
             'star_rating': forms.NumberInput(attrs={'class': 'form-control', 'required': 'required'}),
         }
 
-
 class BookingForm(forms.ModelForm):
     """
     Form for booking a room.
     """
+    
     class Meta:
         model = Booking
         fields = ['check_in', 'check_out', 'room', 'name', 'address']
@@ -102,17 +103,27 @@ class BookingForm(forms.ModelForm):
             'address': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['room'].queryset = Room.objects.all()  # Add this line
+
     def clean(self):
         cleaned_data = super().clean()
         check_in = cleaned_data.get('check_in')
         check_out = cleaned_data.get('check_out')
+        today = timezone.now()  # This will give you an aware datetime
 
         if check_in and check_out:
+            # Convert check_in and check_out to aware datetime
+            check_in = timezone.make_aware(datetime.combine(check_in, timezone.datetime.min.time()))
+            check_out = timezone.make_aware(datetime.combine(check_out, timezone.datetime.min.time()))
+
             if check_in >= check_out:
                 self.add_error('check_out', 'Checkout date must be after check-in date.')
+            if check_in < today:
+                self.add_error('check_in', 'Check-in date cannot be in the past.')
 
         return cleaned_data
-
 
 class PaymentForm(forms.ModelForm):
     """
