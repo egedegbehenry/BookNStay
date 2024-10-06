@@ -1,7 +1,6 @@
 from django.contrib.auth import views as auth_views
 from django.urls import path
-from .views import (
-    home, ProfileView, ProfileEditView, DeleteAccountView, contact_us, payment, book_now,
+from .views import ( ProfileView, ProfileEditView, DeleteAccountView, contact_us, payment, book_now,
     RoomListView, RoomCreateView, RoomUpdateView, RoomDeleteView,
     BookingListView, BookingCreateView, BookingUpdateView, BookingDeleteView, SignupView,
     CustomLoginView, CustomLogoutView, CustomPasswordResetView,
