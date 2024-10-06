@@ -17,12 +17,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False  #os.environ.get("DEBUG", "False") == "True"
+DEBUG =  'DEBUG' in os.environ #os.environ.get("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [
     '8000-egedegbehenry-booknstay-0bpqw0tupam.ws-eu114.gitpod.io', 
     '127.0.0.1',
     '.herokuapp.com',
+    '.gitpod.io',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -165,9 +166,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'hotel' / 'static',
 ]
-#STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -185,7 +185,33 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.example.com'
 EMAIL_PORT = 587
+
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'your-email@example.com'
 EMAIL_HOST_PASSWORD = 'your-email-password'
 DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+
+
+#LOGGING = {
+    #"disable_existing_loggers": False,
+    #"handlers": {
+        #"file": {
+            #"level": "DEBUG",
+            #"class": "logging.FileHandler",
+            #"filename": "/path/to/django/debug.log",
+        #},
+    #},
+    #"loggers": {
+       # "django": {
+          #  "handlers": ["file"],
+          #  "level": "DEBUG",
+          #  "propagate": True,
+        #},
+    #},
+#}
+
+
+
+
+
+
