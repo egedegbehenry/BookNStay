@@ -3,7 +3,7 @@
 {% block title %}Booking | BookNStay{% endblock %}
 
 {% block content %}
-<div class="container mt-4 card-styling">
+<div class="container mt-4  card-styling">
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card p-4">
@@ -23,28 +23,26 @@
                             required min="{{ today }}">
                         <div id="checkOutFeedback" class="invalid-feedback"></div>
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group">
                         <label for="{{ form.room.id_for_label }}" class="form-label">Room:</label>
-                        <select name="room" id="{{ form.room.id_for_label }}" class="form-select" required>
-                            {% for choice in form.room.choices %}
-                            <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-                            {% endfor %}
-                        </select>
-                        <div id="roomFeedback" class="invalid-feedback">Please select a room.</div>
+                        {{ form.room }}
+                        {% if form.room.errors %}
+                        <div class="invalid-feedback d-block">{{ form.room.errors }}</div>
+                        {% endif %}
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group">
                         <label for="{{ form.name.id_for_label }}" class="form-label">Your Name:</label>
-                        <input type="text" name="name" id="{{ form.name.id_for_label }}" class="form-control" required
-                            minlength="2" maxlength="50">
-                        <div id="nameFeedback" class="invalid-feedback">Please enter your name (min 2 chars, max 50).
-                        </div>
+                        {{ form.name }}
+                        {% if form.name.errors %}
+                        <div class="invalid-feedback d-block">{{ form.name.errors }}</div>
+                        {% endif %}
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group">
                         <label for="{{ form.address.id_for_label }}" class="form-label">Address:</label>
-                        <textarea name="address" id="{{ form.address.id_for_label }}" class="form-control" required
-                            minlength="5" maxlength="200"></textarea>
-                        <div id="addressFeedback" class="invalid-feedback">Please enter your address (min 5 chars, max
-                            200).</div>
+                        {{ form.address }}
+                        {% if form.address.errors %}
+                        <div class="invalid-feedback d-block">{{ form.address.errors }}</div>
+                        {% endif %}
                     </div>
                     <button class="btn btn-primary" type="submit">Book Now</button>
                 </form>
@@ -57,6 +55,7 @@
     (function () {
         'use strict';
         window.addEventListener('load', function () {
+            // Form validation
             var forms = document.getElementsByClassName('needs-validation');
             Array.prototype.filter.call(forms, function (form) {
                 form.addEventListener('submit', function (event) {
@@ -64,42 +63,9 @@
                         event.preventDefault();
                         event.stopPropagation();
                     }
-
-                    const today = new Date().toISOString().split('T')[0];
-                    const checkInDate = form.querySelector('[name="check_in"]').value;
-
-                    if (checkInDate < today) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                        form.querySelector('[name="check_in"]').classList.add('is-invalid');
-                        document.getElementById('checkInFeedback').textContent = 'Check-in date cannot be earlier than today.';
-                    } else {
-                        form.querySelector('[name="check_in"]').classList.remove('is-invalid');
-                        document.getElementById('checkInFeedback').textContent = '';
-                    }
-
                     form.classList.add('was-validated');
                 }, false);
             });
-
-            // Set minimum date for check-in input
-            var checkInInput = document.querySelector('[name="check_in"]');
-            if (checkInInput) {
-                checkInInput.min = new Date().toISOString().split('T')[0];
-
-                // Add event listener to prevent past dates
-                checkInInput.addEventListener('change', function (event) {
-                    const selectedDate = new Date(this.value);
-                    const today = new Date();
-
-                    if (!selectedDate >= today) {
-                        this.setCustomValidity('Please select a date on or after today.');
-                        this.reportValidity();
-                    } else {
-                        this.setCustomValidity('');
-                    }
-                });
-            }
 
             // Hide messages after 5 seconds
             var messageContainer = document.getElementById('message-container');
