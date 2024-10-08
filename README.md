@@ -290,12 +290,9 @@ The social media links in the footer section were adorned with icons obtained fr
 
 * Messages: The 'messages' framework in Django was harnessed to provide informative and user-friendly feedback to site visitors. It facilitated the display of toasts and notifications to communicate actions' outcomes effectively.
 
-![Model](./hotel/static/hotel/images/BookNStayModel.jpeg)
+![Model](./hotel/static/hotel/images/BookNStayPython%20test1.jpeg)
 
-![Form](./hotel/static/hotel/images/BookNStayBookingForm.jpeg)
-
-![Views](./hotel/static/hotel/images/BookNStayViews.jpeg)
-
+![Form](./hotel/static/hotel/images/BookNStayPython%20test2.jpeg)
 
 
 
@@ -356,23 +353,30 @@ Home
 
 - CSS
   - No errors were found when passing through the official 
-  [Jigsaw validator](./hotel/static/hotel/images/BookNStayCSSvalidation.jpeg)
+
+  ![Jigsaw validator](./hotel/static/hotel/images/BookNStayCSSvalidation.jpeg)
 
 
   ![Jigsaw validator](./hotel/static/hotel/images/BookNStayCSSvalidation.jpeg)
 
-   ![W3C validator](./hotel/static/hotel/images/BookNStayHtmlValidation3.jpeg)
 
 
 - Python
     - The codes were tested on CI python linter and no errors were found.
  
-       ![W3C validator](./hotel/static/hotel/images/BookNStayHtmlValidation3.jpeg)
+       ![Model](./hotel/static/hotel/images/BookNStayPython%20test1.jpeg)
+
+       ![Form](./hotel/static/hotel/images/BookNStayPython%20test2.jpeg)
+
       
 - JavaScript
    - The codes were tested on JShints.com and there was no error.
 
-      ![W3C validator](./hotel/static/hotel/images/BookNStayHtmlValidation3.jpeg)
+      ![JavaScript](./hotel/static/hotel/images/BookNStayJavaScriptTest...jpeg)
+
+      ![JavaScript](./hotel/static/hotel/images/BookNStayJavaScriptTest.jpeg)
+
+      ![JavaScript Validation](./hotel/static/hotel/images/BookNStayJavaScriptValidation.jpeg)
 
 - Test folder
   
@@ -380,11 +384,15 @@ Home
  
      ![W3C validator](./hotel/static/hotel/images/BookNStayHtmlValidation3.jpeg)
 
-    ![Jigsaw validator](./hotel/static/hotel/images/BookNStayCSSvalidation.jpeg)
+     ![Jigsaw validator](./hotel/static/hotel/images/BookNStayCSSvalidation.jpeg)
 
-    ![Python linter](./hotel/static/hotel/images/BookNStayCSSvalidation.jpeg)
+     ![Python](./hotel/static/hotel/images/BookNStayPython%20test1.jpeg)
 
-    ![JShints](./hotel/static/hotel/images/BookNStayCSSvalidation.jpeg)
+     ![Python](./hotel/static/hotel/images/BookNStayPython%20test2.jpeg)
+
+     ![JavaScript](./hotel/static/hotel/images/BookNStayJavaScriptTest...jpeg)
+
+     ![TestCommand](./hotel/static/hotel/images/BookNStayTest.jpeg)
 
 
   ### Cross Browser Compatibility Testing
