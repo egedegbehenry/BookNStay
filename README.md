@@ -220,6 +220,8 @@ This project was developed using Agile principles and managed through a GitHub p
 
 ![Project Board](./hotel/static/hotel/images/BookNStayKanbanBoard.jpeg)
 
+![Project Board - Epics](./hotel/static/hotel/images/BookNStayKboard-Epics.jpeg)
+
 ### Database-Design
 The application's database is composed of several distinct tables, each serving a specific purpose. These tables include Room, Booking, Category, User, and Auth-User. Together, they empower users to seamlessly carry out CRUD (Create, Read, Update, Delete) operations through an intuitive web-based user interface.
 
@@ -352,7 +354,7 @@ Home
 
 - CSS
   - No errors were found when passing through the official 
-  [Jigsaw validator](./hotel/static/hotel/images/BookNStayCSSvalidation.jpeg)
+  ![Jigsaw validator](./hotel/static/hotel/images/BookNStayCSSvalidation.jpeg)
 
   ### Cross Browser Compatibility Testing
   I ensured compatibility with Chrome, Opera, Microsoft Edge, and Firefox desktop browsers and verified responsiveness using Chrome Developer Tools across various devices including:
